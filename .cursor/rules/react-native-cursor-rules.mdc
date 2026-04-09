@@ -1,0 +1,35 @@
+---
+alwaysApply: true
+---
+
+# StreamList — Cursor rules (Phase 2 spec)
+
+1. **Toolchain:** React Native **CLI** only—not Expo. Native work uses **Metro**, **Xcode / Android Studio**, **CocoaPods** when iOS deps change.
+
+2. **Data fetching:** Screen components **must not** call `fetch`, Axios, or TMDB directly. Use **`src/hooks/*`** only (`useHome`, `useSearch`, `useMovieDetail`, etc.).
+
+3. **HTTP:** All HTTP goes through **`src/api/client.ts`** and **`src/api/movies.ts`**. No `import axios` elsewhere.
+
+4. **Hooks shape:** Data hooks return **`UseQueryResult<T>`** (`data`, `loading`, `error`, `refetch`) from **`src/hooks/types.ts`** unless a screen-specific bundle is documented (e.g. `useMovieDetail` sections).
+
+5. **Watchlist:** Use **`src/store/watchlistStore.ts`** (Zustand + `persist` + AsyncStorage). **Never** read/write AsyncStorage for watchlist outside this store. UI must respect **`hydrated`** before showing add/remove or tab badge.
+
+6. **Theme:** Colors from **`src/theme/colors.ts`**, spacing from **`src/theme/spacing.ts`**, text styles from **`src/theme/typography.ts`**. **No hex literals or magic pixel gaps** in screen/component StyleSheets.
+
+7. **Styling:** **`StyleSheet.create()` only**—no NativeWind, Styled Components, or UI kits (Paper, Elements, etc.).
+
+8. **Navigation:** Params typed in **`src/navigation/types.ts`**. Use nested stacks under each tab so **back returns to the correct tab**. No stringly `navigate` without types.
+
+9. **Detail screen:** Load movie, credits, and similar with **`Promise.allSettled`**. Each section has its own loading / error / retry behavior; one failed section must not block others.
+
+10. **Search:** Debounced query (~400ms) and **cancel** in-flight requests (AbortSignal) so stale results do not overwrite newer ones.
+
+11. **Images:** Build URLs with **`src/utils/image.ts`**; **`null` poster/backdrop** must show a themed placeholder, not a broken URI.
+
+12. **TypeScript:** **`strict`**; **`any` is not allowed** for app source. TMDB response shapes live in **`src/api/types.ts`**.
+
+13. **Secrets:** **`TMDB_*` only via `@env` / `react-native-dotenv`**. Never hardcode tokens or commit `.env`.
+
+14. **Loading UX:** Prefer **skeleton** components for async sections; use spinners only where a skeleton does not fit (e.g. small inline indicators).
+
+15. **Dependencies:** Add packages only when necessary; pin versions and document native follow-up (**`pod install`**) in PR notes when iOS changes.

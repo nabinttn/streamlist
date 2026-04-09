@@ -1,0 +1,11 @@
+---
+description: Watchlist feature constraints (Zustand + hydration)
+globs:
+  - "**/watchlistStore.ts"
+  - "**/WatchlistScreen*"
+  - "**/DetailScreen*"
+---
+
+- **Store only:** `WatchlistItem` state lives in **`useWatchlistStore`** (`src/store/watchlistStore.ts`). Do not add a parallel React Context for the same data.
+- **Hydration:** Do not render watchlist actions or counts that imply saved state until **`hydrated`** is true (set after `persist.onFinishHydration` in `App.tsx`).
+- **Deduping:** `addItem` must not create duplicate IDs; removal is optimistic via Zustand—do not bypass the store for “quick fixes.”
