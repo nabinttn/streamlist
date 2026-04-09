@@ -1,42 +1,42 @@
-import type { RouteProp } from '@react-navigation/native';
-import type { NativeStackNavigationProp } from '@react-navigation/native-stack';
-import React, { useMemo, useState } from 'react';
+import React, { useMemo, useRef, useState } from 'react';
 import {
+  Alert,
+  Animated,
   FlatList,
   Image,
   ImageBackground,
   Pressable,
-  ScrollView,
+  Share,
   StyleSheet,
   Text,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
+import { LinearGradient } from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { ContentCard } from '../components/common/ContentCard';
+import {
+  IconArrowBack,
+  IconBookmarkAdd,
+  IconBookmarkAdded,
+  IconShare,
+  IconStarFilled,
+} from '../components/icons/StreamlistIcons';
 import { Skeleton } from '../components/common/Skeleton';
 import { useMovieDetail } from '../hooks/useMovieDetail';
 import { colors } from '../theme/colors';
+import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { formatRuntime, formatYear } from '../utils/format';
 import { posterUrl } from '../utils/image';
 import { useWatchlistStore, type WatchlistItem } from '../store/watchlistStore';
-
-type DetailNav = NativeStackNavigationProp<
-  { Detail: { movieId: number } },
-  'Detail'
->;
-type DetailRoute = RouteProp<{ Detail: { movieId: number } }, 'Detail'>;
+import type { DetailScreenProps } from '../navigation/types';
 
 export function DetailScreen({
   navigation,
   route,
-}: {
-  navigation: DetailNav;
-  route: DetailRoute;
-}) {
+}: DetailScreenProps) {
   const { movieId } = route.params;
   const insets = useSafeAreaInsets();
   const { details, credits, similar } = useMovieDetail(movieId);
@@ -46,6 +46,24 @@ export function DetailScreen({
   const removeItem = useWatchlistStore(s => s.removeItem);
 
   const [expanded, setExpanded] = useState(false);
+  const scrollY = useRef(new Animated.Value(0)).current;
+  const BACKDROP_H = 220 + insets.top;
+  const HEADER_H = 48 + insets.top;
+
+  const stickyOpacity = scrollY.interpolate({
+    inputRange: [BACKDROP_H - HEADER_H - 20, BACKDROP_H - HEADER_H],
+    outputRange: [0, 1],
+    extrapolate: 'clamp',
+  });
+
+  const onScroll = useMemo(
+    () =>
+      Animated.event(
+        [{ nativeEvent: { contentOffset: { y: scrollY } } }],
+        { useNativeDriver: true },
+      ),
+    [scrollY],
+  );
 
   const movie = details.data;
   const castList = useMemo(() => {
@@ -81,34 +99,108 @@ export function DetailScreen({
     addItem(item);
   };
 
-  const chips: { label: string; value: string }[] = [];
+  type ChipItem =
+    | { kind: 'rating'; key: string; value: string }
+    | { kind: 'meta'; key: string; value: string };
+
+  const chips: ChipItem[] = [];
   if (movie) {
     const y = formatYear(movie.release_date);
     if (y) {
-      chips.push({ label: 'year', value: y });
+      chips.push({ kind: 'meta', key: 'year', value: y });
     }
     if (movie.vote_average > 0) {
       chips.push({
-        label: 'rating',
-        value: `★ ${movie.vote_average.toFixed(1)}`,
+        kind: 'rating',
+        key: 'rating',
+        value: `${movie.vote_average.toFixed(1)} Rating`,
       });
     }
     const g = movie.genres[0]?.name;
     if (g) {
-      chips.push({ label: 'genre', value: g });
+      chips.push({ kind: 'meta', key: 'genre', value: g });
     }
     const rt = formatRuntime(movie.runtime);
     if (rt) {
-      chips.push({ label: 'run', value: rt });
+      chips.push({ kind: 'meta', key: 'run', value: rt });
     }
   }
 
+  const onShare = async () => {
+    if (!movie) {
+      return;
+    }
+    try {
+      await Share.share({
+        message: `${movie.title} — StreamList`,
+        title: movie.title,
+      });
+    } catch {
+      Alert.alert('Share', 'Unable to open the share sheet.');
+    }
+  };
+
+  const onSeeAllSimilar = () => {
+    navigation.navigate('Main', {
+      screen: 'HomeTab',
+      params: {
+        screen: 'MovieList',
+        params: {
+          title: 'Trending Now',
+          listType: 'trending',
+        },
+      },
+    });
+  };
+
   return (
     <View style={styles.root}>
-      <ScrollView contentContainerStyle={{ paddingBottom: spacing.xxl }}>
-        <View style={{ height: 220 + insets.top }}>
+      {/* Sticky header — fades in once the backdrop scrolls away */}
+      <Animated.View
+        pointerEvents="box-none"
+        style={[
+          styles.stickyHeader,
+          { height: HEADER_H, paddingTop: insets.top, opacity: stickyOpacity },
+        ]}>
+        <View style={styles.stickyInner} pointerEvents="auto">
+          <Pressable
+            onPress={() => navigation.goBack()}
+            hitSlop={12}
+            accessibilityLabel="Back">
+            <IconArrowBack size={iconSize.detailBack} color={colors.on_surface} />
+          </Pressable>
+          <Text style={styles.stickyTitle} numberOfLines={1}>
+            {movie?.title ?? ''}
+          </Text>
+          <Pressable
+            onPress={onShare}
+            hitSlop={12}
+            accessibilityLabel="Share"
+            disabled={!movie}>
+            <IconShare size={iconSize.detailBack} color={colors.on_surface} />
+          </Pressable>
+        </View>
+      </Animated.View>
+
+      <Animated.ScrollView
+        contentContainerStyle={{ paddingBottom: spacing.xxl }}
+        onScroll={onScroll}
+        scrollEventThrottle={16}>
+        <View style={{ height: BACKDROP_H }}>
           {details.loading && !movie ? (
-            <Skeleton width="100%" height={220 + insets.top} borderRadius={0} />
+            <View style={{ height: BACKDROP_H }}>
+              <Skeleton width="100%" height={BACKDROP_H} borderRadius={0} />
+              <View
+                style={[styles.heroTopChrome, { paddingTop: insets.top + spacing.xs }]}>
+                <Pressable
+                  onPress={() => navigation.goBack()}
+                  hitSlop={12}
+                  accessibilityLabel="Back">
+                  <IconArrowBack size={iconSize.detailBack} color={colors.on_surface} />
+                </Pressable>
+                <View style={{ width: iconSize.detailBack }} />
+              </View>
+            </View>
           ) : backdropUri ? (
             <ImageBackground
               source={{ uri: backdropUri }}
@@ -117,12 +209,22 @@ export function DetailScreen({
                 colors={['transparent', colors.surface]}
                 style={StyleSheet.absoluteFill}
               />
-              <Pressable
-                style={[styles.backBtn, { top: insets.top + spacing.xs }]}
-                onPress={() => navigation.goBack()}
-                hitSlop={12}>
-                <Text style={styles.backTxt}>←</Text>
-              </Pressable>
+              <View
+                style={[styles.heroTopChrome, { paddingTop: insets.top + spacing.xs }]}>
+                <Pressable
+                  onPress={() => navigation.goBack()}
+                  hitSlop={12}
+                  accessibilityLabel="Back">
+                  <IconArrowBack size={iconSize.detailBack} color={colors.on_surface} />
+                </Pressable>
+                <Pressable
+                  onPress={onShare}
+                  hitSlop={12}
+                  accessibilityLabel="Share"
+                  disabled={!movie}>
+                  <IconShare size={iconSize.detailBack} color={colors.on_surface} />
+                </Pressable>
+              </View>
             </ImageBackground>
           ) : (
             <View
@@ -130,12 +232,22 @@ export function DetailScreen({
                 styles.placeholderBackdrop,
                 { paddingTop: insets.top, height: 220 + insets.top },
               ]}>
-              <Pressable
-                style={[styles.backBtn, { top: insets.top + spacing.xs }]}
-                onPress={() => navigation.goBack()}
-                hitSlop={12}>
-                <Text style={styles.backTxt}>←</Text>
-              </Pressable>
+              <View
+                style={[styles.heroTopChrome, { paddingTop: insets.top + spacing.xs }]}>
+                <Pressable
+                  onPress={() => navigation.goBack()}
+                  hitSlop={12}
+                  accessibilityLabel="Back">
+                  <IconArrowBack size={iconSize.detailBack} color={colors.on_surface} />
+                </Pressable>
+                <Pressable
+                  onPress={onShare}
+                  hitSlop={12}
+                  accessibilityLabel="Share"
+                  disabled={!movie}>
+                  <IconShare size={iconSize.detailBack} color={colors.on_surface} />
+                </Pressable>
+              </View>
               <Text style={styles.phLogo}>SL</Text>
             </View>
           )}
@@ -156,36 +268,73 @@ export function DetailScreen({
               {movie.title}
             </Text>
             <View style={styles.chipRow}>
-              {chips.map(c => (
-                <View key={c.label + c.value} style={styles.chip}>
-                  <Text style={styles.chipTxt}>{c.value}</Text>
-                </View>
-              ))}
+              {chips.map(c =>
+                c.kind === 'rating' ? (
+                  <View key={c.key} style={styles.chipRating}>
+                    <IconStarFilled size={14} color={colors.on_brand} />
+                    <Text style={styles.chipRatingTxt}>{c.value}</Text>
+                  </View>
+                ) : (
+                  <View key={c.key} style={styles.chip}>
+                    <Text style={styles.chipTxt}>{c.value}</Text>
+                  </View>
+                ),
+              )}
             </View>
 
             {hydrated ? (
               <Pressable
                 onPress={toggleWatchlist}
+                accessibilityRole="button"
+                accessibilityLabel={
+                  isSaved ? 'Remove from watchlist' : 'Add to watchlist'
+                }
                 style={({ pressed }) => [
                   styles.watchBtn,
-                  pressed ? { opacity: 0.9 } : null,
+                  pressed ? styles.watchBtnPressed : null,
                 ]}>
                 {isSaved ? (
                   <View style={styles.watchSaved}>
-                    <Text style={styles.watchSavedTxt}>In Watchlist</Text>
+                    <View style={styles.watchlistRow}>
+                      <View style={styles.watchlistIconWrap}>
+                        <IconBookmarkAdded
+                          size={iconSize.detailWatchlist}
+                          color={colors.primary}
+                        />
+                      </View>
+                      <Text
+                        style={styles.watchSavedTxt}
+                        numberOfLines={1}>
+                        In Watchlist
+                      </Text>
+                    </View>
                   </View>
                 ) : (
-                  <LinearGradient
-                    colors={[colors.primary, colors.primary_container]}
-                    start={{ x: 0, y: 0 }}
-                    end={{ x: 1, y: 1 }}
-                    style={styles.gradInner}>
-                    <Text style={styles.watchAddTxt}>+ Add to Watchlist</Text>
-                  </LinearGradient>
+                  <View style={styles.watchAddOuter}>
+                    <LinearGradient
+                      colors={[colors.primary, colors.primary_container]}
+                      start={{ x: 0, y: 0.5 }}
+                      end={{ x: 1, y: 0.5 }}
+                      style={StyleSheet.absoluteFill}
+                    />
+                    <View style={styles.watchlistRow}>
+                      <View style={styles.watchlistIconWrap}>
+                        <IconBookmarkAdd
+                          size={iconSize.detailWatchlist}
+                          color={colors.on_brand}
+                        />
+                      </View>
+                      <Text
+                        style={styles.watchAddTxt}
+                        numberOfLines={1}>
+                        Add to Watchlist
+                      </Text>
+                    </View>
+                  </View>
                 )}
               </Pressable>
             ) : (
-              <Skeleton width="90%" height={48} style={{ alignSelf: 'center' }} />
+              <Skeleton width="90%" height={52} style={{ alignSelf: 'center' }} />
             )}
 
             <Text
@@ -247,7 +396,10 @@ export function DetailScreen({
         {similarMovies.length > 0 ? (
           <>
             <View style={styles.rowHead}>
-              <Text style={styles.headline}>More Like This</Text>
+              <Text style={styles.rowSectionTitle}>More Like This</Text>
+              <Pressable onPress={onSeeAllSimilar} hitSlop={8}>
+                <Text style={styles.seeAll}>See All</Text>
+              </Pressable>
             </View>
             <FlatList
               horizontal
@@ -270,7 +422,7 @@ export function DetailScreen({
             />
           </>
         ) : null}
-      </ScrollView>
+      </Animated.ScrollView>
     </View>
   );
 }
@@ -298,14 +450,40 @@ const styles = StyleSheet.create({
     ...typography.displayMd,
     color: colors.on_surface_variant,
   },
-  backBtn: {
+  stickyHeader: {
     position: 'absolute',
-    left: spacing.md,
-    zIndex: 2,
+    top: 0,
+    left: 0,
+    right: 0,
+    zIndex: 10,
+    backgroundColor: colors.surface,
+    justifyContent: 'flex-end',
   },
-  backTxt: {
+  stickyInner: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    height: 48,
+  },
+  stickyTitle: {
     ...typography.titleLg,
     color: colors.on_surface,
+    flex: 1,
+    textAlign: 'center',
+    marginHorizontal: spacing.sm,
+  },
+  heroTopChrome: {
+    position: 'absolute',
+    left: 0,
+    right: 0,
+    top: 0,
+    zIndex: 4,
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'space-between',
+    paddingHorizontal: spacing.md,
+    paddingBottom: spacing.xs,
   },
   title: {
     ...typography.displayMd,
@@ -329,30 +507,73 @@ const styles = StyleSheet.create({
     ...typography.labelSm,
     color: colors.on_surface_variant,
   },
+  chipRating: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: 4,
+    backgroundColor: colors.secondary_container,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xxs,
+    borderRadius: spacing.xs,
+  },
+  chipRatingTxt: {
+    ...typography.titleSm,
+    fontSize: 12,
+    color: colors.on_brand,
+  },
   watchBtn: {
     marginHorizontal: spacing.md,
     marginTop: spacing.md,
+  },
+  watchBtnPressed: {
+    opacity: 0.92,
+  },
+  /** Primary — horizontal gradient + white label (Stitch detail mock). */
+  watchAddOuter: {
+    minHeight: 48,
+    width: '100%',
+    paddingHorizontal: spacing.xl,
+    paddingVertical: 12,
     borderRadius: spacing.xs,
     overflow: 'hidden',
-  },
-  gradInner: {
-    paddingVertical: spacing.sm,
+    justifyContent: 'center',
     alignItems: 'center',
   },
-  watchAddTxt: {
-    ...typography.titleSm,
-    color: colors.surface,
+  watchlistRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    maxWidth: '100%',
   },
+  watchlistIconWrap: {
+    flexShrink: 0,
+  },
+  watchAddTxt: {
+    ...typography.ctaBold,
+    color: colors.on_brand,
+    lineHeight: 20,
+    includeFontPadding: false,
+    flexShrink: 1,
+  },
+  /** Outlined — `border border-primary` (Stitch detail). */
   watchSaved: {
-    backgroundColor: colors.surface_container_highest,
-    borderWidth: 1,
-    borderColor: colors.outline_variant,
+    backgroundColor: 'transparent',
+    borderWidth: StyleSheet.hairlineWidth * 2,
+    borderColor: colors.primary,
+    minHeight: 48,
     paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.xl,
+    borderRadius: spacing.xs,
+    justifyContent: 'center',
     alignItems: 'center',
   },
   watchSavedTxt: {
-    ...typography.titleSm,
-    color: colors.primary_container,
+    ...typography.ctaBold,
+    color: colors.primary,
+    lineHeight: 20,
+    includeFontPadding: false,
+    flexShrink: 1,
   },
   headline: {
     ...typography.headlineMd,
@@ -399,9 +620,18 @@ const styles = StyleSheet.create({
   },
   rowHead: {
     flexDirection: 'row',
+    alignItems: 'center',
     justifyContent: 'space-between',
     paddingHorizontal: spacing.md,
     marginTop: spacing.lg,
+  },
+  rowSectionTitle: {
+    ...typography.headlineMd,
+    color: colors.on_surface,
+  },
+  seeAll: {
+    ...typography.titleSm,
+    color: colors.primary_container,
   },
   section: {
     padding: spacing.md,

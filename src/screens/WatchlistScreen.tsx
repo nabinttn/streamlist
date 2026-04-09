@@ -1,5 +1,4 @@
 import { CommonActions } from '@react-navigation/native';
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   FlatList,
@@ -14,18 +13,20 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { fetchSimilarMovies } from '../api/movies';
 import { ContentCard } from '../components/common/ContentCard';
+import { IconBookmarkOutline, IconPersonOutline } from '../components/icons/StreamlistIcons';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
 import { useWatchlistStore, type WatchlistItem } from '../store/watchlistStore';
 import { colors } from '../theme/colors';
+import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { genreLine } from '../utils/genres';
 import { fetchMovieGenres } from '../api/movies';
 import type { Genre } from '../api/types';
-import type { WatchlistStackParamList } from '../navigation/types';
+import type { WatchlistMainScreenProps } from '../navigation/types';
 import { formatYear } from '../utils/format';
 
-type Props = NativeStackScreenProps<WatchlistStackParamList, 'WatchlistMain'>;
+type Props = WatchlistMainScreenProps;
 
 type Filter = 'all' | 'movie' | 'tv';
 
@@ -112,7 +113,12 @@ function WatchlistInner({ navigation }: Props) {
         <Text style={styles.label}>YOUR COLLECTION</Text>
         <Text style={styles.bigTitle}>My Watchlist</Text>
         <Text style={styles.count}>0 titles</Text>
-        <Text style={styles.bookmark}>☆</Text>
+        <View style={styles.emptyBookmarkWrap}>
+          <IconBookmarkOutline
+            size={iconSize.emptyStateBookmark}
+            color={colors.secondary_container}
+          />
+        </View>
         <Text style={styles.emptyHead}>Your watchlist is empty</Text>
         <Text style={styles.emptyBody}>
           Save movies and shows you want to watch later and they'll appear here.
@@ -140,7 +146,7 @@ function WatchlistInner({ navigation }: Props) {
           <Text style={styles.label}>YOUR COLLECTION</Text>
           <Text style={styles.bigTitle}>My Watchlist</Text>
         </View>
-        <Text style={styles.avatar}>○</Text>
+        <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
       </View>
 
       <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
@@ -272,10 +278,6 @@ const styles = StyleSheet.create({
     ...typography.displayMd,
     color: colors.on_surface,
   },
-  avatar: {
-    fontSize: 22,
-    color: colors.on_surface_variant,
-  },
   filters: {
     paddingHorizontal: spacing.md,
     gap: spacing.xs,
@@ -358,10 +360,9 @@ const styles = StyleSheet.create({
     color: colors.on_surface_variant,
     marginBottom: spacing.lg,
   },
-  bookmark: {
-    fontSize: 64,
-    color: colors.secondary_container,
+  emptyBookmarkWrap: {
     marginVertical: spacing.md,
+    opacity: 0.5,
   },
   emptyHead: {
     ...typography.headlineMd,

@@ -1,6 +1,7 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useCallback } from 'react';
+import { LinearGradient } from 'react-native-linear-gradient';
 import {
+  Alert,
   FlatList,
   ImageBackground,
   NativeSyntheticEvent,
@@ -11,21 +12,26 @@ import {
   Text,
   View,
 } from 'react-native';
-import LinearGradient from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { ContentCard } from '../components/common/ContentCard';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
 import { Skeleton } from '../components/common/Skeleton';
+import {
+  IconMovie,
+  IconNotificationsOutline,
+  IconPlayArrowFilled,
+} from '../components/icons/StreamlistIcons';
 import { useHome } from '../hooks/useHome';
-import type { HomeStackParamList } from '../navigation/types';
+import type { HomeMainScreenProps } from '../navigation/types';
 import { colors } from '../theme/colors';
+import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { genreLine } from '../utils/genres';
 import { posterUrl } from '../utils/image';
 
-type Props = NativeStackScreenProps<HomeStackParamList, 'HomeMain'>;
+type Props = HomeMainScreenProps;
 
 function HomeScreenInner({
   navigation,
@@ -121,8 +127,19 @@ function HomeScreenInner({
       style={[styles.root, { paddingTop: insets.top }]}
       contentContainerStyle={{ paddingBottom: 100 }}>
       <View style={styles.header}>
-        <Text style={styles.logo}>StreamList</Text>
-        <Text style={styles.bell}>🔔</Text>
+        <View style={styles.headerLeft}>
+          <IconMovie size={iconSize.topBarLogo} color={colors.brand} />
+          <Text style={styles.logo}>StreamList</Text>
+        </View>
+        <Pressable
+          hitSlop={12}
+          accessibilityLabel="Notifications"
+          onPress={() => Alert.alert('StreamList', 'Notifications coming soon.')}>
+          <IconNotificationsOutline
+            size={iconSize.topBar}
+            color={colors.on_surface_variant}
+          />
+        </Pressable>
       </View>
 
       <ScrollView
@@ -152,44 +169,63 @@ function HomeScreenInner({
       {trending.loading && !hero ? (
         <Skeleton width="92%" height={220} style={{ alignSelf: 'center' }} />
       ) : hero && heroUri ? (
-        <Pressable
-          onPress={() => navigation.navigate('Detail', { movieId: hero.id })}
-          style={styles.heroWrap}>
-          <ImageBackground source={{ uri: heroUri }} style={styles.heroImg}>
-            <LinearGradient
-              colors={['transparent', colors.surface]}
-              style={styles.heroGrad}
-            />
-            <View style={styles.heroBadge}>
-              <Text style={styles.heroBadgeTxt}>NEW RELEASE</Text>
-            </View>
-            <Text style={styles.heroTitle}>{hero.title}</Text>
-            <Text style={styles.heroSyn} numberOfLines={2}>
-              {hero.overview ?? ''}
-            </Text>
-            <View style={styles.heroBtns}>
-              <Pressable
-                onPress={() =>
-                  navigation.navigate('Detail', { movieId: hero.id })
-                }>
-                <LinearGradient
-                  colors={[colors.primary, colors.primary_container]}
-                  start={{ x: 0, y: 0 }}
-                  end={{ x: 1, y: 1 }}
-                  style={styles.heroCta}>
-                  <Text style={styles.heroCtaTxt}>▶ Watch Now</Text>
-                </LinearGradient>
-              </Pressable>
-              <Pressable
-                style={styles.heroSec}
-                onPress={() =>
-                  navigation.navigate('Detail', { movieId: hero.id })
-                }>
-                <Text style={styles.heroSecTxt}>Details</Text>
-              </Pressable>
-            </View>
-          </ImageBackground>
-        </Pressable>
+        <View style={styles.heroWrap}>
+          <Pressable
+            onPress={() => navigation.navigate('Detail', { movieId: hero.id })}
+            style={styles.heroPress}>
+            <ImageBackground
+              source={{ uri: heroUri }}
+              style={styles.heroBg}
+              imageStyle={styles.heroBgImage}>
+              <LinearGradient
+                colors={['transparent', colors.surface]}
+                locations={[0.2, 1]}
+                style={styles.heroGrad}
+                pointerEvents="none"
+              />
+              <View style={styles.heroInner} collapsable={false}>
+                <View style={styles.heroBadge}>
+                  <Text style={styles.heroBadgeTxt}>NEW RELEASE</Text>
+                </View>
+                <Text style={styles.heroTitle}>{hero.title}</Text>
+                <Text style={styles.heroSyn} numberOfLines={2}>
+                  {hero.overview ?? ''}
+                </Text>
+                <View style={styles.heroBtns}>
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate('Detail', { movieId: hero.id })
+                    }
+                    style={styles.heroCtaOuter}>
+                    {/** Stitch `07-home-nav`: `bg-primary text-on-primary` (flat salmon, not gradient). */}
+                    <View style={styles.heroCtaFill}>
+                      <View style={styles.heroCtaRow}>
+                        <View style={styles.heroCtaIconWrap}>
+                          <IconPlayArrowFilled
+                            size={iconSize.ctaPlay}
+                            color={colors.on_primary}
+                          />
+                        </View>
+                        <Text
+                          style={styles.heroCtaTxt}
+                          numberOfLines={1}>
+                          Watch Now
+                        </Text>
+                      </View>
+                    </View>
+                  </Pressable>
+                  <Pressable
+                    style={styles.heroSec}
+                    onPress={() =>
+                      navigation.navigate('Detail', { movieId: hero.id })
+                    }>
+                    <Text style={styles.heroSecTxt}>Details</Text>
+                  </Pressable>
+                </View>
+              </View>
+            </ImageBackground>
+          </Pressable>
+        </View>
       ) : (
         <View style={[styles.heroPlaceholder, { height: 200 }]}>
           <Text style={styles.meta}>No hero content</Text>
@@ -262,12 +298,16 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     marginBottom: spacing.sm,
   },
+  headerLeft: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.sm,
+  },
   logo: {
     ...typography.titleLg,
-    color: colors.primary_container,
-  },
-  bell: {
-    opacity: 0.5,
+    color: colors.brand,
+    textTransform: 'uppercase',
+    letterSpacing: -0.5,
   },
   chipStrip: {
     paddingHorizontal: spacing.md,
@@ -280,14 +320,14 @@ const styles = StyleSheet.create({
     borderRadius: spacing.sm,
   },
   chipOn: {
-    backgroundColor: colors.secondary_container,
+    backgroundColor: colors.brand,
   },
   chipOff: {
     backgroundColor: colors.surface_container_high,
   },
   chipTxtOn: {
     ...typography.titleSm,
-    color: colors.on_surface,
+    color: colors.on_brand,
   },
   chipTxtOff: {
     ...typography.titleSm,
@@ -295,17 +335,26 @@ const styles = StyleSheet.create({
   },
   heroWrap: {
     marginHorizontal: spacing.md,
-    borderRadius: spacing.md,
-    overflow: 'hidden',
     marginBottom: spacing.lg,
   },
-  heroImg: {
-    minHeight: 280,
-    padding: spacing.md,
+  heroPress: {
+    borderRadius: spacing.md,
+  },
+  heroBg: {
+    width: '100%',
+    minHeight: 460,
     justifyContent: 'flex-end',
+  },
+  heroBgImage: {
+    borderRadius: spacing.md,
   },
   heroGrad: {
     ...StyleSheet.absoluteFill,
+    borderRadius: spacing.md,
+  },
+  heroInner: {
+    padding: spacing.md,
+    width: '100%',
   },
   heroBadge: {
     alignSelf: 'flex-start',
@@ -330,26 +379,61 @@ const styles = StyleSheet.create({
   },
   heroBtns: {
     flexDirection: 'row',
-    gap: spacing.sm,
+    alignItems: 'stretch',
+    gap: spacing.md,
     marginTop: spacing.md,
   },
-  heroCta: {
-    paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: spacing.xs,
+  /** Primary CTA grows in the row; flexShrink 0 avoids squeezing label onto two lines. */
+  heroCtaOuter: {
+    flex: 1,
+    flexShrink: 0,
+    minWidth: 148,
+    borderRadius: 9999,
+    overflow: 'hidden',
+  },
+  /** `07-home-nav`: `px-8 py-3 rounded-lg` — pill + generous horizontal inset. */
+  heroCtaFill: {
+    minHeight: 48,
+    width: '100%',
+    backgroundColor: colors.primary,
+    paddingHorizontal: spacing.xl,
+    paddingVertical: 12,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  heroCtaRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    justifyContent: 'center',
+    gap: spacing.sm,
+    maxWidth: '100%',
+  },
+  heroCtaIconWrap: {
+    flexShrink: 0,
   },
   heroCtaTxt: {
-    ...typography.titleSm,
-    color: colors.surface,
+    ...typography.ctaBold,
+    color: colors.on_primary,
+    lineHeight: 20,
+    includeFontPadding: false,
+    flexShrink: 1,
   },
+  /** `bg-surface-container-highest/80` + `border-white/5` */
   heroSec: {
-    backgroundColor: colors.surface_container_highest,
-    paddingHorizontal: spacing.md,
+    flexShrink: 0,
+    backgroundColor: colors.hero_secondary_cta_bg,
+    minHeight: 48,
+    minWidth: 100,
+    paddingHorizontal: spacing.xl,
     paddingVertical: spacing.sm,
-    borderRadius: spacing.xs,
+    borderRadius: 9999,
+    borderWidth: StyleSheet.hairlineWidth * 2,
+    borderColor: colors.hero_secondary_cta_border,
+    justifyContent: 'center',
+    alignItems: 'center',
   },
   heroSecTxt: {
-    ...typography.titleSm,
+    ...typography.ctaBold,
     color: colors.on_surface,
   },
   rowBlock: {

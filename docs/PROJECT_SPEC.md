@@ -16,7 +16,7 @@ React Native **OTT discovery and watchlist** app (no video playback): browse TMD
 | State | **Zustand** + **`persist`** + **AsyncStorage** for watchlist |
 | API | **Axios** only via **`src/api/client.ts`**; endpoint helpers in **`src/api/movies.ts`** |
 | Styling | **`StyleSheet.create()` only** — no NativeWind, Styled Components, or UI kits |
-| Fonts | **Manrope** + **Inter** (e.g. `@expo-google-fonts` / `react-native-google-fonts`) |
+| Fonts | **Manrope** + **Inter** vendored under **`assets/fonts`** and linked with **`react-native-asset`** (`npm run link-assets`) |
 | Env | **`react-native-dotenv`** — vars from **`.env`** (gitignored); **`.env.example`** committed |
 
 ## Environment variables

@@ -1,0 +1,55 @@
+{
+  "projectId": "6747508532178572615",
+  "capturedAt": "2026-04-09T10:52:54Z",
+  "source": "Stitch MCP list_screens + curl of screenshot.downloadUrl and htmlCode.downloadUrl",
+  "screens": [
+    {
+      "filePrefix": "07-home-nav",
+      "title": "Home (Updated Nav)",
+      "stitchScreenName": "projects/6747508532178572615/screens/f8df68ac4f5b4dbaa5bfa92c7d62f756",
+      "width": "780",
+      "height": "4304",
+      "deviceType": "MOBILE"
+    },
+    {
+      "filePrefix": "02-search-results-scifi",
+      "title": "Search Results: Sci-Fi (Matched)",
+      "stitchScreenName": "projects/6747508532178572615/screens/051e00c95b48445a8f09b36be4a0cf01",
+      "width": "780",
+      "height": "2604",
+      "deviceType": "MOBILE"
+    },
+    {
+      "filePrefix": "03-search",
+      "title": "Search",
+      "stitchScreenName": "projects/6747508532178572615/screens/14dc681cf67d4ac99b836bb1977ee992",
+      "width": "780",
+      "height": "3050",
+      "deviceType": "MOBILE"
+    },
+    {
+      "filePrefix": "06-movie-detail",
+      "title": "Movie/Show Detail",
+      "stitchScreenName": "projects/6747508532178572615/screens/dedc0208bb5243f99a9097796e19acb1",
+      "width": "780",
+      "height": "2234",
+      "deviceType": "MOBILE"
+    },
+    {
+      "filePrefix": "05-watchlist",
+      "title": "Watchlist",
+      "stitchScreenName": "projects/6747508532178572615/screens/a07c5eaded494389bd43092e0a4a9ec7",
+      "width": "780",
+      "height": "2984",
+      "deviceType": "MOBILE"
+    },
+    {
+      "filePrefix": "04-watchlist-empty",
+      "title": "Watchlist (Empty State - Matched)",
+      "stitchScreenName": "projects/6747508532178572615/screens/8c9dd9c64d66497dab5106dc5ed4be05",
+      "width": "780",
+      "height": "2192",
+      "deviceType": "MOBILE"
+    }
+  ]
+}

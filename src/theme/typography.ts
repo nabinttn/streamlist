@@ -1,16 +1,7 @@
 import { TextStyle } from 'react-native';
+import { fontFamily } from './fontFamily';
 
-/**
- * Must match loaded fonts in App.tsx (@expo-google-fonts).
- * Family strings are the keys returned by useFonts.
- */
-export const fontFamily = {
-  manrope800: 'Manrope_800ExtraBold',
-  manrope700: 'Manrope_700Bold',
-  manrope600: 'Manrope_600SemiBold',
-  inter400: 'Inter_400Regular',
-  inter600: 'Inter_600SemiBold',
-} as const;
+export { fontFamily };
 
 export const typography = {
   displayLg: {
@@ -43,5 +34,11 @@ export const typography = {
   labelSm: {
     fontFamily: fontFamily.inter400,
     fontSize: 12,
+  },
+  /** Hero / primary CTAs — Stitch `font-bold` on salmon buttons (`07-home-nav`). */
+  ctaBold: {
+    fontFamily: fontFamily.manrope700,
+    fontSize: 15,
+    letterSpacing: 0.15,
   },
 } as const satisfies Record<string, TextStyle>;

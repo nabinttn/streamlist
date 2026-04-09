@@ -1,4 +1,3 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useCallback, useEffect, useState } from 'react';
 import {
   ActivityIndicator,
@@ -19,13 +18,15 @@ import {
 } from '../api/movies';
 import type { ApiMovieListItem, Genre } from '../api/types';
 import { ContentCard } from '../components/common/ContentCard';
-import type { HomeStackParamList } from '../navigation/types';
+import { IconArrowBack } from '../components/icons/StreamlistIcons';
+import type { MovieListScreenProps } from '../navigation/types';
 import { colors } from '../theme/colors';
+import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { genreLine } from '../utils/genres';
 
-type Props = NativeStackScreenProps<HomeStackParamList, 'MovieList'>;
+type Props = MovieListScreenProps;
 
 export function MovieListScreen({ navigation, route }: Props) {
   const { title, listType, genreId } = route.params;
@@ -89,8 +90,13 @@ export function MovieListScreen({ navigation, route }: Props) {
   return (
     <View style={[styles.root, { paddingTop: insets.top }]}>
       <View style={styles.top}>
-        <Pressable onPress={() => navigation.goBack()} hitSlop={12}>
-          <Text style={styles.back}>← Back</Text>
+        <Pressable
+          onPress={() => navigation.goBack()}
+          hitSlop={12}
+          style={styles.backRow}
+          accessibilityLabel="Back">
+          <IconArrowBack size={iconSize.detailBack} color={colors.primary_container} />
+          <Text style={styles.back}>Back</Text>
         </Pressable>
         <Text style={styles.title}>{title}</Text>
       </View>
@@ -137,10 +143,15 @@ const styles = StyleSheet.create({
     paddingHorizontal: spacing.md,
     marginBottom: spacing.sm,
   },
+  backRow: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    gap: spacing.xs,
+    marginBottom: spacing.xs,
+  },
   back: {
     ...typography.titleSm,
     color: colors.primary_container,
-    marginBottom: spacing.xs,
   },
   title: {
     ...typography.headlineMd,

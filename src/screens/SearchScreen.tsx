@@ -1,4 +1,3 @@
-import { NativeStackScreenProps } from '@react-navigation/native-stack';
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   FlatList,
@@ -12,21 +11,23 @@ import {
 } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ContentCard } from '../components/common/ContentCard';
+import { IconPersonOutline, IconSearch } from '../components/icons/StreamlistIcons';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
 import { Skeleton } from '../components/common/Skeleton';
 import { useRecentSearches } from '../hooks/useRecentSearches';
 import { useSearch } from '../hooks/useSearch';
 import { useSearchExplore } from '../hooks/useSearchExplore';
-import type { SearchStackParamList } from '../navigation/types';
+import type { SearchMainScreenProps } from '../navigation/types';
 import { fetchMovieGenres } from '../api/movies';
 import type { Genre } from '../api/types';
 import { colors } from '../theme/colors';
+import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { genreLine } from '../utils/genres';
 import { formatYear } from '../utils/format';
 
-type Props = NativeStackScreenProps<SearchStackParamList, 'SearchMain'>;
+type Props = SearchMainScreenProps;
 
 const PRESET_CHIPS = [
   { label: 'Action', query: 'action' },
@@ -68,7 +69,7 @@ function SearchInner({ navigation }: Props) {
     <View style={[styles.root, { paddingTop: insets.top }]}>
       <View style={styles.head}>
         <Text style={styles.logo}>StreamList</Text>
-        <Text style={styles.avatar}>○</Text>
+        <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
       </View>
 
       <View
@@ -76,7 +77,9 @@ function SearchInner({ navigation }: Props) {
           styles.searchBox,
           focused && styles.searchBoxFocus,
         ]}>
-        <Text style={styles.mag}>⌕</Text>
+        <View style={styles.searchIconWrap}>
+          <IconSearch size={iconSize.searchField} color={colors.on_surface_variant} />
+        </View>
         <TextInput
           style={styles.input}
           placeholder="Search movies, actors, directors..."
@@ -232,11 +235,9 @@ const styles = StyleSheet.create({
   },
   logo: {
     ...typography.titleLg,
-    color: colors.primary_container,
-  },
-  avatar: {
-    fontSize: 24,
-    color: colors.on_surface_variant,
+    color: colors.brand,
+    textTransform: 'uppercase',
+    letterSpacing: -0.5,
   },
   searchBox: {
     flexDirection: 'row',
@@ -251,9 +252,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderColor: colors.outline_variant,
   },
-  mag: {
+  searchIconWrap: {
     marginRight: spacing.xs,
-    color: colors.on_surface_variant,
   },
   input: {
     flex: 1,
