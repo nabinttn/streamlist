@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import {
   FlatList,
+  ImageBackground,
   Pressable,
   ScrollView,
   StyleSheet,
@@ -9,6 +10,7 @@ import {
   useWindowDimensions,
   View,
 } from 'react-native';
+import { LinearGradient } from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ContentCard } from '../components/common/ContentCard';
 import { IconPersonOutline, IconSearch } from '../components/icons/StreamlistIcons';
@@ -26,21 +28,85 @@ import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import { genreLine } from '../utils/genres';
 import { formatYear } from '../utils/format';
+import { posterUrl } from '../utils/image';
 
 type Props = SearchMainScreenProps;
 
 const PRESET_CHIPS = [
   { label: 'Action', query: 'action' },
-  { label: 'Drama', query: 'drama' },
   { label: 'Comedy', query: 'comedy' },
+  { label: 'Sci-Fi', query: 'science fiction' },
 ];
+
+function firstGenreName(genreIds: number[], genreList: Genre[]): string {
+  if (genreIds.length === 0 || genreList.length === 0) {
+    return '';
+  }
+  const map = new Map(genreList.map(g => [g.id, g.name]));
+  return map.get(genreIds[0]) ?? '';
+}
+
+function PresetGenreChips({
+  activeQuery,
+  onSelect,
+}: {
+  activeQuery: string;
+  onSelect: (presetQuery: string) => void;
+}) {
+  return (
+    <ScrollView
+      horizontal
+      showsHorizontalScrollIndicator={false}
+      style={styles.chipsScroll}
+      contentContainerStyle={styles.chips}>
+      {PRESET_CHIPS.map(c => {
+        const active =
+          activeQuery.trim().toLowerCase() === c.query.trim().toLowerCase();
+        return (
+          <Pressable
+            key={c.label}
+            style={[styles.chip, active && styles.chipActive]}
+            onPress={() => onSelect(c.query)}>
+            <Text style={[styles.chipTxt, active && styles.chipTxtActive]}>
+              {c.label}
+            </Text>
+          </Pressable>
+        );
+      })}
+    </ScrollView>
+  );
+}
+
+function SearchResultsEmpty({
+  debouncedQuery: dq,
+  loading,
+  errorMessage,
+  gridLength,
+}: {
+  debouncedQuery: string;
+  loading: boolean;
+  errorMessage: string | null;
+  gridLength: number;
+}) {
+  if (dq.length === 0 || loading || errorMessage || gridLength > 0) {
+    return null;
+  }
+  return (
+    <View style={styles.zero}>
+      <Text style={styles.zeroTitle}>No results for '{dq}'</Text>
+      <Text style={styles.zeroBody}>
+        Try another title or check spelling.
+      </Text>
+    </View>
+  );
+}
 
 function SearchInner({ navigation }: Props) {
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
   const colW = (width - spacing.md * 3) / 2;
   const [focused, setFocused] = useState(false);
-  const { query, setQuery, result } = useSearch();
+  const { query, debouncedQuery, setQuery, result } = useSearch();
   const explore = useSearchExplore();
   const recent = useRecentSearches();
   const [genres, setGenres] = useState<Genre[]>([]);
@@ -62,6 +128,11 @@ function SearchInner({ navigation }: Props) {
   const gridData = result.data?.results ?? [];
   const hasQuery = query.trim().length > 0;
 
+  const onPresetChip = (q: string) => {
+    setQuery(q);
+    recent.addSearch(q);
+  };
+
   const featured = explore.data?.featured;
   const gridExplore = explore.data?.grid ?? [];
 
@@ -69,7 +140,14 @@ function SearchInner({ navigation }: Props) {
     <View style={[styles.root, { paddingTop: insets.top }]}>
       <View style={styles.head}>
         <Text style={styles.logo}>StreamList</Text>
-        <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
+        <Pressable
+          style={styles.avatarWrap}
+          hitSlop={8}
+          accessibilityLabel="Profile">
+          <View style={styles.avatarCircle}>
+            <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
+          </View>
+        </Pressable>
       </View>
 
       <View
@@ -93,98 +171,161 @@ function SearchInner({ navigation }: Props) {
         />
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.chips}>
-        {PRESET_CHIPS.map(c => (
-          <Pressable
-            key={c.label}
-            style={styles.chip}
-            onPress={() => {
-              setQuery(c.query);
-              recent.addSearch(c.query);
-            }}>
-            <Text style={styles.chipTxt}>{c.label}</Text>
-          </Pressable>
-        ))}
-      </ScrollView>
-
-      {showRecent ? (
-        <View style={styles.recentBlock}>
-          <View style={styles.recentHead}>
-            <Text style={styles.headline}>Recent Searches</Text>
-            <Pressable onPress={recent.clearAll}>
-              <Text style={styles.clear}>CLEAR ALL</Text>
-            </Pressable>
-          </View>
-          {recent.items.map(term => (
-            <Pressable
-              key={term}
-              style={styles.recentRow}
-              onPress={() => setQuery(term)}>
-              <Text style={styles.clock}>🕐</Text>
-              <Text style={styles.recentTxt}>{term}</Text>
-            </Pressable>
-          ))}
-        </View>
-      ) : null}
-
       {hasQuery ? (
-        <>
-          {result.loading ? (
-            <Skeleton width="90%" height={24} style={{ alignSelf: 'center' }} />
-          ) : (
-            <Text style={styles.count}>
-              {result.data?.totalResults ?? 0} results for '{query.trim()}'
-            </Text>
-          )}
-          {gridData.length === 0 && !result.loading && !result.error ? (
-            <View style={styles.zero}>
-              <Text style={styles.zeroTitle}>No results for '{query.trim()}'</Text>
-              <Text style={styles.zeroBody}>
-                Try another title or check spelling.
-              </Text>
-            </View>
-          ) : (
-            <FlatList
-              data={gridData}
-              keyExtractor={item => String(item.id)}
-              numColumns={2}
-              columnWrapperStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
-              contentContainerStyle={{ paddingBottom: 100 }}
-              renderItem={({ item }) => (
-                <ContentCard
-                  movie={item}
-                  width={colW}
-                  onPress={() =>
-                    navigation.navigate('Detail', { movieId: item.id })
-                  }
-                  genreLabel={genreLine(item.genre_ids, genres)}
-                />
-              )}
+        <FlatList
+          style={styles.searchResultsList}
+          data={gridData}
+          keyExtractor={item => String(item.id)}
+          numColumns={2}
+          keyboardShouldPersistTaps="handled"
+          columnWrapperStyle={styles.searchGridRow}
+          contentContainerStyle={styles.searchResultsContent}
+          ListHeaderComponent={
+            <>
+              <PresetGenreChips activeQuery={query} onSelect={onPresetChip} />
+              {debouncedQuery.length > 0 ? (
+                result.loading ? (
+                  <Skeleton
+                    width="90%"
+                    height={24}
+                    style={styles.searchMetaSkeleton}
+                  />
+                ) : (
+                  <Text style={styles.count}>
+                    {result.data?.totalResults ?? 0} results for '{debouncedQuery}'
+                  </Text>
+                )
+              ) : null}
+            </>
+          }
+          ListEmptyComponent={
+            <SearchResultsEmpty
+              debouncedQuery={debouncedQuery}
+              loading={result.loading}
+              errorMessage={result.error}
+              gridLength={gridData.length}
+            />
+          }
+          ListFooterComponent={
+            result.error ? (
+              <Text style={styles.err}>{result.error}</Text>
+            ) : null
+          }
+          renderItem={({ item }) => (
+            <ContentCard
+              movie={item}
+              width={colW}
+              onPress={() =>
+                navigation.navigate('Detail', { movieId: item.id })
+              }
+              genreLabel={genreLine(item.genre_ids, genres)}
             />
           )}
-          {result.error ? (
-            <Text style={styles.err}>{result.error}</Text>
-          ) : null}
-        </>
+        />
       ) : (
-        <>
-          <Text style={styles.section}>Trending Now</Text>
-          {explore.loading ? (
-            <Skeleton width="100%" height={180} style={{ marginHorizontal: spacing.md }} />
-          ) : featured ? (
-            <Pressable
-              onPress={() =>
-                navigation.navigate('Detail', { movieId: featured.id })
-              }
-              style={styles.featured}>
-              <Text style={styles.featuredBadge}>FEATURED</Text>
-              <Text style={styles.featuredTitle}>{featured.title}</Text>
-              <Text style={styles.featuredMeta}>
-                {formatYear(featured.release_date)} • ★{' '}
-                {featured.vote_average.toFixed(1)}
-              </Text>
-            </Pressable>
+        <ScrollView
+          style={styles.exploreScroll}
+          contentContainerStyle={styles.exploreScrollContent}
+          showsVerticalScrollIndicator={false}
+          keyboardShouldPersistTaps="handled">
+          <PresetGenreChips activeQuery={query} onSelect={onPresetChip} />
+          {showRecent ? (
+            <View style={styles.recentBlock}>
+              <View style={styles.recentHead}>
+                <Text style={styles.headline}>Recent Searches</Text>
+                <Pressable onPress={recent.clearAll}>
+                  <Text style={styles.clear}>CLEAR ALL</Text>
+                </Pressable>
+              </View>
+              {recent.items.map(term => (
+                <Pressable
+                  key={term}
+                  style={styles.recentRow}
+                  onPress={() => setQuery(term)}>
+                  <Text style={styles.clock}>🕐</Text>
+                  <Text style={styles.recentTxt}>{term}</Text>
+                </Pressable>
+              ))}
+            </View>
           ) : null}
+
+          <View style={styles.trendingBlock}>
+            <Text style={styles.section}>Trending Now</Text>
+            {explore.loading ? (
+              <Skeleton
+                width="100%"
+                height={200}
+                style={{ marginHorizontal: spacing.md }}
+              />
+            ) : featured ? (
+              <>
+                <View style={styles.featuredTagWrap}>
+                  <View style={styles.featuredBadge}>
+                    <Text style={styles.featuredBadgeTxt}>FEATURED</Text>
+                  </View>
+                </View>
+                <Pressable
+                  onPress={() =>
+                    navigation.navigate('Detail', { movieId: featured.id })
+                  }
+                  style={styles.featuredHeroOuter}
+                  accessibilityRole="button"
+                  accessibilityLabel={`Featured: ${featured.title}`}>
+                  {(() => {
+                    const heroUri =
+                      posterUrl(featured.backdrop_path, 'w780') ??
+                      posterUrl(featured.poster_path, 'w780');
+                    const textBlock = (
+                      <View style={styles.featuredHeroTextBlock}>
+                        <Text style={styles.featuredHeroTitle} numberOfLines={2}>
+                          {featured.title}
+                        </Text>
+                        <Text style={styles.featuredHeroMeta} numberOfLines={1}>
+                          {[
+                            firstGenreName(featured.genre_ids, genres),
+                            formatYear(featured.release_date),
+                            featured.vote_average > 0
+                              ? `★ ${featured.vote_average.toFixed(1)}`
+                              : null,
+                          ]
+                            .filter(Boolean)
+                            .join(' • ')}
+                        </Text>
+                      </View>
+                    );
+                    if (!heroUri) {
+                      return (
+                        <View style={[styles.featuredHero, styles.featuredHeroFallback]}>
+                          <LinearGradient
+                            colors={[colors.surface_container_high, colors.surface]}
+                            style={StyleSheet.absoluteFill}
+                          />
+                          {textBlock}
+                        </View>
+                      );
+                    }
+                    return (
+                      <ImageBackground
+                        source={{ uri: heroUri }}
+                        style={styles.featuredHero}
+                        imageStyle={styles.featuredHeroImage}>
+                        <LinearGradient
+                          colors={[
+                            'transparent',
+                            'rgba(19,19,19,0.35)',
+                            'rgba(19,19,19,0.92)',
+                          ]}
+                          locations={[0.25, 0.55, 1]}
+                          style={StyleSheet.absoluteFill}
+                        />
+                        {textBlock}
+                      </ImageBackground>
+                    );
+                  })()}
+                </Pressable>
+              </>
+            ) : null}
+          </View>
           <FlatList
             data={gridExplore}
             keyExtractor={item => String(item.id)}
@@ -202,7 +343,7 @@ function SearchInner({ navigation }: Props) {
               />
             )}
           />
-        </>
+        </ScrollView>
       )}
     </View>
   );
@@ -230,8 +371,20 @@ const styles = StyleSheet.create({
   head: {
     flexDirection: 'row',
     justifyContent: 'space-between',
+    alignItems: 'center',
     paddingHorizontal: spacing.md,
     marginBottom: spacing.sm,
+  },
+  avatarWrap: {
+    borderRadius: 9999,
+  },
+  avatarCircle: {
+    width: 40,
+    height: 40,
+    borderRadius: 20,
+    backgroundColor: colors.surface_container_high,
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   logo: {
     ...typography.titleLg,
@@ -244,7 +397,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     backgroundColor: colors.surface_container_low,
     marginHorizontal: spacing.md,
-    borderRadius: spacing.sm,
+    borderRadius: spacing.md,
     paddingHorizontal: spacing.sm,
     marginBottom: spacing.sm,
   },
@@ -261,23 +414,59 @@ const styles = StyleSheet.create({
     color: colors.on_surface,
     paddingVertical: spacing.sm,
   },
+  /** Horizontal strip must not stretch vertically in the column (`flex: 1` root). */
+  chipsScroll: {
+    flexGrow: 0,
+  },
   chips: {
+    flexGrow: 0,
     paddingHorizontal: spacing.md,
-    gap: spacing.xs,
-    marginBottom: spacing.md,
+    gap: spacing.sm,
+    marginBottom: spacing.sm,
+    alignItems: 'center',
   },
   chip: {
+    height: 40,
     backgroundColor: colors.surface_container_high,
-    paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xs,
-    borderRadius: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: spacing.md,
+    justifyContent: 'center',
+  },
+  chipActive: {
+    backgroundColor: colors.brand,
   },
   chipTxt: {
     ...typography.titleSm,
     color: colors.on_surface_variant,
+    lineHeight: 20,
+    includeFontPadding: false,
+  },
+  chipTxtActive: {
+    color: colors.on_brand,
+  },
+  searchResultsList: {
+    flex: 1,
+  },
+  searchResultsContent: {
+    paddingBottom: 100,
+  },
+  searchGridRow: {
+    gap: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  searchMetaSkeleton: {
+    alignSelf: 'center',
+    marginBottom: spacing.sm,
+  },
+  exploreScroll: {
+    flex: 1,
+  },
+  exploreScrollContent: {
+    paddingBottom: 100,
   },
   recentBlock: {
     paddingHorizontal: spacing.md,
+    marginBottom: spacing.lg,
   },
   recentHead: {
     flexDirection: 'row',
@@ -325,32 +514,59 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     marginTop: spacing.sm,
   },
+  trendingBlock: {
+    marginBottom: spacing.md,
+  },
   section: {
     ...typography.headlineMd,
     color: colors.on_surface,
     paddingHorizontal: spacing.md,
     marginBottom: spacing.sm,
   },
-  featured: {
-    marginHorizontal: spacing.md,
-    backgroundColor: colors.surface_container,
-    padding: spacing.md,
-    borderRadius: spacing.md,
-    marginBottom: spacing.md,
+  featuredTagWrap: {
+    paddingHorizontal: spacing.md,
+    marginBottom: spacing.sm,
   },
   featuredBadge: {
-    ...typography.labelSm,
-    color: colors.on_surface,
-    backgroundColor: colors.secondary_container,
     alignSelf: 'flex-start',
-    paddingHorizontal: spacing.xs,
-    marginBottom: spacing.xs,
+    backgroundColor: colors.brand,
+    borderRadius: spacing.xs,
+    paddingHorizontal: spacing.sm,
+    paddingVertical: spacing.xs,
   },
-  featuredTitle: {
+  featuredBadgeTxt: {
+    ...typography.labelSm,
+    color: colors.on_brand,
+    letterSpacing: 1.2,
+    fontFamily: typography.titleSm.fontFamily,
+  },
+  featuredHeroOuter: {
+    marginHorizontal: spacing.md,
+    borderRadius: spacing.md,
+    overflow: 'hidden',
+    marginBottom: spacing.md,
+  },
+  featuredHero: {
+    width: '100%',
+    height: 200,
+    justifyContent: 'flex-end',
+  },
+  featuredHeroImage: {
+    borderRadius: spacing.md,
+  },
+  featuredHeroFallback: {
+    backgroundColor: colors.surface_container_high,
+    justifyContent: 'flex-end',
+  },
+  featuredHeroTextBlock: {
+    padding: spacing.md,
+    paddingBottom: spacing.md,
+  },
+  featuredHeroTitle: {
     ...typography.titleLg,
     color: colors.on_surface,
   },
-  featuredMeta: {
+  featuredHeroMeta: {
     ...typography.labelSm,
     color: colors.on_surface_variant,
     marginTop: spacing.xs,

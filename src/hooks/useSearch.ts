@@ -8,6 +8,8 @@ const DEBOUNCE_MS = 400;
 
 interface SearchState {
   query: string;
+  /** Trimmed query after debounce; drives API calls and result copy. */
+  debouncedQuery: string;
   setQuery: (q: string) => void;
   result: UseQueryResult<{ results: ApiMovieListItem[]; totalResults: number }>;
 }
@@ -84,6 +86,7 @@ export function useSearch(): SearchState {
 
   return {
     query,
+    debouncedQuery: debounced,
     setQuery,
     result: {
       data:

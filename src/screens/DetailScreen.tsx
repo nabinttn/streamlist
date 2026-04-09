@@ -498,22 +498,25 @@ const styles = StyleSheet.create({
     marginTop: spacing.sm,
   },
   chip: {
+    height: 28,
     backgroundColor: colors.surface_container_highest,
     paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xxs,
     borderRadius: spacing.xs,
+    justifyContent: 'center',
   },
   chipTxt: {
     ...typography.labelSm,
     color: colors.on_surface_variant,
+    lineHeight: 16,
+    includeFontPadding: false,
   },
   chipRating: {
+    height: 28,
     flexDirection: 'row',
     alignItems: 'center',
     gap: 4,
     backgroundColor: colors.secondary_container,
     paddingHorizontal: spacing.sm,
-    paddingVertical: spacing.xxs,
     borderRadius: spacing.xs,
   },
   chipRatingTxt: {

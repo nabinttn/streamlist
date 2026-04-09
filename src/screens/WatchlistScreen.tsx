@@ -280,25 +280,32 @@ const styles = StyleSheet.create({
   },
   filters: {
     paddingHorizontal: spacing.md,
-    gap: spacing.xs,
+    gap: spacing.sm,
     marginVertical: spacing.md,
+    alignItems: 'center',
   },
   filterChip: {
-    paddingHorizontal: spacing.sm,
+    minHeight: 40,
     paddingVertical: spacing.xs,
-    borderRadius: spacing.sm,
+    paddingHorizontal: spacing.md,
+    borderRadius: spacing.md,
     backgroundColor: colors.surface_container_high,
+    justifyContent: 'center',
   },
   filterOn: {
-    backgroundColor: colors.secondary_container,
+    backgroundColor: colors.brand,
   },
   filterTxtOn: {
     ...typography.titleSm,
-    color: colors.on_surface,
+    color: colors.on_brand,
+    lineHeight: 20,
+    includeFontPadding: false,
   },
   filterTxtOff: {
     ...typography.titleSm,
     color: colors.on_surface_variant,
+    lineHeight: 20,
+    includeFontPadding: false,
   },
   cardWrap: {
     marginBottom: spacing.md,
@@ -388,13 +395,17 @@ const styles = StyleSheet.create({
   },
   browseChip: {
     marginTop: spacing.md,
-    backgroundColor: colors.surface_container_highest,
+    minHeight: 40,
     paddingHorizontal: spacing.md,
-    paddingVertical: spacing.sm,
-    borderRadius: spacing.sm,
+    paddingVertical: spacing.xs,
+    backgroundColor: colors.surface_container_highest,
+    borderRadius: spacing.md,
+    justifyContent: 'center',
   },
   browseChipTxt: {
     ...typography.titleSm,
     color: colors.on_surface,
+    lineHeight: 20,
+    includeFontPadding: false,
   },
 });
