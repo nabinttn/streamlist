@@ -1,8 +1,6 @@
-# StreamList (Phase 2 app)
+# StreamList
 
 React Native CLI app for browsing TMDB movies, search, detail, and a persisted watchlist (Phase 2 AI-first training spec).
-
-Run all commands below from **this directory** (`phase2/streamlist/`).
 
 ## Prerequisites
 
@@ -12,7 +10,7 @@ Run all commands below from **this directory** (`phase2/streamlist/`).
 
 ## Setup
 
-1. Install dependencies:
+1. Clone the repo and install dependencies:
 
    ```bash
    npm install
@@ -39,13 +37,13 @@ Open **`ios/Streamlist.xcworkspace`** in Xcode (not `.xcodeproj`) after `pod ins
 
 ## Scripts
 
-| Command         | Description        |
-|-----------------|--------------------|
-| `npm start`     | Metro bundler      |
-| `npm run ios`   | iOS simulator      |
-| `npm run android` | Android emulator |
-| `npm test`      | Jest               |
-| `npm run lint`  | ESLint             |
+| Command        | Description        |
+|----------------|--------------------|
+| `npm start`    | Metro bundler      |
+| `npm run ios`    | iOS simulator      |
+| `npm run android`| Android emulator   |
+| `npm test`     | Jest               |
+| `npm run lint` | ESLint             |
 
 ## Project docs
 
