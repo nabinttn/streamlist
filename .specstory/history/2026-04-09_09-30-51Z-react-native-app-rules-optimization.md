@@ -23474,8 +23474,15 @@ results for "" taking some space and chips are getting pushed a bit up, fix it d
 
 _**Agent (composer-2)**_
 
+
+Inspecting SearchScreen layout: structure around the search field, chips, and results.
+
+
+
+_**Agent (composer-2)**_
+
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
 
 </details>
 </tool-use>
@@ -23488,7 +23495,7 @@ _**Agent (composer-2)**_
 _**Agent (composer-2)**_
 
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
 
 </details>
 </tool-use>
@@ -23500,8 +23507,22 @@ _**Agent (composer-2)**_
 
 _**Agent (composer-2)**_
 
+<think><details><summary>Thought Process</summary>
+**Investigating search results display**
+
+I'm investigating why empty search results are taking up space in the UI, possibly related to timing issues or state management. The empty search results UI shows fixed-height skeleton loaders and count text, but the actual issue seems to be that the UI is pushing content down due to unexpected flex layout behavior. The UI pushes content down due to unexpected flex layout behavior when search results are empty. I'm removing the conditional marginTop for chips to fix inconsistent vertical positioning. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Checking `useSearch` and how the results header behaves during loading.
+
+
+
+_**Agent (composer-2)**_
+
 <tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: </summary>
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts</summary>
 
 </details>
 </tool-use>
@@ -23510,3 +23531,792 @@ _**Agent (composer-2)**_
 <summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing race condition**
+
+I found a race condition where `hasQuery` becomes true before `debounced` updates, causing a brief moment with stale data. I'm handling the edge case where spaces-only queries set `hasQuery` to false but `debounced` remains empty during debounce period, causing incorrect loading states. I'm correcting the loading state logic to prevent showing results for empty queries when `debounced` is empty but `hasQuery` is still true. I found that the race condition stems from `query.trim()` being empty while `hasQuery` is true, causing incorrect '0 results for ''' display. 
+
+**Adjusting layout constraints**
+
+I'm removing the static header margin from chips to prevent jumping during search loading. I'm removing the conditional top margin from chips to prevent jumping during search loading. The FlatList is expanding due to flex distribution, causing chips to shift upward when content loads. The FlatList expansion is caused by flex distribution when content loads, pushing chips upward. I added explicit `flex: 1` to the FlatList to prevent layout shifts from flex distribution. I'm investigating why the ScrollView doesn't expand properly when `hasQuery` is true, checking if View defaults to `flexShrink` and how skeleton loading affects layout. 
+
+**Investigating layout constraints**
+
+The issue is that `hasQuery` incorrectly evaluates to true when `query.trim()` is empty, causing the ScrollView to not expand properly due to a mismatch between `query` and `result.data` states. I'll implement debounced matching logic to prevent showing misleading result counts during debounce. 
+
+**Handling debounced states**
+
+I'm adjusting the UI to show skeleton loading states instead of '0 results' when debouncing with empty data. I found the issue: during debounce sync, empty queries cause loading to flicker before showing '0 results'. I'm implementing a cleaner UX by removing `chipsScrollWithQuery` and only showing results count when the query is meaningful. I'm showing results count only when `result.data` is not null to avoid showing counts during debounce gaps. 
+
+I'm hiding the count line entirely during debounce gaps to prevent flickering. I'm refactoring the layout to fix 'chips pushed up' by separating the logo row and search box from the scrollable content. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Reading the rest of the search results branch and styles for `count`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Removing style overrides**
+
+I'm removing the `chipsScrollWithQuery` style and its conditional logic as requested. 
+
+**Updating search hook**
+
+I'm adding `debounced` to the useSearch hook's return value to fix the loading state display logic. I'm adding `debouncedQuery` to the useSearch hook's return value to handle API-backed results display correctly. I'm implementing debounced query handling to prevent showing stale empty states in the UI. I'm refining the results header logic to avoid showing empty counts when debounced queries are empty. 
+
+I'm adjusting the results header to hide empty counts when debounced queries are empty. I'm refactoring the SearchScreen to conditionally render chips based on query state, extracting chip rendering to avoid duplication. 
+
+I'm restructuring the SearchScreen layout to make chips scroll with explore content by moving them into the explore ScrollView at the top. I'll extract the chips into a reusable component and use it in both the search header and explore scroll view top. I'm moving the error state to ListFooterComponent and updating the empty state handling with ListEmptyComponent. I'm adjusting the empty state rendering to prevent showing counts when there's no query and the data is loading. 
+
+I'm adding `debouncedQuery` to the **useSearch** return value and setting `flex: 1` on FlatList style. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Removing the conditional chips margin, exposing `debouncedQuery` from `useSearch` so we don't show a misleading results line during debounce, and moving preset chips into the scrollable content (`ListHeaderComponent` / explore `ScrollView`) so they aren't a fixed strip between the search field and results.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "useSearch\\("
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "useSearch\\(",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "src/hooks/useSearch.ts"
+    },
+    {
+      "matchCount": 1,
+      "uri": "src/screens/SearchScreen.tsx"
+    }
+  ],
+  "totalFiles": 2,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing search**
+
+I'm adding debounced query support to the search hook and refactoring the search screen layout. I'm replacing conditional FlatList rendering with ListEmptyComponent for cleaner empty state handling. 
+
+**Handling empty states**
+
+I'm adjusting ListEmptyComponent to prevent showing empty state when loading or having errors. 
+
+**Updating list header**
+
+I'm extracting ListHeaderComponent to prevent unnecessary re-renders. I'm implementing conditional rendering for the search header count based on loading and data states. 
+
+I'm handling error states in the search header to prevent showing '0 results' when data is null due to errors. 
+
+**Handling error states**
+
+I'm clarifying the error handling logic in the search hook to ensure proper state resets during fetch failures. I'm implementing the error message display in ListFooterComponent and adding chips with margin-bottom for spacing. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Exposing `debouncedQuery` from the hook, moving preset chips into scrollable content (explore `ScrollView` + search `FlatList` header), and showing the results line only when a debounced query exists so we avoid placeholder space and misleading copy.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Refactoring search screen**
+
+I'm refactoring SearchScreen to improve chip rendering by extracting a reusable `renderPresetChips()` function. I'm extracting preset chips into a reusable component to avoid DRY violations. 
+
+**Extracting components**
+
+I'm extracting preset chips into a dedicated component with typed props. 
+
+**Refactoring component**
+
+I'm refactoring the preset chips component to use a minimal API with direct onSelect callback. 
+
+**Extracting component**
+
+I'm extracting PresetGenreChips component to reduce duplication. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Implementing SearchScreen: adding `PresetGenreChips` and restructuring the layout.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating search hook**
+
+I'm modifying the useSearch hook to include debouncedQuery in the destructuring. I'm replacing the hasQuery block with a FlatList and adding a ListHeaderComponent with memoized header element. I'm extracting the skeleton component from inline styles and moving it to its own variable for better readability. I'm adjusting the count style to include horizontal margin and refining the ListEmptyComponent logic. I'm handling the ListEmptyComponent edge cases for empty queries and loading states in the search hook. 
+
+I'm using debouncedQuery in the zero title for consistency. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "contextAfter": 8,
+  "path": "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx",
+  "pattern": "count:"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx",
+  "pattern": "count:",
+  "topFiles": [
+    {
+      "matchCount": 9,
+      "uri": "src/screens/SearchScreen.tsx"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding search skeleton**
+
+I'm adding the searchMetaSkeleton style for the header skeleton. 
+
+**Rendering chips**
+
+I'm implementing the chip rendering logic with active state tracking. I'm updating the chip rendering logic to use `useMemo` for performance optimization. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding preset chips**
+
+I'm adding PresetGenreChips component and updating the layout structure. 
+
+**Updating search results**
+
+I'm configuring the FlatList to display search results in a grid layout with two columns. I'm adding skeleton loading indicators for search results. 
+
+I'm implementing conditional rendering for empty search states. I'm adding UI components to display empty search states and error messages. I'm refactoring the empty state handling to use a proper component function instead of a ternary. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding `PresetGenreChips` and replacing the layout section.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing style reference**
+
+I'm moving PresetGenreChips after StyleSheet.create to fix the style reference issue. I confirmed styles is at module scope and initialized before PresetGenreChips execution, so the style reference issue is resolved. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "useSearch"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "useSearch",
+  "topFiles": [
+    {
+      "matchCount": 4,
+      "uri": "./src/screens/SearchScreen.tsx"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./src/hooks/useSearch.ts"
+    },
+    {
+      "matchCount": 12,
+      "uri": "./.specstory/history/2026-04-09_09-30-51Z-react-native-app-rules-optimization.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./docs/PROJECT_SPEC.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.cursor/rules/react-native-cursor-rules.mdc"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./src/hooks/useSearchExplore.ts"
+    }
+  ],
+  "totalFiles": 6,
+  "totalMatches": 20
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Reordering components**
+
+I'm moving PresetGenreChips after StyleSheet to ensure proper dependency order. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist && npx tsc --noEmit 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist && npx tsc --noEmit 2>&1
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing style reference**
+
+I'm moving PresetGenreChips after styles to fix the reference issue. 
+
+**Moving components**
+
+I'm moving PresetGenreChips below StyleSheet to resolve the forward reference issue. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "errors": [
+        {
+          "message": "Do not define components during render. React will see a new component type on every render and destroy the entire subtree’s DOM nodes and state (https://reactjs.org/docs/reconciliation.html#elements-of-different-types). Instead, move this component definition out of the parent component “SearchInner” and pass data as props. If you want to allow component creation in props, set allowAsProps option to true.",
+          "range": {
+            "endPosition": {
+              "column": 12,
+              "line": 194
+            },
+            "startPosition": {
+              "column": 31,
+              "line": 177
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_WARNING",
+          "source": "eslint"
+        }
+      ],
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/src/hooks/useSearch.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Extracting empty component**
+
+I'm extracting SearchResultsEmpty to a named component at module level with typed props. 
+
+**Updating component usage**
+
+I'm fixing ListEmptyComponent to accept a component type instead of element for proper rendering. I'm using useCallback to stabilize the renderEmpty function for ListEmptyComponent. 
+
+I'm replacing the inline component with a named function at module level for ListEmptyComponent. I'm refactoring ListEmptyComponent to use a named function with injected props instead of inline rendering. I'm changing ListEmptyComponent to accept a ReactElement instead of inline rendering. 
+
+I'm updating ListEmptyComponent to accept ReactElement instances directly as per RN docs. I'm using `ListEmptyComponent={<SearchResultsEmpty ... />}` to avoid re-creating the component on every render. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Extracting a stable empty-state component to fix the lint about defining components during render.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/src/screens/SearchScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist && npx tsc --noEmit 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist && npx tsc --noEmit 2>&1
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+1. **`results for '…'` vs debounce** — `hasQuery` follows the raw input, but the API and `result.data` follow **`debounced`**. Until debounce catches up, you could get **`0 results for '…'`** with odd spacing while the row still reserved height.
+2. **Fixed strip under the field** — Chips + the meta row lived **between** the search field and the flex body, so the meta row acted like a **fixed header** and made the chips feel pushed when results loaded.
+3. **`chipsScrollWithQuery`** — Extra top margin when searching made chips jump.
+
+### Changes
+
+**`src/hooks/useSearch.ts`**
+- Exposes **`debouncedQuery`** (trimmed, debounced string) so the UI can match copy and loading to real requests.
+
+**`src/screens/SearchScreen.tsx`**
+- **`PresetGenreChips`** — shared chip row.
+- **Search mode** — One **`FlatList`** with:
+  - **`ListHeaderComponent`**: chips + meta line (skeleton or **“N results for 'debouncedQuery'”** only when **`debouncedQuery.length > 0`**), so nothing is shown for **`results for ''`** during the debounce gap.
+  - **`SearchResultsEmpty`** — empty state when the debounced query returned nothing.
+  - **`ListFooterComponent`** — API error text.
+- **Explore mode** — Chips are the **first** child inside the explore **`ScrollView`** so they **scroll with** explore content (not pinned under the field).
+- Removed **`chipsScrollWithQuery`**.
+- Styles: **`searchResultsList`**, **`searchResultsContent`**, **`searchGridRow`**, **`searchMetaSkeleton`**.
+
+Chips are no longer a separate static block under the search box; they sit in the scrollable area (explore) or in the results list header (search), and the results line only appears once a debounced query exists.

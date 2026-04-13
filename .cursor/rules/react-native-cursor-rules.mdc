@@ -4,6 +4,8 @@ alwaysApply: true
 
 # StreamList — Cursor rules (Phase 2 spec)
 
+**Application root:** `phase2/streamlist/`. Every path below (`src/...`, config files) is relative to that directory.
+
 1. **Toolchain:** React Native **CLI** only—not Expo. Native work uses **Metro**, **Xcode / Android Studio**, **CocoaPods** when iOS deps change.
 
 2. **Data fetching:** Screen components **must not** call `fetch`, Axios, or TMDB directly. Use **`src/hooks/*`** only (`useHome`, `useSearch`, `useMovieDetail`, etc.).
