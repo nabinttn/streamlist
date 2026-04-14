@@ -2,6 +2,7 @@ import React from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { IconPersonOutline } from '../components/icons/StreamlistIcons';
+import type { ProfileMainScreenProps } from '../navigation/types';
 import { colors } from '../theme/colors';
 import { iconSize } from '../theme/iconSizes';
 import { spacing } from '../theme/spacing';
@@ -21,7 +22,9 @@ const MENU_ROWS = [
   { title: 'About StreamList', detail: 'Version and credits' },
 ] as const;
 
-export function ProfileScreen() {
+type Props = ProfileMainScreenProps;
+
+export function ProfileScreen({ navigation }: Props) {
   const insets = useSafeAreaInsets();
 
   return (
@@ -54,9 +57,13 @@ export function ProfileScreen() {
         {MENU_ROWS.map((row, i) => (
           <Pressable
             key={row.title}
-            onPress={() =>
-              Alert.alert(row.title, 'This is placeholder content for the demo.')
-            }
+            onPress={() => {
+              if (row.title === 'Notifications') {
+                navigation.navigate('Notifications');
+                return;
+              }
+              Alert.alert(row.title, 'This is placeholder content for the demo.');
+            }}
             style={({ pressed }) => [
               styles.menuRow,
               i < MENU_ROWS.length - 1 && styles.menuRowBorder,

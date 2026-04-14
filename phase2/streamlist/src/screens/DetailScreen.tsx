@@ -55,7 +55,8 @@ export function DetailScreen({
 }: DetailScreenProps) {
   const { movieId } = route.params;
   const insets = useSafeAreaInsets();
-  const { details, credits, similar, pullToRefresh } = useMovieDetail(movieId);
+  const { details, credits, similar, videos, pullToRefresh } =
+    useMovieDetail(movieId);
   const hydrated = useWatchlistStore(s => s.hydrated);
   const isSaved = useWatchlistStore(s => s.isInWatchlist(movieId));
   const addItem = useWatchlistStore(s => s.addItem);
@@ -94,6 +95,11 @@ export function DetailScreen({
   }, [credits.data]);
 
   const similarMovies: ApiMovieListItem[] = similar.data?.results ?? [];
+
+  const trailerYoutubeKey =
+    movie && !videos.loading && !videos.error
+      ? videos.data?.trailerYoutubeKey ?? null
+      : null;
 
   const backdropUri = movie
     ? posterUrl(movie.backdrop_path, 'w780')
@@ -313,6 +319,24 @@ export function DetailScreen({
                     ),
                   )}
                 </View>
+
+                {trailerYoutubeKey ? (
+                  <Pressable
+                    onPress={() =>
+                      navigation.navigate('Trailer', {
+                        youtubeVideoId: trailerYoutubeKey,
+                        title: movie.title,
+                      })
+                    }
+                    accessibilityRole="button"
+                    accessibilityLabel="Watch trailer"
+                    style={({ pressed }) => [
+                      styles.trailerBtn,
+                      pressed ? styles.trailerBtnPressed : null,
+                    ]}>
+                    <Text style={styles.trailerBtnTxt}>Watch trailer</Text>
+                  </Pressable>
+                ) : null}
 
                 {hydrated ? (
                   <Pressable
@@ -581,6 +605,28 @@ const styles = StyleSheet.create({
     ...typography.titleSm,
     fontSize: 12,
     color: colors.on_brand,
+  },
+  trailerBtn: {
+    marginHorizontal: spacing.md,
+    marginTop: spacing.md,
+    minHeight: 48,
+    paddingVertical: spacing.sm,
+    paddingHorizontal: spacing.xl,
+    borderRadius: spacing.xs,
+    borderWidth: StyleSheet.hairlineWidth * 2,
+    borderColor: colors.primary,
+    justifyContent: 'center',
+    alignItems: 'center',
+    backgroundColor: 'transparent',
+  },
+  trailerBtnPressed: {
+    opacity: 0.92,
+  },
+  trailerBtnTxt: {
+    ...typography.ctaBold,
+    color: colors.primary,
+    lineHeight: 20,
+    includeFontPadding: false,
   },
   watchBtn: {
     marginHorizontal: spacing.md,

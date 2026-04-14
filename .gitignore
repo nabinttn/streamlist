@@ -52,7 +52,8 @@ yarn-error.log
 
 # Ruby / CocoaPods
 **/Pods/
-/vendor/bundle/
+# Bundler install dir (e.g. `bundle install` in ios/); local CocoaPods gems — do not commit
+**/vendor/bundle/
 
 # Temporary files created by Metro
 .metro-health-check*

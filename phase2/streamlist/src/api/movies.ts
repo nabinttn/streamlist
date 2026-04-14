@@ -4,6 +4,7 @@ import type {
   ApiMovieListItem,
   CreditsResponse,
   GenresListResponse,
+  MovieVideosResponse,
   PaginatedMoviesResponse,
 } from './types';
 
@@ -92,6 +93,11 @@ export async function fetchMovieDetail(movieId: number): Promise<ApiMovieDetail>
 
 export async function fetchMovieCredits(movieId: number): Promise<CreditsResponse> {
   const { data } = await client.get<CreditsResponse>(`/movie/${movieId}/credits`);
+  return data;
+}
+
+export async function fetchMovieVideos(movieId: number): Promise<MovieVideosResponse> {
+  const { data } = await client.get<MovieVideosResponse>(`/movie/${movieId}/videos`);
   return data;
 }
 

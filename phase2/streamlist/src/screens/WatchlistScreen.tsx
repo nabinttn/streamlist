@@ -33,7 +33,8 @@ type Filter = 'all' | 'movie' | 'tv';
 function WatchlistInner({ navigation }: Props) {
   const insets = useSafeAreaInsets();
   const { width } = useWindowDimensions();
-  const colW = (width - spacing.md * 3) / 2;
+  /** Match FlatList: `paddingHorizontal: md` on each row + `gap: sm` between columns. */
+  const colW = (width - spacing.md * 2 - spacing.sm) / 2;
   const hydrated = useWatchlistStore(s => s.hydrated);
   const items = useWatchlistStore(s => s.items);
   const removeItem = useWatchlistStore(s => s.removeItem);
@@ -150,7 +151,11 @@ function WatchlistInner({ navigation }: Props) {
         <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
       </View>
 
-      <ScrollView horizontal showsHorizontalScrollIndicator={false} contentContainerStyle={styles.filters}>
+      <ScrollView
+        horizontal
+        showsHorizontalScrollIndicator={false}
+        style={styles.filterStrip}
+        contentContainerStyle={styles.filters}>
         {(['all', 'movie', 'tv'] as const).map(f => {
           const active = filter === f;
           const label =
@@ -168,81 +173,85 @@ function WatchlistInner({ navigation }: Props) {
         })}
       </ScrollView>
 
-      {emptyFilter ? (
-        <View style={styles.ctxEmpty}>
-          <Text style={styles.emptyHead}>
-            No {filter === 'tv' ? 'Series' : 'Movies'} in your watchlist yet
-          </Text>
-          <Pressable style={styles.browseChip} onPress={() => setFilter('all')}>
-            <Text style={styles.browseChipTxt}>Browse All</Text>
-          </Pressable>
-        </View>
-      ) : (
-        <FlatList
-          data={listAsMovies(filtered)}
-          keyExtractor={item => String(item.id)}
-          numColumns={2}
-          columnWrapperStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
-          contentContainerStyle={styles.watchGridContent}
-          ListHeaderComponent={
-            similar.length > 0 && !emptyFilter ? (
-              <View style={styles.because}>
-                <View style={styles.rowHead}>
-                  <Text style={styles.headline}>
-                    Because you saved {mostRecent?.title}
-                  </Text>
+      <View style={styles.mainColumn}>
+        {emptyFilter ? (
+          <View style={styles.ctxEmpty}>
+            <Text style={styles.emptyHead}>
+              No {filter === 'tv' ? 'Series' : 'Movies'} in your watchlist yet
+            </Text>
+            <Pressable style={styles.browseChip} onPress={() => setFilter('all')}>
+              <Text style={styles.browseChipTxt}>Browse All</Text>
+            </Pressable>
+          </View>
+        ) : (
+          <FlatList
+            data={listAsMovies(filtered)}
+            keyExtractor={item => String(item.id)}
+            numColumns={2}
+            style={styles.watchList}
+            columnWrapperStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
+            contentContainerStyle={styles.watchGridContent}
+            ListFooterComponent={
+              similar.length > 0 && !emptyFilter ? (
+                <View style={styles.because}>
+                  <View style={styles.rowHead}>
+                    <Text style={styles.headline}>
+                      Because you saved {mostRecent?.title}
+                    </Text>
+                  </View>
+                  <FlatList
+                    horizontal
+                    data={similar}
+                    keyExtractor={item => String(item.id)}
+                    showsHorizontalScrollIndicator={false}
+                    contentContainerStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
+                    renderItem={({ item }) => (
+                      <View style={styles.similarCardWrap}>
+                        <ContentCard
+                          movie={item}
+                          width={130}
+                          onPress={() =>
+                            navigation.navigate('Detail', { movieId: item.id })
+                          }
+                          genreLabel={formatYear(item.release_date)}
+                        />
+                      </View>
+                    )}
+                  />
                 </View>
-                <FlatList
-                  horizontal
-                  data={similar}
-                  keyExtractor={item => String(item.id)}
-                  showsHorizontalScrollIndicator={false}
-                  contentContainerStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
-                  renderItem={({ item }) => (
-                    <View style={styles.similarCardWrap}>
-                      <ContentCard
-                        movie={item}
-                        width={130}
-                        onPress={() =>
-                          navigation.navigate('Detail', { movieId: item.id })
-                        }
-                        genreLabel={formatYear(item.release_date)}
-                      />
-                    </View>
-                  )}
-                />
+              ) : null
+            }
+            renderItem={({ item }) => (
+              <View style={{ width: colW }}>
+                <View style={styles.cardWrap}>
+                  <Pressable
+                    style={styles.remove}
+                    onPress={() => removeItem(item.id)}
+                    hitSlop={8}>
+                    <Text style={styles.removeTxt}>×</Text>
+                  </Pressable>
+                  <ContentCard
+                    movie={item}
+                    width={colW}
+                    ratingBadgeSide="left"
+                    onPress={() =>
+                      navigation.navigate('Detail', { movieId: item.id })
+                    }
+                    genreLabel={genreLine(item.genre_ids, genres)}
+                  />
+                  <Pressable
+                    style={styles.detailsBtn}
+                    onPress={() =>
+                      navigation.navigate('Detail', { movieId: item.id })
+                    }>
+                    <Text style={styles.detailsTxt}>Details</Text>
+                  </Pressable>
+                </View>
               </View>
-            ) : null
-          }
-          renderItem={({ item }) => (
-            <View style={{ width: colW }}>
-              <View style={styles.cardWrap}>
-                <Pressable
-                  style={styles.remove}
-                  onPress={() => removeItem(item.id)}
-                  hitSlop={8}>
-                  <Text style={styles.removeTxt}>×</Text>
-                </Pressable>
-                <ContentCard
-                  movie={item}
-                  width={colW}
-                  onPress={() =>
-                    navigation.navigate('Detail', { movieId: item.id })
-                  }
-                  genreLabel={genreLine(item.genre_ids, genres)}
-                />
-                <Pressable
-                  style={styles.detailsBtn}
-                  onPress={() =>
-                    navigation.navigate('Detail', { movieId: item.id })
-                  }>
-                  <Text style={styles.detailsTxt}>Details</Text>
-                </Pressable>
-              </View>
-            </View>
-          )}
-        />
-      )}
+            )}
+          />
+        )}
+      </View>
     </View>
   );
 }
@@ -259,6 +268,18 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: colors.surface,
+    justifyContent: 'flex-start',
+  },
+  filterStrip: {
+    flexGrow: 0,
+  },
+  mainColumn: {
+    flex: 1,
+    minHeight: 0,
+    justifyContent: 'flex-start',
+  },
+  watchList: {
+    flex: 1,
   },
   meta: {
     ...typography.bodyMd,
@@ -311,6 +332,7 @@ const styles = StyleSheet.create({
   cardWrap: {
     marginBottom: spacing.md,
   },
+  /** Top-right; rating badge uses `ratingBadgeSide="left"` on `ContentCard`. */
   remove: {
     position: 'absolute',
     top: spacing.xs,
@@ -340,7 +362,8 @@ const styles = StyleSheet.create({
     color: colors.on_surface,
   },
   because: {
-    marginBottom: spacing.lg,
+    marginTop: spacing.lg,
+    paddingBottom: spacing.md,
   },
   rowHead: {
     flexDirection: 'row',
@@ -354,8 +377,11 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   ctxEmpty: {
-    padding: spacing.lg,
+    flexGrow: 0,
+    paddingHorizontal: spacing.lg,
+    paddingTop: spacing.md,
     alignItems: 'center',
+    alignSelf: 'stretch',
   },
   emptyRoot: {
     flexGrow: 1,

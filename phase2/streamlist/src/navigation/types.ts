@@ -25,6 +25,7 @@ export type WatchlistStackParamList = {
 
 export type ProfileStackParamList = {
   ProfileMain: undefined;
+  Notifications: undefined;
 };
 
 export type RootTabParamList = {
@@ -38,6 +39,7 @@ export type RootTabParamList = {
 export type RootStackParamList = {
   Main: NavigatorScreenParams<RootTabParamList> | undefined;
   Detail: { movieId: number };
+  Trailer: { youtubeVideoId: string; title?: string };
 };
 
 /** Nested screens that call `navigation.navigate('Detail', …)` — bubbles to `RootStackParamList`. */
@@ -76,4 +78,25 @@ export type WatchlistMainScreenProps = CompositeScreenProps<
 export type DetailScreenProps = NativeStackScreenProps<
   RootStackParamList,
   'Detail'
+>;
+
+export type TrailerScreenProps = NativeStackScreenProps<
+  RootStackParamList,
+  'Trailer'
+>;
+
+export type ProfileMainScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<ProfileStackParamList, 'ProfileMain'>,
+  CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, 'ProfileTab'>,
+    NativeStackScreenProps<RootStackParamList>
+  >
+>;
+
+export type NotificationsScreenProps = CompositeScreenProps<
+  NativeStackScreenProps<ProfileStackParamList, 'Notifications'>,
+  CompositeScreenProps<
+    BottomTabScreenProps<RootTabParamList, 'ProfileTab'>,
+    NativeStackScreenProps<RootStackParamList>
+  >
 >;

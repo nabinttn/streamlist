@@ -8,6 +8,18 @@ _**User**_
 
 in details screen, when i click readmore and show less, apply layoutanimation to make it feel smooth
 
+_**User**_
+
+check if the movie data has video or trailer link so that we can add inapp video player to play the trailer if exist
+
+_**User**_
+
+ok lets add that feature also to get the trailer. create and plan
+
+_**User**_
+
+in details screen, when i click readmore and show less, apply layoutanimation to make it feel smooth
+
 ---
 
 _**Agent (composer-2)**_
@@ -269,6 +281,44 @@ _**Agent (composer-2)**_
 
 _**Agent (composer-2)**_
 
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
 <tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
 <details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test -- --passWithNoTests 2>&1</summary>
 
@@ -314,44 +364,6 @@ Ran all test suites.
 
 _**Agent (composer-2)**_
 
-<tool-use data-tool-type="unknown" data-tool-name="read_lints">
-<details>
-<summary>Tool use: **read_lints**</summary>
-
-
-Parameters:
-
-```json
-{
-  "paths": [
-    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
-  ]
-}
-```
-Result:
-
-```json
-{
-  "linterErrorsByFile": [
-    {
-      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
-    }
-  ]
-}
-```
-Status: **completed**
-
-
-</details>
-</tool-use>
-
-<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
-<summary>Tool use: **read_lints**</summary>
-
-</details></tool-use>
-
-_**Agent (composer-2)**_
-
 
 Here’s what changed.
 
@@ -378,32 +390,6 @@ _**Agent (composer-2)**_
 Tracing how we fetch movie data and whether TMDB exposes videos/trailers.
 
 
-
-_**Agent (composer-2)**_
-
-<tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts</summary>
-
-</details>
-</tool-use>
-
-<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
-<summary>Tool use: **read_file_v2**</summary>
-
-</details></tool-use>
-
-_**Agent (composer-2)**_
-
-<tool-use data-tool-type="read" data-tool-name="read_file_v2">
-<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
-
-</details>
-</tool-use>
-
-<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
-<summary>Tool use: **read_file_v2**</summary>
-
-</details></tool-use>
 
 _**Agent (composer-2)**_
 
@@ -442,6 +428,32 @@ Status: **completed**
 
 <tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
 <summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
 
@@ -831,7 +843,19 @@ Additional data:
 
 ```json
 {
-  "status": "pending"
+  "currentSelections": {},
+  "status": "submitted"
+}
+```
+Result:
+
+```json
+{
+  "answers": [
+    {
+      "questionId": "playback"
+    }
+  ]
 }
 ```
 Status: **completed**
@@ -842,5 +866,10120 @@ Status: **completed**
 
 <tool-use data-tool-type="unknown" data-tool-name="ask_question"><details>
 <summary>Tool use: **ask_question**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="create_plan">
+<details>
+<summary>Tool use: **create_plan**</summary>
+
+
+Parameters:
+
+```json
+{
+  "name": "Movie trailer feature",
+  "overview": "Fetch TMDB &#96;/movie/{id}/videos&#96;, pick a YouTube trailer client-side, expose it through &#96;useMovieDetail&#96; alongside existing sections, and add a root-stack screen with an embedded YouTube player plus a Detail entry point when a trailer exists.",
+  "plan": "# Movie trailer (TMDB + in-app YouTube)\n\n## Context\n\n- TMDB exposes trailers via **&#96;GET /movie/{movie_id}/videos&#96;** (&#96;results[]&#96; with &#96;key&#96;, &#96;site&#96;, &#96;type&#96;, &#96;official&#96;, etc.). This is **not** included in the current [&#96;ApiMovieDetail&#96;](phase2/streamlist/src/api/types.ts) flow or [&#96;fetchMovieDetail&#96;](phase2/streamlist/src/api/movies.ts).\n- Local [&#96;PROJECT_SPEC.md&#96;](docs/PROJECT_SPEC.md) still says “no video playback”; this feature is a deliberate product extension—no conflict with code rules.\n\n## Architecture\n\n&#96;&#96;&#96;mermaid\nflowchart LR\n  movies_ts[\"movies.ts fetchMovieVideos\"]\n  hook[\"useMovieDetail\"]\n  detail[\"DetailScreen\"]\n  trailer[\"TrailerScreen\"]\n  movies_ts --\u003e hook\n  hook --\u003e detail\n  detail --\u003e|\"navigate Trailer\"| trailer\n&#96;&#96;&#96;\n\n## 1. API layer\n\n- **[&#96;src/api/types.ts&#96;](phase2/streamlist/src/api/types.ts)**  \n  - Add types aligned with TMDB (minimal fields needed): e.g. &#96;MovieVideo&#96; with &#96;id&#96;, &#96;key&#96;, &#96;name&#96;, &#96;site&#96;, &#96;type&#96;, &#96;official&#96; (and ISO fields if you want parity with TMDB).  \n  - Add &#96;MovieVideosResponse { id: number; results: MovieVideo[] }&#96;.\n\n- **[&#96;src/api/movies.ts&#96;](phase2/streamlist/src/api/movies.ts)**  \n  - Add &#96;fetchMovieVideos(movieId: number): Promise\u003cMovieVideosResponse\u003e&#96; → &#96;GET /movie/${movieId}/videos&#96; (same Axios &#96;client&#96; as other helpers).\n\n## 2. Trailer selection (pure util)\n\n- Add **[&#96;src/utils/trailer.ts&#96;](phase2/streamlist/src/utils/trailer.ts)** (or similar): &#96;pickYoutubeTrailerKey(videos: MovieVideo[]): string | null&#96;.\n\n  **Suggested priority** (only &#96;site === 'YouTube'&#96;):\n\n  1. &#96;type === 'Trailer'&#96; and &#96;official === true&#96;\n  2. &#96;type === 'Trailer'&#96;\n  3. &#96;type === 'Teaser'&#96; and &#96;official === true&#96;\n  4. &#96;type === 'Teaser'&#96;\n\n  - Non-YouTube entries (Vimeo, etc.): return &#96;null&#96; for this iteration (no second player path).\n\n- Add a small unit test **[&#96;__tests__/utils/trailer.test.ts&#96;](phase2/streamlist/__tests__/utils/trailer.test.ts)** with a few fixture arrays to lock ordering.\n\n## 3. Hook: &#96;useMovieDetail&#96;\n\n- **[&#96;src/hooks/useMovieDetail.ts&#96;](phase2/streamlist/src/hooks/useMovieDetail.ts)**  \n  - Extend &#96;Promise.allSettled&#96; with **&#96;fetchMovieVideos(movieId)&#96;** as a fourth request (matches existing “sections don’t block each other” pattern).  \n  - Add **&#96;videos: UseQueryResult\u003c{ trailerYoutubeKey: string | null }\u003e&#96;** (or store raw &#96;MovieVideo[]&#96; + derive in screen—prefer normalizing in the hook so the screen stays dumb).  \n  - On success: &#96;trailerYoutubeKey = pickYoutubeTrailerKey(results)&#96;.  \n  - On failure: &#96;error&#96; string + optional &#96;data: null&#96; on hard load (same as other sections).  \n  - Include videos in **&#96;pullToRefresh&#96;** / **&#96;refetch&#96;** behavior.\n\n## 4. Navigation + trailer screen\n\n- **[&#96;src/navigation/types.ts&#96;](phase2/streamlist/src/navigation/types.ts)**  \n  - Extend **&#96;RootStackParamList&#96;**: e.g. &#96;Trailer: { youtubeVideoId: string; title?: string }&#96; (title optional for header/accessibility).\n\n- **[&#96;src/navigation/RootNavigator.tsx&#96;](phase2/streamlist/src/navigation/RootNavigator.tsx)**  \n  - Register &#96;\u003cRootStack.Screen name=\"Trailer\" component={TrailerScreen} /\u003e&#96; (can use &#96;presentation: 'modal'&#96; or &#96;fullScreenModal&#96; on iOS for polish—optional).\n\n- **New [&#96;src/screens/TrailerScreen.tsx&#96;](phase2/streamlist/src/screens/TrailerScreen.tsx)**  \n  - Read &#96;route.params.youtubeVideoId&#96;.  \n  - **Playback:** add **&#96;react-native-youtube-iframe&#96;** (recommended default: handles embed + WebView wiring). It typically declares **&#96;react-native-webview&#96;** as a peer—add both, pin versions, run **&#96;pod install&#96;** under &#96;ios/&#96; (document in PR notes per repo rules).  \n  - Safe area + close control (&#96;navigation.goBack()&#96;), themed background from [&#96;colors&#96;](phase2/streamlist/src/theme/colors.ts).  \n  - Loading/error states for the player (minimal: spinner or short message if &#96;play&#96; fails—library-dependent).\n\n- **Typed props:** export &#96;TrailerScreenProps&#96; from &#96;types.ts&#96; like &#96;DetailScreenProps&#96;.\n\n## 5. Detail UI\n\n- **[&#96;src/screens/DetailScreen.tsx&#96;](phase2/streamlist/src/screens/DetailScreen.tsx)**  \n  - Consume &#96;videos&#96; from &#96;useMovieDetail&#96;.  \n  - When **&#96;!videos.loading \u0026\u0026 !videos.error \u0026\u0026 videos.data?.trailerYoutubeKey&#96;**, show a **“Watch trailer”** control (e.g. between chip row and watchlist, using existing spacing/typography patterns—&#96;StyleSheet.create&#96; only).  \n  - &#96;onPress&#96; → &#96;navigation.navigate('Trailer', { youtubeVideoId: key, title: movie.title })&#96;.  \n  - Do **not** show the control while loading or on error (silent omit is fine; optional muted one-liner if you want parity with Cast errors—keep minimal).\n\n## 6. Verification\n\n- From [&#96;phase2/streamlist/&#96;](phase2/streamlist/): &#96;npm run lint&#96;, &#96;npm test&#96;.  \n- Manual: open a movie with a known YouTube trailer (e.g. major release), confirm navigation + playback; open one with no YouTube trailer, confirm CTA hidden.\n\n## Files touched (summary)\n\n| Area | Files |\n|------|--------|\n| API | [&#96;types.ts&#96;](phase2/streamlist/src/api/types.ts), [&#96;movies.ts&#96;](phase2/streamlist/src/api/movies.ts) |\n| Util + test | [&#96;utils/trailer.ts&#96;](phase2/streamlist/src/utils/trailer.ts), [&#96;__tests__/utils/trailer.test.ts&#96;](phase2/streamlist/__tests__/utils/trailer.test.ts) |\n| Hook | [&#96;useMovieDetail.ts&#96;](phase2/streamlist/src/hooks/useMovieDetail.ts) |\n| Nav | [&#96;types.ts&#96;](phase2/streamlist/src/navigation/types.ts), [&#96;RootNavigator.tsx&#96;](phase2/streamlist/src/navigation/RootNavigator.tsx) |\n| Screens | [&#96;DetailScreen.tsx&#96;](phase2/streamlist/src/screens/DetailScreen.tsx), new &#96;TrailerScreen.tsx&#96; |\n| Deps | [&#96;package.json&#96;](phase2/streamlist/package.json) + lockfile; iOS &#96;pod install&#96; |\n",
+  "todos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "pending"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ]
+}
+```
+Additional data:
+
+```json
+{
+  "hasOpenedEditor": true,
+  "planId": "movie_trailer_feature_fd35fd6f",
+  "planUri": "file:///Users/ttnc2/.cursor/plans/movie_trailer_feature_fd35fd6f.plan.md",
+  "reviewData": {
+    "isShowingInput": false,
+    "selectedOption": "none",
+    "status": "Requested"
+  }
+}
+```
+Result:
+
+```json
+{
+  "rejected": {}
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="create_plan"><details>
+<summary>Tool use: **create_plan**</summary>
+
+</details></tool-use>
+
+---
+
+_**User**_
+
+Implement the plan as specified, it is attached for your reference. Do NOT edit the plan file itself.
+
+To-do's from the plan have already been created. Do not create them again. Mark them as in_progress as you work, starting with the first one. Don't stop until you have completed all the to-dos.
+
+---
+
+_**Agent (composer-2)**_
+
+
+Implementing the trailer feature per the plan: starting with API types and `fetchMovieVideos`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "pending"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "pending"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding types**
+
+I'm adding types to types.ts and fetching videos in movies.ts. 
+
+**Handling videos loading**
+
+I'm adding videosLoading, videosErr, and videosData states to handle soft refreshes consistently. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/jest.config.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist** (1 file)
+
+| File |
+|------|
+| `jest.setup.js` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/jest.setup.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/colors.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/movies.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing video features**
+
+I'm implementing the movie videos functionality with new types, fetch function, and trailer picking logic. I'm fixing the error clearing logic for soft refreshes to ensure errors are properly reset. I'm setting up the trailer screen with YouTube player and loading states. I'm adding trailer support for iOS using native stack modal presentation. I'm implementing trailer selection logic with YouTube priority and official content filtering. I'm installing compatible versions of react-native-webview and react-native-youtube-iframe for RN 0.85 and checking the YouTube iframe API. 
+
+I'm implementing the YouTube player component with play state management using useState and onReady callback. I'm adding the YouTube player component with initial play state and mocking the library for testing. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Implementing API types, `fetchMovieVideos`, and the trailer picker utility.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/movies.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/movies.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/trailer.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/__tests__/utils/trailer.test.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "completed"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "pending"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "pending"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install react-native-webview@13.16.0 react-native-youtube-iframe@2.4.1 --save-exact</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install react-native-webview@13.16.0 react-native-youtube-iframe@2.4.1 --save-exact
+```
+
+```
+
+added 3 packages, and audited 951 packages in 6s
+
+181 packages are looking for funding
+  run &#96;npm fund&#96; for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run &#96;npm audit&#96; for details.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios && pod install</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios && pod install
+```
+
+```
+Found 8 modules for target &#96;Streamlist&#96;
+link_native_modules! {ios_packages: [{configurations: [], name: "@react-native-async-storage/async-storage", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage", path: "../node_modules/@react-native-async-storage/async-storage", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/AsyncStorage.podspec", script_phases: []}, {configurations: [], name: "@react-native-community/blur", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-community/blur", path: "../node_modules/@react-native-community/blur", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-community/blur/react-native-blur.podspec", script_phases: []}, {configurations: [], name: "react-native-gesture-handler", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-gesture-handler", path: "../node_modules/react-native-gesture-handler", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-gesture-handler/RNGestureHandler.podspec", script_phases: []}, {configurations: [], name: "react-native-linear-gradient", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-linear-gradient", path: "../node_modules/react-native-linear-gradient", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-linear-gradient/BVLinearGradient.podspec", script_phases: []}, {configurations: [], name: "react-native-safe-area-context", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context", path: "../node_modules/react-native-safe-area-context", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/react-native-safe-area-context.podspec", script_phases: []}, {configurations: [], name: "react-native-screens", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens", path: "../node_modules/react-native-screens", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/RNScreens.podspec", script_phases: []}, {configurations: [], name: "react-native-svg", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-svg", path: "../node_modules/react-native-svg", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-svg/RNSVG.podspec", script_phases: []}, {configurations: [], name: "react-native-webview", root: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview", path: "../node_modules/react-native-webview", podspec_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/react-native-webview.podspec", script_phases: []}], ios_project_root_path: "/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios", react_native_path: "../node_modules/react-native"}
+Auto-linking React Native modules for target &#96;Streamlist&#96;: AsyncStorage, BVLinearGradient, RNGestureHandler, RNSVG, RNScreens, react-native-blur, react-native-safe-area-context, and react-native-webview
+Framework build type is static library
+[ReactNativeDependencies] Setting up ReactNativeDependencies...
+[ReactNativeDependencies] Building from source: false
+[ReactNativeDependencies] Using tarball from URL: https://repo1.maven.org/maven2/com/facebook/react/react-native-artifacts/0.85.0/react-native-artifacts-0.85.0-reactnative-dependencies-debug.tar.gz
+[ReactNativeDependencies] Source: {http: "file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Pods/ReactNativeDependencies-artifacts/reactnative-dependencies-0.85.0-debug.tar.gz"}
+[ReactNativeCore] Setting up ReactNativeCore...
+[ReactNativeCore] Building from source: false
+Configuring the target with the New Architecture
+[ReactNativeCore] Using React Native Core and React Native Dependencies prebuilt versions.
+[36m[1m[Codegen][0m Analyzing /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json[0m
+[36m[1m[Codegen][0m [33mSearching for codegen-enabled libraries in the app.[0m
+[36m[1m[Codegen][0m [33mThe "codegenConfig" field is not defined in package.json. Assuming there is nothing to generate at the app level.[0m
+[36m[1m[Codegen][0m [33mSearching for codegen-enabled libraries in react-native.config.js[0m
+[36m[1m[Codegen][0m Found @react-native-async-storage/async-storage[0m
+[36m[1m[Codegen][0m Found @react-native-community/blur[0m
+[36m[1m[Codegen][0m Found react-native-gesture-handler[0m
+[36m[1m[Codegen][0m Found react-native-safe-area-context[0m
+[36m[1m[Codegen][0m Found react-native-screens[0m
+[36m[1m[Codegen][0m Found react-native-svg[0m
+[36m[1m[Codegen][0m Found react-native-webview[0m
+[36m[1m[Codegen][0m Processing AsyncStorageSpec[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, macos, visionos for AsyncStorageSpec[0m
+[36m[1m[Codegen][0m Processing rnblurview[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, tvos, visionos for rnblurview[0m
+[36m[1m[Codegen][0m Processing rngesturehandler_codegen[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, macos, tvos, visionos for rngesturehandler_codegen[0m
+[36m[1m[Codegen][0m Processing safeareacontext[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, macos, tvos, visionos for safeareacontext[0m
+[36m[1m[Codegen][0m Processing rnscreens[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, tvos, visionos for rnscreens[0m
+[36m[1m[Codegen][0m Processing rnsvg[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, macos, tvos, visionos for rnsvg[0m
+[36m[1m[Codegen][0m Processing RNCWebViewSpec[0m
+[36m[1m[Codegen][0m [33mSearching for podspec in the project dependencies.[0m
+[36m[1m[Codegen][0m Supported Apple platforms: ios, macos, visionos for RNCWebViewSpec[0m
+[36m[1m[Codegen][0m Generating Native Code for AsyncStorageSpec - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for rnblurview - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for rngesturehandler_codegen - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for safeareacontext - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for rnscreens - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for rnsvg - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating Native Code for RNCWebViewSpec - ios[0m
+[36m[1m[Codegen][0m Generated artifacts: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen[0m
+[36m[1m[Codegen][0m Generating RCTThirdPartyComponentsProvider.h[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen/RCTThirdPartyComponentsProvider.h[0m
+[36m[1m[Codegen][0m Generating RCTThirdPartyComponentsProvider.mm[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen/RCTThirdPartyComponentsProvider.mm[0m
+[36m[1m[Codegen][0m Generating RCTModulesProvider.h[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen/RCTModuleProviders.h[0m
+[36m[1m[Codegen][0m Generating RCTModuleProviders.mm[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen/RCTModuleProviders.mm[0m
+[36m[1m[Codegen][0m Generating RCTAppDependencyProvider[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactAppDependencyProvider/RCTAppDependencyProvider.h[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactAppDependencyProvider/RCTAppDependencyProvider.mm[0m
+[36m[1m[Codegen][0m Generated podspec: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactAppDependencyProvider/ReactAppDependencyProvider.podspec[0m
+[36m[1m[Codegen][0m Generated podspec: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/ReactCodegen/ReactCodegen.podspec[0m
+[36m[1m[Codegen][0m Generating Package.swift[0m
+[36m[1m[Codegen][0m Generated artifact: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/build/generated/ios/Package.swift[0m
+[36m[1m[Codegen][0m [33mDone.[0m
+[ReactNativeDependencies] Using tarball from URL: https://repo1.maven.org/maven2/com/facebook/react/react-native-artifacts/0.85.0/react-native-artifacts-0.85.0-reactnative-dependencies-debug.tar.gz
+Analyzing dependencies
+Downloading dependencies
+Installing react-native-webview (13.16.0)
+Generating Pods project
+Setting USE_HERMES build settings
+Setting REACT_NATIVE_PATH build settings
+Setting SWIFT_ACTIVE_COMPILATION_CONDITIONS build settings
+[Ccache]: Removing Ccache from CC, LD, CXX &amp; LDPLUSPLUS build settings
+Setting SWIFT_ENABLE_EXPLICIT_MODULES build settings
+[ReactNativeCore] Processing VFS overlay file...
+[ReactNativeCore]   Created VFS overlay at /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Pods/React-Core-prebuilt/React-VFS.yaml
+[ReactNativeCore] VFS overlay setup complete
+[ReactNativeCore] Configuring xcconfig for prebuilt React Native Core...
+[ReactNativeCore] Prebuilt xcconfig configuration complete
+[SPM] Cleaning old SPM dependencies from Pods project
+[SPM] Adding SPM dependencies to Pods project
+[Privacy Manifest Aggregation] Appending aggregated reasons to existing PrivacyInfo.xcprivacy file.
+[Privacy Manifest Aggregation] Reading .xcprivacy files to aggregate all used Required Reason APIs.
+Setting CLANG_CXX_LANGUAGE_STANDARD to c++20 on /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist.xcodeproj
+
+==================== DEPRECATION NOTICE =====================
+Calling &#96;pod install&#96; directly is deprecated in React Native
+because we are moving away from Cocoapods toward alternative
+solutions to build the project.
+* If you are using Expo, please run:
+&#96;npx expo run:ios&#96;
+* If you are using the Community CLI, please run:
+&#96;yarn ios&#96;
+=============================================================
+
+Pod install took 17 [s] to run
+Integrating client project
+Pod installation complete! There are 82 dependencies from the Podfile and 81 total pods installed.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "completed"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "completed"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "in_progress"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "completed"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "pending"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing trailer screen**
+
+I'm implementing the trailer screen with responsive video sizing and platform-specific autoplay handling. 
+
+**Adding screen options**
+
+I'm adding platform-specific screen options using `Platform.select` with `presentation: 'modal'` for iOS. I'm implementing trailer screen with fullScreenModal presentation for iOS. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Styling trailer button**
+
+I'm adding trailer button style similar to watchSaved with outlined primary look for secondary CTA. 
+
+**Handling null video data**
+
+I'm asserting `videos.data` is non-null after checking `trailerYoutubeKey` to satisfy TypeScript strictness. I'm extracting `trailerYoutubeKey` from `videos.data` safely and using it in the render logic. 
+
+**Styling trailer button**
+
+I'm implementing a trailer button with watchSaved-like styling positioned between chipRow and watchlist button. 
+
+**Creating trailer screen**
+
+I'm creating TrailerScreen.tsx with YouTube player integration and responsive design. I'm implementing the TrailerScreen component with YouTube player and responsive design. 
+
+I'm adding the close button and header title to the TrailerScreen component. 
+
+**Adding trailer player**
+
+I'm implementing the YouTube player component with error handling and loading states. I'm rendering the YouTube player component with dynamic sizing and autoplay settings. 
+
+**Rendering youtube player**
+
+I'm implementing a loading state with absolute positioning for the spinner overlay until the player is ready. I'm adding a min height to playerWrap and fixing the initial ready state and error handling. 
+
+**Removing webview hack**
+
+I'm removing the webViewStyle opacity hack and checking the PLAYER_ERRORS enum for correct error handling signature. I'm changing `id` type to `string` in MovieVideo to match TMDB API format and avoid type errors. 
+
+**Updating navigator imports**
+
+I'm updating RootNavigator imports to avoid triggering YouTube player mock in tests. I'm verifying that TrailerScreen properly integrates with the navigation stack and ensuring Trailer is included in RootStackParamList. I'm adding conditional rendering for YoutubePlayer based on error state to prevent crashes. I'm implementing conditional rendering for YoutubePlayer to prevent crashes and adding a centered spinner with flex layout. I'm adding conditional rendering for the YouTube player with a centered activity indicator. 
+
+I'm exporting TrailerScreen and adding it to RootNavigator with platform-specific presentation options. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding navigation types, `TrailerScreen`, and `RootNavigator` registration; updating `DetailScreen`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts",
+  "pattern": "titleMd"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts",
+  "pattern": "titleMd",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx",
+  "pattern": "stickyTitle"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx",
+  "pattern": "stickyTitle",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/DetailScreen.tsx"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing type narrowing**
+
+I'm fixing the TypeScript error by extracting `videos.data?.trailerYoutubeKey` into a constant before the Pressable component. I'm extracting `videos.data?.trailerYoutubeKey` into a constant to fix the TypeScript error. 
+
+I'm assigning `videos.data?.trailerYoutubeKey` to a constant to ensure proper TypeScript narrowing. 
+
+**Updating trailer key logic**
+
+I'm simplifying the trailer key assignment to avoid nested conditionals. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/jest.setup.js</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 7 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/utils/trailer.test.ts
+PASS __tests__/components/Skeleton.test.tsx
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/StreamlistIcons.test.tsx
+PASS __tests__/App.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       29 passed, 29 total
+Snapshots:   0 total
+Time:        2.006 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "completed"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "completed"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "completed"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "completed"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "completed"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Add MovieVideo/MovieVideosResponse types + fetchMovieVideos in movies.ts",
+      "id": "api-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add pickYoutubeTrailerKey + unit tests",
+      "id": "util-pick",
+      "status": "completed"
+    },
+    {
+      "content": "Extend useMovieDetail with parallel videos fetch + UseQueryResult bundle",
+      "id": "hook-videos",
+      "status": "completed"
+    },
+    {
+      "content": "Add react-native-youtube-iframe + react-native-webview; pod install note",
+      "id": "deps-player",
+      "status": "completed"
+    },
+    {
+      "content": "RootStack Trailer route + TrailerScreen + typed props",
+      "id": "nav-trailer-screen",
+      "status": "in_progress"
+    },
+    {
+      "content": "DetailScreen: Watch trailer when trailerYoutubeKey present",
+      "id": "detail-cta",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint and tests",
+      "id": "verify",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was implemented:
+
+### API and selection
+- [`src/api/types.ts`](phase2/streamlist/src/api/types.ts) — `MovieVideo`, `MovieVideosResponse`
+- [`src/api/movies.ts`](phase2/streamlist/src/api/movies.ts) — `fetchMovieVideos(movieId)` → `GET /movie/{id}/videos`
+- [`src/utils/trailer.ts`](phase2/streamlist/src/utils/trailer.ts) — `pickYoutubeTrailerKey` (YouTube only; official Trailer → Trailer → official Teaser → Teaser)
+- [`__tests__/utils/trailer.test.ts`](phase2/streamlist/__tests__/utils/trailer.test.ts) — tests for that logic
+
+### Hook
+- [`src/hooks/useMovieDetail.ts`](phase2/streamlist/src/hooks/useMovieDetail.ts) — loads videos in parallel with detail/credits/similar; exposes `videos: UseQueryResult<MovieVideosData>` with `trailerYoutubeKey`; exports `MovieVideosData`
+
+### Dependencies and native
+- **npm:** `react-native-webview@13.16.0`, `react-native-youtube-iframe@2.4.1` (exact versions in `package.json`)
+- **`pod install`** was run under `ios/` so WebView is linked for iOS
+
+### Navigation and trailer UI
+- [`src/navigation/types.ts`](phase2/streamlist/src/navigation/types.ts) — `Trailer: { youtubeVideoId: string; title?: string }`, `TrailerScreenProps`
+- [`src/navigation/RootNavigator.tsx`](phase2/streamlist/src/navigation/RootNavigator.tsx) — `Trailer` screen, `fullScreenModal` on iOS
+- [`src/screens/TrailerScreen.tsx`](phase2/streamlist/src/screens/TrailerScreen.tsx) — `YoutubePlayer`, back control, loading overlay until `onReady`, `onError` message
+
+### Detail screen
+- [`src/screens/DetailScreen.tsx`](phase2/streamlist/src/screens/DetailScreen.tsx) — outlined **Watch trailer** between the chip row and watchlist when `trailerYoutubeKey` is set
+
+### Tests
+- [`jest.setup.js`](phase2/streamlist/jest.setup.js) — mock for `react-native-youtube-iframe`
+
+`npm run lint` and `npm test` both pass (29 tests).
+
+**Manual check:** open a popular title on a device/simulator, tap **Watch trailer**, confirm playback; titles with no YouTube trailer should not show the button.
+
+---
+
+_**User**_
+
+in @phase2/streamlist/src/screens/TrailerScreen.tsx, loader is coming below in screen, move it a little bit to above of center of screen
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adjusting loader position**
+
+I'm repositioning the loader to appear slightly above center within the player box. I'm experimenting with `transform: [{ translateY: -40 }]` on the player box to shift the spinner up. I'm testing `justifyContent: 'flex-start'` with `paddingTop` on spinnerOverlay to visually shift the ActivityIndicator above the center. I'm trying to move the spinner above center using `justifyContent: 'center'` with `paddingBottom` on spinnerOverlay. I'm adjusting the spinner position using `justifyContent: 'flex-start'` with `paddingTop: '40%'` to nudge it upward. I'm using `translateY: -spacing.lg` to position the loader above the center of the screen, accounting for the header height. 
+
+I'm shifting the spinner upward with negative translateY to counteract the player area's visual weight. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/spacing.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding spinner wrapper**
+
+I'm adding a wrapper view with vertical spacing to move the spinner slightly above center of the player overlay. 
+
+**Adjusting spinner position**
+
+I'm shifting the spinner up to account for the WebView space below the player box, since the user perceives 'below' differently than the actual layout. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Shifting the loading indicator upward with a themed transform so it sits slightly above the visual center of the player area.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "errors": [
+        {
+          "message": "Parameter 'err' implicitly has an 'any' type.",
+          "range": {
+            "endPosition": {
+              "column": 27,
+              "line": 57
+            },
+            "startPosition": {
+              "column": 24,
+              "line": 57
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        },
+        {
+          "message": "Property 'absoluteFillObject' does not exist on type 'typeof StyleSheet'. Did you mean 'absoluteFill'?",
+          "range": {
+            "endPosition": {
+              "column": 37,
+              "line": 104
+            },
+            "startPosition": {
+              "column": 19,
+              "line": 104
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        }
+      ],
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Fixing lint issues: `onError` parameter typing and `StyleSheet.absoluteFill`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+Here’s what changed:
+
+### Updates in `TrailerScreen.tsx`
+
+1. **Loader position** — Wrapped the `ActivityIndicator` in `spinnerAboveCenter` with `transform: [{ translateY: -spacing.xl }]` (32px up from the middle of the player overlay) so it sits **slightly above center** instead of dead center.
+
+2. **Lint** — Typed the YouTube `onError` callback as `(err: string)` and switched the overlay to `StyleSheet.absoluteFill` so TypeScript is happy.
+
+If you want it higher, we can switch to `-spacing.xxl` (40px) or another token.
+
+---
+
+_**User**_
+
+create dummy notification screen with infinite scroll feature in flatlist, add some dummy data for now, create sections by day and week and total number of notifcations
+
+---
+
+_**Agent (composer-2)**_
+
+
+Exploring navigation and screen patterns to add a notifications screen with sectioned dummy data and infinite scroll.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding notification screen**
+
+I'm adding `Notifications: undefined` to ProfileStackParamList and creating NotificationScreen with day/week sectioning. I'm implementing the notification screen with a header showing total count and sections for 'Today' and 'This week' with dummy items. 
+
+**Implementing notification screen**
+
+I'm adding infinite scroll with FlatList and local state to append dummy notifications with decreasing dates. 
+
+**Refactoring notification list**
+
+I'm refactoring the notification list to use FlatList with mixed item types instead of nested lists. I'm implementing sectioned notifications with Today, This week, and Earlier sections. 
+
+**Implementing sectioned notifications**
+
+I'm implementing sectioned notifications using SectionList with Today, This week, and Earlier sections. I'm adding the total notification count and implementing the bucketing logic for Today, This week, and Earlier sections. I'm revising the total count to show loaded items plus a loading indicator instead of a dummy total. I'm updating the notification count to show dynamic sectioned totals instead of a static dummy total. 
+
+**Updating notification count**
+
+I'm replacing the static dummy total with dynamic count showing `{notifications.length} notifications`. I'm implementing the dummy data structure for notifications with separate buckets for today, this week, and earlier. 
+
+**Organizing data files**
+
+I'm creating `src/data/dummyNotifications.ts` to house the notification data generator. I'm moving the dummy notifications data to `src/screens/notifications/dummyData.ts` for simpler co-location. 
+
+I'm moving the dummy notifications data to `src/utils/notificationsDummy.ts` for better organization. 
+
+**Adding profile types**
+
+I'm adding ProfileMainScreenProps and NotificationScreenProps types following the same pattern as SearchMainScreenProps. I'm updating ProfileScreen to use typed navigation and exporting ProfileMainScreenProps. I'm defining ProfileMainScreenProps type for ProfileScreen navigation. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/MovieListScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating types**
+
+I'm adding Notification types and props to the profile stack navigator. I'm implementing discriminated union types for list rows and adding date partitioning logic. I'm implementing date partitioning logic for list rows with Today, This week, and Earlier sections. 
+
+I'm simplifying the header to show `{allItems.length} notifications` as the total, since allItems grows with infinite scroll. I'm implementing `DummyNotification` interface in `notificationsDummy.ts`. I'm implementing custom date utilities for week boundaries instead of using date-fns. I'm replacing date-fns imports with custom date utilities for week boundaries. I'm adjusting the week boundary logic to exclude today when checking 'this week'. 
+
+I'm clarifying the week boundary logic to handle 'this week' and 'earlier' categories correctly. I'm implementing the logic to partition notifications into 'today', 'this week', and 'earlier' categories based on week boundaries. I'm implementing logic to categorize notifications by time frames based on week boundaries. I'm adding bold total display for notifications and implementing loading indicator in footer. I'm adding `ProfileMainScreenProps` to types and verifying composite pattern matches `SearchMainScreenProps`. I'm defining `ProfileMainScreenProps` and `NotificationsScreenProps` with composite screen types. 
+
+I'm refining NotificationsScreenProps to use CompositeScreenProps for consistency with ProfileTab navigation. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Implementing the notifications screen with dummy data, Today / This week / Earlier sections, a total count header, and infinite-scroll loading.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing dummy data**
+
+I'm implementing daysAgo(1) for dummy data, ensuring it stays within the current week without including today. I'm adjusting the dummy data logic to use explicit 48-hour windows for 'this week' instead of relying on week boundaries that cause edge-case confusion. I'm now generating 'this week' items with hoursAgo(30) and hoursAgo(50) to avoid edge-case confusion with week boundaries. I'm using fixed offsets of 36 hours to ensure consistent weekly time ranges for dummy data generation. 
+
+I'm correcting the weekly time range logic to handle Monday morning edge cases where Sunday falls before the start of the current week. I'm adjusting the weekly time range logic to correctly handle Sunday dates in Monday-starting weeks, ensuring they're categorized as 'Earlier' rather than 'This week'. 
+
+**Adjusting time logic**
+
+I'm refining the time logic to ensure deterministic placement of items within the week using `startOfLocalWeek(now) + 2 days`. I'm implementing the time logic with `startOfLocalWeek` and ensuring proper day offset calculation for non-today items. I'm generating dummy notifications for today and this week's days using `startOfLocalWeek` and hour offsets. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Fixing dummy date generation so "This week" items fall inside the current week (avoiding edge cases like Sunday vs Monday).
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Building notification rows**
+
+I'm defining the Row type for notification list items and building the rows from bucketed notifications. I'm structuring the notification screen with a top bar and total count in the header area. I'm implementing the notification list with a fixed header and flat list structure. I'm adding pagination and loading states to the notification list. I'm fixing the initial page state to correctly handle the first loadMore call. 
+
+I'm implementing the `keyExtractor` and memoizing rows with `useMemo` for performance. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding navigation types, the screen, and Profile wiring.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/NotificationsScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking flatlist gap**
+
+I'll use marginBottom on cards instead of gap in FlatList's contentContainerStyle. 
+
+**Fixing flatlist gap**
+
+I'm replacing gap with marginBottom and padding to fix FlatList spacing issues. I'm implementing a loading lock to prevent race conditions from double-firing onEndReached. I'm adding a early exit condition to prevent loading when nextPage equals MAX_DUMMY_PAGES. I'm adding an early exit condition to prevent loading when nextPage equals MAX_DUMMY_PAGES. 
+
+**Removing flatlist gap**
+
+I'm using marginBottom on items in renderItem to ensure consistent spacing since FlatList's contentContainerStyle gap doesn't work everywhere. I'm switching to using the native `gap` property in React Native 0.71+ for consistent spacing instead of marginBottom. I'm refactoring the pagination logic to use a ref for nextPage instead of state to avoid unnecessary re-renders. I'm implementing a debounce mechanism for loadingMore to prevent double triggers during rapid scrolling. I'm removing FlatList gap and using margin styles on cards instead. 
+
+**Handling edge cases**
+
+I'm investigating why listRows can be empty even when notifications exist, and considering if items might fall through cracks in bucketing logic. I found that future items may be orphaned in bucketing logic if they don't match today or thisWeekNotToday buckets. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/NotificationsScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/NotificationsScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Running lint and tests**
+
+I'm fixing lint issues and running tests to ensure code quality. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+Incorrect tool arguments
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts
+  96:10  error  'hoursAgo' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 1 problem (1 error, 0 warnings)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/NotificationsScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/NotificationsScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/ProfileScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/notificationDummy.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 7 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/utils/trailer.test.ts
+PASS __tests__/components/Skeleton.test.tsx
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/StreamlistIcons.test.tsx
+PASS __tests__/App.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       29 passed, 29 total
+Snapshots:   0 total
+Time:        0.937 s, estimated 1 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was added:
+
+### [`src/screens/NotificationsScreen.tsx`](phase2/streamlist/src/screens/NotificationsScreen.tsx)
+- Top bar with back + **Notifications**
+- **Total line** under the bar: `N notification(s) total` (updates as more rows load)
+- **FlatList** with:
+  - **Today** — same calendar day as now (dummy items with times shifted from “now”)
+  - **This week** — Mon–Sun window, excluding today
+  - **Earlier** — before the start of this week; filled by **infinite scroll** (`onEndReached`, 12 items per page, up to **8** pages via `MAX_DUMMY_PAGES`)
+- Section headers show **title + count** (e.g. `THIS WEEK` and `5`)
+- Footer `ActivityIndicator` while loading the next page
+
+### [`src/utils/notificationDummy.ts`](phase2/streamlist/src/utils/notificationDummy.ts)
+- `DummyNotification`, `bucketNotifications`, `createInitialDummyNotifications`, `generateOlderNotificationsPage`, `formatNotificationTime`
+- Week math uses **Monday** as the start of the week
+
+### Navigation
+- [`src/navigation/types.ts`](phase2/streamlist/src/navigation/types.ts) — `Notifications` on `ProfileStackParamList`, plus `ProfileMainScreenProps` and `NotificationsScreenProps`
+- [`src/navigation/RootNavigator.tsx`](phase2/streamlist/src/navigation/RootNavigator.tsx) — `Notifications` screen on the profile stack
+- [`src/screens/ProfileScreen.tsx`](phase2/streamlist/src/screens/ProfileScreen.tsx) — **Notifications** row calls `navigation.navigate('Notifications')`; other rows unchanged
+
+Open it from **Profile → Notifications**. Scroll to the bottom to load older dummy notifications into **Earlier**.
+
+---
+
+_**User**_
+
+in my watchlist screen, there is section which show because you have saved, put the section at the bottom of screen, all watchlist should appear at first
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Moving the "Because you saved..." block from `ListHeaderComponent` to `ListFooterComponent` so the watchlist grid appears first.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what changed in [`WatchlistScreen.tsx`](phase2/streamlist/src/screens/WatchlistScreen.tsx):
+
+### Change
+- **Before:** The “Because you saved …” block was `ListHeaderComponent`, so it showed **above** the watchlist grid.
+- **After:** That block is `ListFooterComponent`, so the **full watchlist grid renders first**, and the recommendations row is **under** it when you scroll down.
+
+### Style
+- `because` now uses `marginTop` instead of `marginBottom` so there’s space between the grid and that section, plus a little `paddingBottom` at the end of the list.
+
+---
+
+_**User**_
+
+now add navigation from home screen header to navigationscreen
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/types.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx",
+  "pattern": "IconNotifications|header|topBar"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx",
+  "pattern": "IconNotifications|header|topBar",
+  "topFiles": [
+    {
+      "matchCount": 8,
+      "uri": "phase2/streamlist/src/screens/HomeScreen.tsx"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 8
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Replacing alert with navigation**
+
+I'm replacing Alert.alert with navigation to ProfileTab -> Notifications screen using nested navigation pattern. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx",
+  "pattern": "Alert"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx",
+  "pattern": "Alert",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/HomeScreen.tsx"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Replacing the placeholder alert with navigation to the Profile stack's Notifications screen.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/HomeScreen.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/HomeScreen.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+### Update in [`HomeScreen.tsx`](phase2/streamlist/src/screens/HomeScreen.tsx)
+
+- The header **notifications** control no longer shows an alert.
+- **`onPress`** now runs  
+  `navigation.navigate('ProfileTab', { screen: 'Notifications' })`  
+  so it opens the same **Notifications** screen as Profile → Notifications (tab switches to Profile and pushes **Notifications** on that stack).
+- Removed the unused **`Alert`** import and set **`accessibilityRole="button"`** on the control.
+
+Back from Notifications returns to **ProfileMain** in the profile stack; the user can change tabs from there.
+
+---
+
+_**User**_
+
+in mywatchlist, when there is no data for selected chip of genre, all the chip section is coming to middle of screen, keep the container in same place
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Analyzing empty state layout**
+
+I'm investigating why the empty view with `padding: spacing.lg` and `alignItems: 'center'` isn't filling its container properly. The empty view isn't filling container because root View lacks justifyContent: 'center'. The empty state layout issue stems from root View missing `justifyContent: 'center'` and `alignItems: 'center'`. The empty state layout issue likely stems from the outer View having `flex:1` while the inner content doesn't properly expand, possibly due to FlatList's `flexGrow` behavior being replaced by a smaller View component. The empty state might be centered due to `justifyContent: 'center'` on the tab screen or the parent layout. I'm checking if adding `flex: 1` and `justifyContent: 'center'` to ctxEmpty will center the empty message while keeping the chips aligned properly. 
+
+**Adjusting layout alignment**
+
+I'm implementing a consistent layout structure using flex containers with explicit justifyContent values to prevent unwanted centering of empty state content. The chip section centers vertically because its parent container uses `justifyContent: 'center'`. The layout alignment issue stems from React Navigation's flexbox behavior on mobile, where the screen wrapper may center children despite individual component heights being smaller than the screen. I'm examining how `flexGrow` and `alignItems` interact in the empty watchlist layout to fix vertical alignment issues. I'm testing a single column layout with `flex: 1` on the ScrollView to fix the centering issue. I'm using `justifyContent:'flex-start'` on the ScrollView to align content at the top instead of centering it. 
+
+I'm adding `justifyContent: 'flex-start'` to the root View to prevent vertical centering. I'm explicitly setting `flex: 1` and `justifyContent: 'flex-start'` on the main body container. I'm adding `justifyContent: 'flex-start'` to the root container and replacing the conditional with a wrapper view. 
+
+I'm setting `flex: 1` on the FlatList and adjusting the empty state view to use `paddingTop` instead of flex center. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Checking styles: the empty-filter branch may be laid out differently from the FlatList. Wrapping the area below the chips in a top-aligned `flex: 1` container so the header and chips stay at the top.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Unifying layout**
+
+I'm adding `justifyContent: 'flex-start'` to the root and wrapping content in a body view with `flex: 1` and `minHeight: 0`. I'm adjusting layout behavior by adding `flex: 1` to the ScrollView and ensuring consistent flex properties across components. 
+
+**Adjusting layout**
+
+I'm using `data={[]}` with `ListEmptyComponent` to match grid layout exactly. I'm switching from FlatList to ScrollView for better layout control and adding flexGrow: 0 to prevent unwanted growth. I'm removing `flexGrow: 1` from `contentContainerStyle` to prevent issues with horizontal ScrollView. 
+
+**Implementing layout adjustments**
+
+I'm adding `justifyContent: 'flex-start'` to root and creating a new `bodyBelowFilters` style with `flex: 1` and `minHeight: 0`. 
+
+**Adjusting layout constraints**
+
+I'm adding `flexShrink: 0` to topRow and wrapping the filter ScrollView to prevent shrinking. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Pinning the header and filter chips to the top: wrapping the area below the chips in a top-aligned `flex: 1` container and giving the FlatList an explicit `flex: 1` so layout matches when the filter returns no items.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing syntax error**
+
+I'm correcting the syntax error in the FlatList component by ensuring proper closing of the ternary expression with `)}`. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was wrong and what we changed.
+
+### Cause
+With a filter that had **no items**, the main area was only the small empty state. The **horizontal filter `ScrollView`** didn’t have a fixed flex role, so with less content the column could **look vertically centered** relative to the tab screen. The grid case used a **`FlatList` with `flex: 1`**, which behaved differently.
+
+### Fix (in [`WatchlistScreen.tsx`](phase2/streamlist/src/screens/WatchlistScreen.tsx))
+
+1. **`root`** — set `justifyContent: 'flex-start'` so the column stays **top-aligned**.
+2. **`filterStrip`** — `style={styles.filterStrip}` with `flexGrow: 0` so the chip row **doesn’t grow** or steal space.
+3. **`mainColumn`** — wraps the empty state **and** the watchlist `FlatList`, with `flex: 1`, `minHeight: 0`, `justifyContent: 'flex-start'` so the **list/empty block** fills space below the chips while staying **top-aligned** (same as when the grid is shown).
+4. **`watchList`** — `style={styles.watchList}` with `flex: 1` on the `FlatList` so it still fills `mainColumn` when there are items.
+5. **`ctxEmpty`** — `flexGrow: 0`, `alignSelf: 'stretch'`, asymmetric padding (`paddingTop` + horizontal) so the message stays **under the chips**, not vertically centered in the screen.
+
+Title, filters, and the empty message should now stay in a **stable top layout** when Movies/Series has no matches.
+
+---
+
+_**User**_
+
+now profile tab is messed, navigation is taking to notificationscreen, change profile tab to profilescreen
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing nav state**
+
+The Profile tab is remembering its last state and navigating to Notifications instead of ProfileMain. I need to implement one of the four strategies to ensure Profile tab navigates to ProfileMain instead of Notifications. I'm adjusting the profile stack to ensure tapping the Profile tab shows ProfileMain instead of Notifications. I'm implementing a tab press listener to reset the Profile stack to ProfileMain on tab press. I'm adjusting the tab press behavior to reset Profile stack to ProfileMain only when needed, not on every tab press. I'm using `popToTop` on tab press to reset Profile stack to ProfileMain. 
+
+I'm implementing `CommonActions.popToTop` to properly reset the Profile stack on tab press. 
+
+**Resetting nested stack**
+
+I'm resetting the nested stack when switching to the Profile tab by navigating to `ProfileMain` directly. I'm using `navigation.popToTop()` on the profile stack when the tab is focused, accessing the nested navigator via `navigation.getParent()`. I'm implementing `unmountOnBlur: true` on the Profile stack to reset it on tab switch. 
+
+**Navigating nested screens**
+
+I'm using `navigate` with nested screen param to switch to ProfileMain, which should pop to that screen if Notifications was on the stack. I'm implementing `CommonActions.navigate` to properly handle nested screen navigation instead of using `navigate` directly. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Checking how the Profile tab and stack are configured. Navigating to Notifications leaves it on the stack, so switching to the Profile tab can show Notifications instead of ProfileMain.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding tab listeners**
+
+I'm adding a `listeners` prop to ProfileTab's Tab.Screen to navigate to ProfileMain on tab press. I'm implementing tabPress listener to navigate to ProfileMain and pop stack using CommonActions. 
+
+I'll use `popToTop` from the nested stack to clear intermediate screens when navigating to ProfileMain. 
+
+**adding tab listeners**
+
+I'm implementing the tab press listener to reset the profile screen state using `CommonActions`. 
+
+**Adding tab listeners**
+
+I'm switching from resetting the entire main stack to using `popToTopOnBlur: true` on the Profile stack for a lighter reset approach. I'm implementing tab listeners to handle profile route resets. I'm adding tab press listeners to handle profile route resets with preventDefault for bottom tabs. 
+
+I'm implementing tab press listeners to reset profile navigation with preventDefault. I'm using `StackActions.popToTop()` to reset the profile stack on tab press. 
+
+**Using navigation dispatch**
+
+I'm dispatching a reset action to properly clear the Profile stack on tab press. I'm dispatching a reset action to clear the Profile stack on tab press. 
+
+I'm implementing tabPre to reset the Profile stack using popToTop from @react-navigation/native. 
+
+**Implementing navigation reset**
+
+I'm adding a listener to navigate to `ProfileTab` and `ProfileMain` on mount. I'm implementing the nested navigation pattern from RN docs with `navigation.navigate('ProfileTab', { screen: 'ProfileMain' })` and setting `merge: false` to ensure proper stack behavior. 
+
+**Handling tab press**
+
+I'm adding a listener to handle tab press behavior, where second tap on Profile tab will pop to root to avoid duplicates. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding a Profile tab listener to navigate to `ProfileMain` when the Profile tab is pressed so we return to the profile screen instead of staying on Notifications.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing nav behavior**
+
+I'm implementing tabPress listener with navigate to fix the navigation behavior. I'm using `CommonActions.navigate` to dispatch to nested navigation screens. I'm switching to `CommonActions.reset` for the Profile nested router to clean up navigation state. I'm implementing `CommonActions` for nested navigator reset with `navigate`. I'm adding optional StackActions.popToTop for nested navigators. I'm using `navigation.navigate('ProfileTab', { screen: 'ProfileMain' })` to pop stack in RN 6, avoiding duplicate navigation. 
+
+I'm implementing a reset approach with `CommonActions` to ensure proper navigation to ProfileMain and prevent double animation. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Verifying navigate behavior**
+
+I'm checking if CommonActions.navigate pops the stack in all versions and verifying eslint issues. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/navigation/RootNavigator.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/navigation/RootNavigator.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+Opening **Notifications** from Home does  
+`navigation.navigate('ProfileTab', { screen: 'Notifications' })`,  
+so the profile stack becomes `[ProfileMain, Notifications]`.  
+The tab keeps that stack, so choosing **Profile** again still showed **Notifications** on top.
+
+### Change ([`RootNavigator.tsx`](phase2/streamlist/src/navigation/RootNavigator.tsx))
+- Import **`CommonActions`** from `@react-navigation/native`.
+- On **`ProfileTab`**, add a **`tabPress`** listener that runs:
+
+```ts
+navigation.dispatch(
+  CommonActions.navigate({
+    name: 'ProfileTab',
+    params: { screen: 'ProfileMain' },
+  }),
+);
+```
+
+So whenever the **Profile** tab is pressed, the nested stack targets **`ProfileMain`**, which pops **Notifications** (if it was open) and shows **`ProfileScreen`** again, matching the usual “tab = root of that stack” behavior.
+
+You can still open Notifications from Home or from Profile → Notifications; tapping the **Profile** tab afterward returns you to the main profile screen.
+
+---
+
+_**User**_
+
+@phase2/streamlist/src/navigation/RootNavigator.tsx:83-90 here profilemain is not coming as default screen, but notifications screen is coming, check and find the issue and fix it
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Investigating navigation**
+
+I'm checking if the ProfileStack needs explicit initialRouteName set to ProfileMain. The tabPress listener might be dispatching navigate events that corrupt navigation state. 
+
+**Checking navigator config**
+
+I'm reviewing the RootNavigator to verify initialRouteName and defaultScreenOptions for ProfileStack. I'm investigating how the `lazy` prop affects Profile tab state restoration and whether `initialRouteName` is needed to prevent state merging issues. I confirmed that `initialRouteName` is needed to prevent state merging issues in nested stacks. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Tracing navigation setup to determine why the Profile stack opens on Notifications instead of ProfileMain.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "persist|initialRouteName|linking|NavigationContainer"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "persist|initialRouteName|linking|NavigationContainer",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/src/navigation/RootNavigator.tsx"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/target/build_settings.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sources_manager.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/pod_target_installer.rb"
+    },
+    {
+      "matchCount": 7,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/CHANGELOG.md"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/podfile/dsl.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/build_type.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/README.md"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/extensions/arm64-darwin-24/3.4.0/ffi-1.17.4/gem_make.out"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/Gemfile.lock"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/extensions/arm64-darwin-24/3.4.0/json-2.19.3/gem_make.out"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/ext/json/ext/parser/Makefile"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/with_options.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/redis_cache_store.rb"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/extensions/arm64-darwin-24/3.4.0/bigdecimal-4.1.1/gem_make.out"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/extensions/arm64-darwin-24/3.4.0/nkf-0.2.0/gem_make.out"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/ext/bigdecimal/Makefile"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/ext/ffi_c/Makefile"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/ext/json/ext/generator/Makefile"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/build_phase.rb"
+    }
+  ],
+  "totalFiles": 48,
+  "totalMatches": 186
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing auth middleware**
+
+I'm investigating why the profile tab isn't defaulting in React Navigation 6 and notifications appear first instead. The profile tab defaulting issue likely stems from `createNativeStackNavigator` behavior with `@react-navigation/native-s`. 
+
+**Checking tab navigation**
+
+The issue might be caused by deep linking setting Notifications as initial screen instead of ProfileMain. The Profile tab might be mounting with incorrect route due to missing `initialRouteName` in native stack. 
+
+**Setting initial route**
+
+I'm setting `initialRouteName="ProfileMain"` explicitly to fix incorrect tab mounting. 
+
+**Handling tab state**
+
+I'm handling tab state persistence by merging notification routes into the profile tab's navigation state. I'm resetting the initial route to ProfileMain and re-adding the tab listener to fix the missing Profile tab navigation. I'm re-adding tab listeners on ProfileTab with `CommonActions.navigate` to ProfileMain on tab press. I'm adding `initialRouteName="ProfileMain"` and re-adding tab listeners with `CommonActions.navigate`. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Setting initial route**
+
+I'm adding `initialRouteName="ProfileMain"` to ProfileStack.Navigator to ensure the correct screen loads initially. I'm setting `unmountOnBlur: true` on the ProfileTab screen to unmount it when blurred. I'm implementing `unmountOnBlur: true` on ProfileTab to ensure clean state by unmounting the stack when blurred. 
+
+**Handling initial route**
+
+The initial route is being set to `ProfileMain` as requested, but RN might be using the last screen in JSX order as initial due to a potential bug. 
+
+**Setting initial route**
+
+I'm trying `initialRouteName` explicitly set to `ProfileMain` to override RN's default behavior. I'm setting `initialRouteName="ProfileMain"` and adding a `key` prop to reset the stack. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Setting an explicit `initialRouteName` on the Profile stack so it always starts on `ProfileMain`, and restoring the Profile tab listener so tapping the tab resets the nested stack (clearing Notifications when returning from Home).
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/navigation/RootNavigator.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/navigation/RootNavigator.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/navigation/RootNavigator.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+1. **No `initialRouteName`** – With a nested stack, relying only on declaration order can be unreliable across versions; the stack should name its first screen explicitly.
+2. **Stack state after Home → Notifications** – `navigate('ProfileTab', { screen: 'Notifications' })` pushes **Notifications** on top of **ProfileMain**. If that state isn’t cleared, opening the Profile tab can still show **Notifications**.
+
+### Fixes in [`RootNavigator.tsx`](phase2/streamlist/src/navigation/RootNavigator.tsx)
+
+1. **`initialRouteName="ProfileMain"`** on `ProfileStack.Navigator`  
+   - Ensures a **new** profile stack always starts on **ProfileMain**, not the second route.
+
+2. **`CommonActions` + Profile tab `listeners.tabPress`**  
+   - On every Profile tab press, dispatch  
+     `navigate({ name: 'ProfileTab', params: { screen: 'ProfileMain' } })`  
+   - So when **Notifications** was opened (e.g. from Home), tapping **Profile** again returns to **ProfileMain** and clears the extra screen.
+
+Together, cold starts default to **Profile**, and tab presses reliably show **ProfileMain** instead of staying on **Notifications**.
+
+---
+
+_**User**_
+
+in @phase2/streamlist/src/screens/WatchlistScreen.tsx , the card of movie has rating icon and remove icon, remove icon is hiding the  rating text, increase width to show star and rating text as well as remove button
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Positioning conflict**
+
+The rating badge and remove button are overlapping in the top-right corner of cards. I'm adding a `ratingBadgePosition` prop to ContentCard to handle positioning conflicts. 
+
+**Handling user feedback**
+
+I'll adjust ContentCard to accommodate the rating badge and remove button without increasing overall width by repositioning elements. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adjusting badge positioning**
+
+I'm moving the remove button to the left and adding an optional ratingAlign prop to ContentCard for better layout control. I'm moving the remove button to the top-left to fix overlap issues without changing ContentCard. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Calculating column widths**
+
+I'm correcting the column width calculation to use `2*spacing.md + spacing.sm` instead of `spacing.md * 3`. 
+
+**Adjusting card layout**
+
+I'm adjusting the column width calculation to `(width - 2 * spacing.md - spacing.sm) / 2` to support wider cards. I calculated that the new formula gives +2px per column compared to the old one when md > sm. I updated colW calculation to `(width - spacing.md * 2 - spacing.sm) / 2` to match list geometry and maximize card width. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Relocating the remove control: it was absolutely positioned at the top-right, overlapping ContentCard's rating badge (also top-right). Moving the remove button to the top-left and aligning the column width with the list padding and gap.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/screens/WatchlistScreen.tsx
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+`ContentCard` draws the **rating** (star + score) at the **top-right** of the poster. The **remove** control was also absolutely positioned at the **top-right** of `cardWrap`, so it sat on top of the badge and hid the rating.
+
+### Changes ([`WatchlistScreen.tsx`](phase2/streamlist/src/screens/WatchlistScreen.tsx))
+
+1. **Remove control → top-left**  
+   Updated `styles.remove` from `right: spacing.xs` to `left: spacing.xs` so the × stays in the **upper-left** and the **star + rating** stay visible in the **upper-right** on the poster.
+
+2. **Column width**  
+   Replaced `(width - spacing.md * 3) / 2` with  
+   `(width - spacing.md * 2 - spacing.sm) / 2`  
+   so card width matches the grid: horizontal padding `md` on each side + `sm` between the two columns. That slightly **widens** each card vs the old formula and matches the `FlatList` layout.
+
+No updates to `ContentCard` were required; separating corners fixes the overlap.
+
+---
+
+_**User**_
+
+move close to right and rating to left
+
+---
+
+_**Agent (composer-2)**_
+
+
+Adding a `ContentCard` prop to place the rating badge on the left, and moving the remove control back to the top-right on the watchlist.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.tsx",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "ContentCard"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "ContentCard",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/src/screens/WatchlistScreen.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/HomeScreen.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/DetailScreen.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/MovieListScreen.tsx"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx"
+    },
+    {
+      "matchCount": 8,
+      "uri": "phase2/streamlist/__tests__/components/ContentCard.test.tsx"
+    },
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/src/screens/SearchScreen.tsx"
+    },
+    {
+      "matchCount": 4,
+      "uri": "phase2/streamlist/src/components/common/ContentCard.tsx"
+    }
+  ],
+  "totalFiles": 8,
+  "totalMatches": 25
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/WatchlistScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/components/common/ContentCard.tsx src/screens/WatchlistScreen.tsx && npm test -- __tests__/components/ContentCard.test.tsx 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npx eslint src/components/common/ContentCard.tsx src/screens/WatchlistScreen.tsx && npm test -- __tests__/components/ContentCard.test.tsx 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 test
+&gt; jest __tests__/components/ContentCard.test.tsx
+
+watchman warning:  Recrawled this watch 7 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/components/ContentCard.test.tsx
+  ContentCard
+    ✓ renders poster image and rating when poster and vote exist (140 ms)
+    ✓ renders placeholder when poster_path is null (5 ms)
+    ✓ hides rating badge when showRating is false (3 ms)
+    ✓ hides rating badge when vote_average is 0 (1 ms)
+    ✓ includes genreLabel in meta line (2 ms)
+    ✓ invokes onPress when card is pressed (1 ms)
+
+Test Suites: 1 passed, 1 total
+Tests:       6 passed, 6 total
+Snapshots:   0 total
+Time:        0.891 s, estimated 1 s
+Ran all test suites matching /__tests__\/components\/ContentCard.test.tsx/i.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what changed:
+
+### [`ContentCard.tsx`](phase2/streamlist/src/components/common/ContentCard.tsx)
+- Added optional prop **`ratingBadgeSide?: 'left' | 'right'`** (default **`'right'`** so Home, Search, Detail, etc. stay the same).
+- Split styles into **`badge`** (shared) + **`badgeLeft`** / **`badgeRight`** for horizontal placement.
+
+### [`WatchlistScreen.tsx`](phase2/streamlist/src/screens/WatchlistScreen.tsx)
+- Pass **`ratingBadgeSide="left"`** on the main grid `ContentCard` so the star + score sit on the **top-left** of the poster.
+- **`remove`** is **`top` + `right`** again so the close control is on the **top-right**, clear of the rating.
+
+The “Because you saved…” row still uses default **`ratingBadgeSide`** (right), which is fine for that strip.
+
+---
+
+_**User**_
+
+why all gem and rb files are coming in commit, are they needed to be commited, if not needed, at to gitignore
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **14** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist** (14 files)
+
+| File |
+|------|
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/atomos-0.1.3/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/.gitignore` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/benchmark-0.5.0/.gitignore` |
+| `.gitignore` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": ".gitignore",
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "vendor|\\.gem|ruby"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist",
+  "pattern": "vendor|\\.gem|ruby",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/.gitignore"
+    },
+    {
+      "matchCount": 3,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/.gitignore"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/.gitignore"
+    },
+    {
+      "matchCount": 3,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/.gitignore"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/.gitignore"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/.gitignore"
+    },
+    {
+      "matchCount": 1,
+      "uri": "./.gitignore"
+    }
+  ],
+  "totalFiles": 7,
+  "totalMatches": 11
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1330** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist** (1330 files)
+
+| File |
+|------|
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/xcode/xcframework/xcframework_slice.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/xcode/xcframework.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/xcode/linkage_analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/xcode/framework_paths.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/xcode.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/version_metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/validator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/user_interface/inspector_reporter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/user_interface/error_report.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/user_interface.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/target/pod_target.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/target/build_settings.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/target/aggregate_target.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/target.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sources_manager.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox/podspec_finder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox/pod_dir_cleaner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox/path_list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox/headers_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox/file_accessor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/sandbox.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/resolver/resolver_specification.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/resolver/lazy_specification.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/resolver.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/project.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/podfile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/open-uri.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/native_target_extension.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/target_validator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/single_pods_project_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/target_installer_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/target_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/target_installation_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/project_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/pods_project_writer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/pod_target_integrator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/pod_target_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/pod_target_dependency_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/file_references_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/app_host_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/aggregate_target_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator/aggregate_target_dependency_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/pods_project_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode/multi_pods_project_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/xcode.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/user_project_integrator/target_integrator/xcconfig_integrator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/user_project_integrator/target_integrator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/user_project_integrator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/target_uuid_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/source_provider_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/sandbox_header_paths_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/sandbox_dir_cleaner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/target_metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/target_cache_key.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_metadata_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_installation_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_cache_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_cache_analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_cache_analysis_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/project_cache/project_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/pre_integrate_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/pre_install_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/post_integrate_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/post_install_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/podfile_validator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/pod_source_preparer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/pod_source_installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/pod_source_downloader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/installation_options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/base_install_hooks_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/target_inspector.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/target_inspection_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/specs_state.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/sandbox_analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/podfile_dependency_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/pod_variant_set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/pod_variant.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/locking_dependency_analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer/analysis_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer/analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/installer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/hooks_manager.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/umbrella_header.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/script_phase_constants.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/prefix_header.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/module_map.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/info_plist_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/header.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/file_list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/embed_frameworks_script.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/dummy_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/copy_xcframework_script.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/copy_resources_script.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/copy_dsyms_script.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/constant.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/bridge_support.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/app_target_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/acknowledgements/plist.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/acknowledgements/markdown.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/generator/acknowledgements.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/external_sources/podspec_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/external_sources/path_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/external_sources/downloader_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/external_sources/abstract_external_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/external_sources.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/executable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/downloader/response.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/downloader/request.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/downloader/cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/downloader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/core_overrides.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/config.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/update.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec/which.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec/lint.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec/edit.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec/create.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec/cat.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/setup.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/update.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/remove.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/push.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/lint.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/add_cdn.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo/add.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/repo.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/outdated.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/options/repo_update.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/options/project_directory.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/lib/lint.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/lib/create.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/lib.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/update_search_index.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/repl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/podfile_json.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/podfile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/ipc.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/install.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/init.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/env.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/cache/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/cache/clean.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command/cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods/command.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-1.15.2/lib/cocoapods.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/yaml_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/vendor/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/vendor/requirement.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/vendor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/trunk_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/standard_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/set/presenter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/root_attribute_accessors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/linter/result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/linter/analyzer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/linter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/json.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/dsl/platform_proxy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/dsl/deprecations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/dsl/attribute_support.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/dsl/attribute.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/dsl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification/consumer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/specification.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source/metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source/manager.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source/health_reporter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source/aggregate.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source/acceptor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/requirement.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/podfile/target_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/podfile/dsl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/podfile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/platform.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/metrics.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/lockfile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/http.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/github.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/dependency.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/core_ui.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/cdn_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core/build_type.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-core-1.15.2/lib/cocoapods-core.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/response/status.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/response/informations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/response/header.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/response/cacheable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/response.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/stubbable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/streamable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/responseable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/operations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/memoizable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/marshal.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/callbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/cacheable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/block_connection.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/before.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request/actions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/request.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/railtie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/pool.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/stubbable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/runnable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/queueable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/memoizable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/cacheable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/block_connection.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/before.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra/addable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/hydra.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/expectation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/errors/typhoeus_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/errors/no_stub.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/easy_factory.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/config.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/cache/redis.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/cache/rails.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/cache/dalli.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus/adapters/faraday.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/typhoeus.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/rack/typhoeus/middleware/params_decoder/helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/rack/typhoeus/middleware/params_decoder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/typhoeus-1.6.0/lib/rack/typhoeus.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/multi/stack.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/multi/options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/multi/operations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/multi.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/loggable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/libc.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/select.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/multi_timeout.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/multi_remove.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/multi_fdset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/multi_add.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/invalid_value.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/invalid_option.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/global_init.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors/ethon_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/util.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/response_callbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/queryable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/params.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/operations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/mirror.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/informations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/putable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/put.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/postable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/post.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/patch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/head.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/get.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/delete.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/custom.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http/actionable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/http.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/header.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/form.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/features.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/debug_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy/callbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/easy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/settings.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/messages.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/infos.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/functions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/form_options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/constants.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/codes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curls/classes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon/curl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ethon-0.18.0/lib/ethon.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/spec/stub_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/spec/mock_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/spec/client_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/spec/account_client_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algoliasearch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/webmock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/protocol.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/insights.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/index.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/client.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/analytics.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/algoliasearch-1.27.5/lib/algolia/account_client.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/rexml.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/nokogirisax.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/nokogiri.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/libxmlsax.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/libxml.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini/jdom.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/xml_mini.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/values/time_zone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/time_with_zone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/time_helpers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/tests_without_assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/tagged_logging.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/stream.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/setup_and_teardown.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/parallelize_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/parallelization/worker.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/parallelization/server.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/parallelization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/method_call_assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/isolation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/file_fixtures.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/error_reporter_assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/deprecation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/declarative.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/constant_stubbing.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/constant_lookup.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/autorun.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/testing/assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/test_case.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/tagged_logging.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/syntax_error_proxy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/subscriber.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/string_inquirer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/security_utils.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/secure_compare_rotator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/rescuable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/reloader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/railtie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/rails.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/proxy_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/parameter_filter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/ordered_options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/ordered_hash.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/option_merger.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/rounding_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_rounded_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_phone_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_percentage_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_human_size_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_human_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_delimited_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_to_currency_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper/number_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/number_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/notifications/instrumenter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/notifications/fanout.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/notifications.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/multibyte/unicode.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/multibyte/chars.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/multibyte.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/serializer_with_fallback.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/rotator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/rotation_coordinator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/rotation_configuration.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/messages/codec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_verifiers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_verifier.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_pack/serializer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_pack/extensions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_pack/cache_serializer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_pack.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_encryptors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/message_encryptor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/logger_thread_safe_level.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/logger_silence.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/logger.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/log_subscriber/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/log_subscriber.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/locale/en.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/lazy_load_hooks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/key_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/json/encoding.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/json/decoding.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/json.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/isolated_execution_state.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/inflector/transliterate.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/inflector/methods.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/inflector/inflections.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/inflector.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/inflections.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/i18n_railtie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/i18n.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/html_safe_translation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/hash_with_indifferent_access.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/gzip.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/fork_tracker.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/file_update_checker.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/executor/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/execution_wrapper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/execution_context/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/execution_context.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/evented_file_update_checker.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/error_reporter/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/error_reporter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/environment_inquirer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/encrypted_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/encrypted_configuration.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/duration/iso8601_serializer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/duration/iso8601_parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/duration.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/digest.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/descendants_tracker.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/reporting.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/proxy_wrappers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/method_wrappers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/disallowed.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/deprecators.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/constant_accessor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation/behaviors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deprecation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/dependencies/require_dependency.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/dependencies/interlock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/dependencies/autoload.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/dependencies.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/delegation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/deep_mergeable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/current_attributes/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/current_attributes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time/zones.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time/compatibility.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time/calculations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time/acts_like.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/thread/backtrace/location.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/symbol/starts_ends_with.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/symbol.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/zones.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/strip.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/starts_ends_with.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/output_safety.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/multibyte.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/inquiry.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/inflections.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/indent.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/filters.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/exclude.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/behavior.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string/access.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/string.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/securerandom.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/regexp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range/sole.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range/overlap.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range/each.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range/compare_range.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/range.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/pathname/existence.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/pathname/blank.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/pathname.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/with_options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/with.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/try.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/to_query.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/to_param.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/json.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/instance_variables.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/inclusion.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/duplicable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/deep_dup.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/blank.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object/acts_like.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/numeric/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/numeric/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/numeric/bytes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/numeric.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/name_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/remove_method.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/redefine_method.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/introspection.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/deprecation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/delegation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/concerning.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/attribute_accessors_per_thread.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/attribute_accessors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/attr_internal.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/anonymous.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module/aliasing.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/module.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/load_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/kernel/singleton_class.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/kernel/reporting.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/kernel/concern.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/kernel.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/integer/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/integer/multiple.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/integer/inflections.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/integer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/slice.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/reverse_merge.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/keys.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/indifferent_access.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/except.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/deep_transform_values.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/deep_merge.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/hash.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/file/atomic.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/erb/util.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/enumerable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/digest/uuid.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/digest.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time/compatibility.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time/calculations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time/blank.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time/acts_like.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_and_time/zones.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_and_time/compatibility.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date_and_time/calculations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date/zones.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date/calculations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date/blank.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date/acts_like.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/date.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/class/subclasses.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/class/attribute_accessors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/class/attribute.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/class.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/big_decimal/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/big_decimal.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/benchmark.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/wrap.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/inquiry.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/grouping.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/extract_options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/extract.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/conversions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array/access.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext/array.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/core_ext.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/configuration_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/configurable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/concurrency/share_lock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/concurrency/null_lock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/concurrency/load_interlock_aware_monitor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/concern.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/code_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/callbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/strategy/local_cache_middleware.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/strategy/local_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/serializer_with_fallback.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/redis_cache_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/null_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/memory_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/mem_cache_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/file_store.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/entry.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache/coder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/builder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/broadcast_logger.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/benchmarkable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/backtrace_cleaner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/array_inquirer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/all.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support/actionable_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/activesupport-7.2.3.1/lib/active_support.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/xcodebuild_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/workspace/reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/workspace/group_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/workspace/file_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/workspace.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/user_interface.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/xml_element_wrapper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/test_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/shell_script_action_content.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/send_email_action_content.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/remote_runnable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/profile_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/macro_expansion.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/location_scenario_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/launch_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/execution_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/environment_variables.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/command_line_arguments.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/buildable_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/buildable_product_runnable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/build_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/archive_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/analyze_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme/abstract_scheme_action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/scheme.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/uuid_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/project_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object_list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object_dictionary.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object_attributes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/target_dependency.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/swift_package_remote_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/swift_package_product_dependency.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/swift_package_local_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/root_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/reference_proxy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/native_target.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/helpers/groupable_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/helpers/file_references_factory.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/helpers/build_settings_array_settings_by_object_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/group.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/file_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/container_item_proxy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/configuration_list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/build_rule.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/build_phase.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/build_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object/build_configuration.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project/case_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/project.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/plist.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/differ.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/constants.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/config/other_linker_flags_parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/config.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command/target_diff.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command/sort.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command/show.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command/project_diff.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command/config_dump.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj/command.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/xcodeproj-1.25.1/lib/xcodeproj.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_webagent-cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_ssl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_jsonclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_include_client.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_httpclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_http-access2.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_hexdump.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/test_auth.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/sslsvr.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/runner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/jruby_ssl_socket/test_pemutils.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/test/helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/wcat.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/thread.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/stream.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/ssl/webrick_httpsd.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/ssl/ssl_client.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/oauth_twitter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/oauth_friendfeed.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/oauth_buzz.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/jsonclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/howto.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/generate_test_keys.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/dav.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/remove_owner_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/register_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/auth.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/push_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/sample/async.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/oauthclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/me_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/jsonclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/info_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/deprecate_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/webagent-cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/delete_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/spec/command/trunk/addowner_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/util.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/remove_owner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/timeout.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/register.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/ssl_socket.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/push.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/ssl_config.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/me.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/session.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/deprecate.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/jruby_ssl_socket.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/delete.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk/add_owner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/include_client.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/http.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/pod/command/trunk.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/cocoapods_trunk.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/connection.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-trunk-1.6.0/lib/cocoapods_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/xpath_parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/xpath.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/xmltokens.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/xmldecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/validation/validationexception.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/validation/validation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/validation/relaxng.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient/auth.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/lib/nkf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/undefinednamespaceexception.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/lib/kconv.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/with_offset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/httpclient.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/text.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/streamlistener.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/transitions_timezone_period.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/http-access2/http.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/transition_rule.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/http-access2/cookie.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/security.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timezone_transition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/http-access2.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/sax2listener.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timezone_proxy.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/httpclient-2.9.0/lib/hexdump.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/rexml.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timezone_period.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/quickpath.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timezone_offset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/xpathparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timezone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/ultralightparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timestamp_with_offset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/treeparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/timestamp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/streamparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/qsort_ractor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins_helper_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/sax2parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/qsort.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins/search_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/time_with_offset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/pty.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins/publish_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/pullparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/string_deduper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/inotify.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins/list_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/lightparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/ruby_core_support.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/hello_ractor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins/installed_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parsers/baseparser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/offset_timezone_period.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/hello.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/plugins/create_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/linked_timezone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/gettimeofday.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/utils.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/uri.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/info_timezone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/gem_index_cache_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parseexception.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/getpid.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/procs.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/timezone_index_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/spec/command/gem_helper_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/parent.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/samples/getlogin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/pluralization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/output.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/timezone_index_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/lookup.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/node.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/timezone_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/template.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/variadic.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/localization/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/namespace.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/timezone_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/union.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/localization/procs.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins/search.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/light/node.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/country_index_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/types.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/idna/pure.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/localization/date_time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/country_index_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins/publish.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/instruction.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/tools/struct_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/localization/date.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2/country_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/functions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/tools/generator_task.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins/installed.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/localization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format2.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/tools/generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/formatters/transitive.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/link.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins/create.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1/timezone_index_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/tools/const_generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/formatters/pretty.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/interpolation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1/timezone_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/plugins.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/formatters/default.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/struct_layout_builder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1/timezone_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/defaults.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/gem_index_cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/struct_layout.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1/country_index_definition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests/basics.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/entity.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/idna/native.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/pod/command/gem_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/struct_by_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1/country_definer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/encoding.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/tests.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable/idna.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/cocoapods_plugins.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/middleware.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/format1.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/element.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-plugins-1.0.0/lib/cocoapods_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/addressable-2.9.0/lib/addressable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale/tag/simple.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/pointer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/datetime_with_offset.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale/tag/rfc4646.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_timezone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale/tag/parents.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/zoneinfo_reader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nkf-0.2.0/ext/nkf/extconf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/dtd/notationdecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale/tag.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/dtd/entitydecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale/fallbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/zoneinfo_data_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/dtd/elementdecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/dtd/dtd.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/locale.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/transitions_data_timezone_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/dtd/attlistdecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/interpolate/ruby.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/timezone_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/document.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/ruby_data_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/gettext/po_parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/doctype.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/gettext/helpers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/posix_time_zone_parser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/linked_timezone_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/gettext.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/comment.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/data_timezone_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/child.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/exceptions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/country_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/config.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/cdata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources/constant_offset_data_timezone_info.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/attribute.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/transliterator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_sources.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml/attlistdecl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/simple.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/data_source.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/pluralization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/rexml-3.4.4/lib/rexml.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/country_timezone.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/memoize.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/country.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/lazy_loadable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo/annual_rules.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/key_value.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/tzinfo-2.0.6/lib/tzinfo.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/interpolation_compiler.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/gettext.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/flatten.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/fallbacks.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/chain.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/cascade.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/cache_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/cache.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend/base.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n/backend.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/writer/xml.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/writer/pbxproj.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/i18n-1.14.8/lib/i18n.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/writer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/unicode/quote_maps.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/unicode/next_step_mapping.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/unicode.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/reader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/plist.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo/object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nanaimo-0.3.0/lib/nanaimo.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/platform.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/memorypointer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/managedstruct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/library_path.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/library.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/io.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/function.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/ffi.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/errno.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/enum.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/dynamic_library.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/data_converter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/compat.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/callback.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/buffer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/autopointer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi/abstract_memory.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/lib/ffi.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/view.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/utils.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/tools.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/structure.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/sections.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/macho_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/load_commands.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/headers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/fat_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho/exceptions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ruby-macho-2.5.1/lib/macho.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/state.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/resolver.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/resolution.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/modules/ui.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/modules/specification_provider.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/gem_metadata.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/vertex.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/tag.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/set_payload.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/log.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/detach_vertex_named.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/delete_edge.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/add_vertex.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/add_edge_no_circular.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph/action.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/dependency_graph.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/delegates/specification_provider.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo/delegates/resolution_state.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/molinillo-0.8.0/lib/molinillo.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector/sidekick.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector/inspector.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector/exception_hound.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector/evidence.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/gh_inspector-1.1.3/lib/gh_inspector.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/ffi-1.17.4/ext/ffi_c/extconf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/xcodebuild.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/simctl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/find.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/executable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher/compat.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fourflusher-2.3.1/lib/fourflusher.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/escape-0.0.4/doc_include/template/qualitysmith.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper/user_interface.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/escape-0.0.4/lib/escape.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper/temporary_repos.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper/pre_flight.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper/fixture.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper/command.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/spec/colored2_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/spec/colored2/strings_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/spec/command/try_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/spec/colored2/object_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/spec/command/try_settings_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/spec/colored2/numbers_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/lib/pod/try_settings.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/strings.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/lib/pod/command/try.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/numbers.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/lib/cocoapods_try.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/spec/command/search_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/codes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-try-1.2.0/lib/cocoapods_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2/ascii_decorator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/lib/cocoapods_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/colored2-3.1.2/lib/colored2.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/lib/cocoapods-search/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/lib/cocoapods-search/command/search.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/lib/cocoapods-search/command.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-search-1.0.1/lib/cocoapods-search.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/subversion.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/scp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/remote_file.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/mercurial.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/http.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/git.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/base.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/api_exposable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader/api.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-downloader-2.1/lib/cocoapods-downloader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-deintegrate-1.0.5/lib/cocoapods_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-deintegrate-1.0.5/lib/cocoapods_deintegrate.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-deintegrate-1.0.5/lib/cocoapods/deintegrator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-deintegrate-1.0.5/lib/cocoapods/deintegrate/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/cocoapods-deintegrate-1.0.5/lib/cocoapods/command/deintegrate.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nap-1.1.0/lib/rest/response.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/spec_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nap-1.1.0/lib/rest/request.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/record_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/netrc-0.11.0/test/test_parse.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nap-1.1.0/lib/rest/error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/identity_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/netrc-0.11.0/test/test_netrc.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/truffle_ruby/generator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/grouping_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/nap-1.1.0/lib/rest.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/netrc-0.11.0/test/test_lex.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/fuzzy_match_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/generic_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/netrc-0.11.0/lib/netrc.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/foo.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/ext/generator/state.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/cache_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/ext.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/spec/amatch_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/common.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/similarity.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/score/pure_ruby.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/symbol.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/score/amatch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/string.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/score.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/rule/identity.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/rule/grouping.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/regexp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/rational.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/rule.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/range.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/ostruct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/record.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/exception.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match/cached_result.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/date_time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/informative_error.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/lib/fuzzy_match.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/date.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/core.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/help.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/complex.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/gem_version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json/add/bigdecimal.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/command/plugin_manager.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/lib/json.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/command/banner.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/command/argument_suggester.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/command.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/argv.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/argument.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/ansi/string_escaper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/ansi/graphics.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/benchmark/memory.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/ansi/cursor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide/ansi.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/ext/json/ext/simd/conf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/claide-1.1.0/lib/claide.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/atomos-0.1.3/lib/atomos/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/atomos-0.1.3/lib/atomos.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/fuzzy_match-2.0.4/THANKS-WILLIAM-JAMES.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/ext/json/ext/parser/extconf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/json-2.19.3/ext/json/ext/generator/extconf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/unit/rule_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/unit/public_suffix_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/unit/list_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/unit/errors_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/unit/domain_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/mutex_m-0.3.0/lib/mutex_m.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/test_helper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/psl_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/object_binsize.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/list_profsize.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/initialization_profiler.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/find_profiler_jp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/find_profiler.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/profilers/domain_profiler.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_valid.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_select_incremental.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_select.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_names.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_find_all.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/benchmarks/bm_find.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/test/acceptance_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix/rule.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix/list.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix/domain.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/public_suffix-4.0.7/lib/public_suffix.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/base64-0.3.0/lib/base64.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_test_task.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/utility/processor_counter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_reporter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/utility/native_integer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_mock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/utility/native_extension_loader.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/utility/monotonic_time.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_benchmark.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/utility/engine.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/test_minitest_assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/tvar.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/tuple.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/test/minitest/metametameta.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/timer_task.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/xor_shift_random.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/unit.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/securerandom-0.4.1/lib/securerandom.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/volatile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/test_task.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/striped64.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/test.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/power_of_two_tuple.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/spec.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/data_structures.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util/adder.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/pride_plugin.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/util.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/pride.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/thread_safe/synchronized_delegator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/parallel.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/volatile.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/mock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/safe_initialization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/manual_plugins.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/hell.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/mutex_lockable_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/expectations.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/lockable_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/error_on_warning.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/lock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/compress.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/jruby_lockable_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/benchmark.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/full_memory_barrier.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/autorun.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/condition.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/abstract_struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest/assertions.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/abstract_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/minitest.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization/abstract_lockable_object.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/lib/hoe/minitest.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/minitest-5.27.0/design_rationale.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/synchronization.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/settable_struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/scheduled_task.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/re_include.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/promises.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/promise.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/options.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/mvar.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/mutable_struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/maybe.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/map.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/ivar.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/immutable_struct.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/hash.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/future.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/timer_set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/thread_pool_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/single_thread_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/simple_executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/serialized_execution_delegator.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/serialized_execution.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/serial_executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/safe_task_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/ruby_thread_pool_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/ruby_single_thread_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/ruby_executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/weakidconv.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/java_thread_pool_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/unix.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/java_single_thread_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/timeridconv.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/java_executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/ssl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/indirect_immediate_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/observer.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/immediate_executor.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/gw.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/fixed_thread_pool.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/extservm.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/extserv.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/eq.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/cached_thread_pool.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/drb.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/executor/abstract_executor_service.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/exchanger.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb/acl.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/drb-2.2.3/lib/drb.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/delay.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/dataflow.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/constants.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/configuration.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/concern/observable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/concern/obligation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/concern/logging.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/concern/dereferenceable.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/concern/deprecation.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/ruby_non_concurrent_priority_queue.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/non_concurrent_priority_queue.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/map/truffleruby_map_backend.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/map/synchronized_map_backend.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/map/non_concurrent_map_backend.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/map/mri_map_backend.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/lock_free_stack.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/java_non_concurrent_priority_queue.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/copy_on_write_observer_set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/collection/copy_on_notify_observer_set.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomics.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic_reference/numeric_cas_wrapper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic_reference/mutex_atomic.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic_reference/atomic_direct_update.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/thread_local_var.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/severity.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/semaphore.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/period.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/reentrant_read_write_lock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/log_device.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/read_write_lock.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/formatter.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/mutex_semaphore.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger/errors.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/mutex_count_down_latch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/mutex_atomic_fixnum.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/logger-1.7.0/lib/logger.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/mutex_atomic_boolean.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/lock_local_var.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/locals.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/java_count_down_latch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/fiber_local_var.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/event.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/cyclic_barrier.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/count_down_latch.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/atomic_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/atomic_markable_reference.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/atomic_fixnum.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atomic/atomic_boolean.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/atom.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/async.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/array.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent/agent.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/concurrent-ruby-1.3.3/lib/concurrent-ruby/concurrent-ruby.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/sample/pi.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/sample/nlsolve.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/sample/linear.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal/util.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal/newton.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal/math.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal/ludcmp.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal/jacobian.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/lib/bigdecimal.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/bigdecimal-4.1.1/ext/bigdecimal/extconf.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/benchmark-0.5.0/lib/benchmark.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbREXMLParser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbPlainCFPropertyList.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbNokogiriParser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbLibXMLParser.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/connection_pool-3.0.2/lib/connection_pool/wrapper.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbCFTypes.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/connection_pool-3.0.2/lib/connection_pool/version.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/connection_pool-3.0.2/lib/connection_pool/timed_stack.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbCFPropertyList.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbCFPlistError.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/connection_pool-3.0.2/lib/connection_pool/fork.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist/rbBinaryCFPropertyList.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/connection_pool-3.0.2/lib/connection_pool.rb` |
+| `phase2/streamlist/vendor/bundle/ruby/3.4.0/gems/CFPropertyList-3.0.8/lib/cfpropertylist.rb` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating gitignore**
+
+I'm adding `**/vendor/bundle/` to the .gitignore to properly ignore Ruby gems in nested directories. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/.gitignore</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating gitignore**
+
+I'm adding `**/vendor/bundle/` to the .gitignore to ignore bundle directories anywhere in the repo. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Identifying the issue: `.gitignore` has `/vendor/bundle/`, which only matches `vendor/bundle` at the repo root. Ruby gems live at `phase2/streamlist/vendor/bundle/`, so they weren't ignored. Updating `.gitignore` to ignore `**/vendor/bundle/` (Bundler/CocoaPods — shouldn't be committed).
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/.gitignore</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+### Why those files showed up
+
+- They live under **`phase2/streamlist/vendor/bundle/`** — that’s **Bundler’s install path** (Ruby gems used for **CocoaPods**, e.g. the `cocoapods` gem and its `.rb` sources).
+- They are **not** part of your app source. Each machine can recreate them with **`bundle install`** / **`pod install`** in `ios/`.
+- They were tracked because `.gitignore` only had **`/vendor/bundle/`**, which applies to **`vendor/bundle` at the repo root**, not under `phase2/streamlist/`.
+
+### What we changed
+
+In the root [`.gitignore`](.gitignore), **`/vendor/bundle/`** was replaced with **`**/vendor/bundle/`** so **any** `vendor/bundle` directory (including `phase2/streamlist/vendor/bundle/`) is ignored, with a short comment.
+
+### If Git still lists them
+
+Ignore rules don’t apply to files **already committed**. Stop tracking them once (safe; keeps files on disk):
+
+```bash
+cd /Users/ttnc2/Projects/streamlist
+git rm -r --cached phase2/streamlist/vendor
+git commit -m "Stop tracking Bundler vendor/bundle"
+```
+
+After that, new `vendor/bundle` content stays untracked. You don’t need to commit gems or `.rb` files from that tree.
+
+---
+
+_**User**_
+
+depending upon the project use case, create an icon and splash for this app, use svg and standard icon size for android and ios, create image which wont be affected by any copyright
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Exploring project structure**
+
+I'm examining the React Native CLI project to locate existing app icons, splash screens, and asset directories for reference. 
+
+**Designing app icons**
+
+I'm designing a geometric 'SL' logo for StreamList with a play/list motif, planning to generate SVG sources for both Android and iOS icon sets. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Exploring how the app handles icons and launch screens, then adding original SVG assets and platform resources.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/react-native.config.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **2** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios** (2 files)
+
+| File |
+|------|
+| `Streamlist/Images.xcassets/Contents.json` |
+| `Streamlist/Images.xcassets/AppIcon.appiconset/Contents.json` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/android** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/colors.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset/Contents.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **3** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res** (3 files)
+
+| File |
+|------|
+| `values/styles.xml` |
+| `values/strings.xml` |
+| `drawable/rn_edit_text_material.xml` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios",
+  "pattern": "LaunchScreen|splash"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios",
+  "pattern": "LaunchScreen|splash",
+  "topFiles": [
+    {
+      "matchCount": 4,
+      "uri": "phase2/streamlist/ios/Streamlist.xcodeproj/project.pbxproj"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/ios/Streamlist/Info.plist"
+    }
+  ],
+  "totalFiles": 2,
+  "totalMatches": 5
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset** (1 file)
+
+| File |
+|------|
+| `Contents.json` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/LaunchScreen.storyboard</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/AndroidManifest.xml</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/android** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding design assets**
+
+I'm creating design asset directories and SVG files for app icons and splash screens. 
+
+**Generating PNG assets**
+
+I'm creating a script to generate PNG assets from SVG masters using npx @resvg/resvg-js. I'm using sharp as a devDependency to generate PNG assets from SVG masters. I'm switching to using built-in tools like `sips` or `sharp-cli` for PNG generation instead of adding new dependencies. I'm using `sharp` npm package with pinning for PNG generation, justified by the icon pipeline requirements. I'm adding `sharp` as a dev dependency and creating a script to generate iOS and Android brand assets from SVG. 
+
+I'm using `sharp` to render SVG to PNG, leveraging its SVG input support for generating brand assets. I'm creating Android app icons with sharp for all required densities and adding round variants. I'm generating iOS app icons with specific sizes and verifying Contents.json format for proper filename mapping. 
+
+**Updating Contents.json**
+
+I've updated Contents.json with proper structure for iOS icons and verified Android density mappings. I'm adding adaptive icon support for Android with mipmap-anydpi-v26 structure. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/values/styles.xml</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/build.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Generating app icons**
+
+I'm creating SVG assets for app icon and splash mark, plus a script to generate app icons using sharp. 
+
+**Updating ios metadata**
+
+I'm updating iOS AppIcon.appiconset/Contents.json with required filenames for Apple's icon specifications. I'm standardizing iOS icon filenames to match React Native template conventions. 
+
+I'm generating iOS app icons using Sharp with standardized sizes and filenames matching React Native template conventions. I'm updating the iOS splash screen by changing the LaunchScreen.storyboard background to dark #131313 and adjusting text colors for better branding consistency. I'm simplifying the iOS splash to a storyboard-only design with dark background and white text, removing the need for image assets. I'm adding a splash logo as a vector asset for iOS, creating `SplashMark.imageset` with a PNG generated from SVG for center display. I'm updating iOS launch screen with background #131313 and simplifying splash screen assets. I'm implementing SplashScreen API for Android 12+ using a custom theme with `windowBackground`. 
+
+I'm creating splash screen drawable resources including splash_screen.xml and colors.xml for Android 12+. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/java/com/streamlist/MainActivity.kt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/values/strings.xml</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating splash screen**
+
+I'm implementing the splash screen with a layer-list drawable for the background. 
+
+**Generating app icons**
+
+I'm adding sharp as a dev dependency and creating a script to generate app icons from SVG assets. I'm creating Android drawable resources including splash_layer.xml and colors.xml for consistent theming. 
+
+**Applying splash theme**
+
+I'm applying SplashTheme as parent of AppTheme in AndroidManifest for activity. I'm setting AppTheme's android:windowBackground to @drawable/splash_layer so the splash appears before React Native renders. 
+
+**Generating splash**
+
+I'm creating the splash screen SVG with a letter 'S' design using two arcs. 
+
+**Designing splash**
+
+I'm updating the splash screen design to use a circular background with a centered play triangle and horizontal bars. I'm updating the splash screen design to use a full-bleed square background with no rounded corners for better app store compatibility. 
+
+I'm implementing the splash screen design with a solid #131313 square background and red/cream motif center using Sharp API for image processing. 
+
+**Creating app icons**
+
+I'm generating app icons for Android and iOS platforms with specified resolutions and paths. 
+
+**Generating app icons**
+
+I'm creating app icons with sharp from SVG, ensuring no external references, and generating PNGs with sharp for Apple's required structure. I'm adding a splash image for Android, generating a 200x200 PNG from the splash SVG and placing it in drawable-xxhdpi with center gravity. 
+
+**Generating splash assets**
+
+I'm creating splash_logo.png at 512px for nodpi folder and adding a centered logo bitmap to both iOS storyboard and Android drawable folders. I'm generating splash_logo.png at 432x432 for android xxxhdpi in drawable/ folder. I'm creating splash_logo.png from splash-mark.svg for Android and iOS splash screens. I'm updating splash_logo.png to ensure valid XML and implement the specified icon design with brand colors and abstract 'stream list' elements. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Creating original SVG masters (geometric, no third-party marks), a Sharp-based generator for iOS/Android PNGs, and updating launch screens.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/app-icon.svg</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/splash-mark.svg</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Generating ios icons**
+
+I'm creating the iOS Contents.json with exact Apple format and required icon sizes. I'm optimizing iOS icon files by reusing the 120x120px file for both 40@3x and 60@2x entries in Contents.json. I'm using distinct filenames for each iOS icon size, reusing the 120x120px file for both 40@3x and 60@2x slots. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.mjs</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating ios assets**
+
+I'm updating iOS assets by writing Contents.json files and modifying LaunchScreen.storyboard with a dark background view. I'm adding a UIImageView with the SplashCenter image to the storyboard XML. I'm adding the SplashCenter image set with its Contents.json file and configuring the UIImageView constraints in the storyboard. I'm updating the storyboard to add a UIImageView and configure its constraints for centering. I'm adjusting the splash screen layout to center the logo and position the label below it with proper constraints. I'm adding the image view programmatically to avoid asset errors. 
+
+I'm updating the storyboard to include the image view for iOS assets. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="delete_file">
+<details><summary>Tool use: **delete_file**</summary>
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="delete_file"><details>
+<summary>Tool use: **delete_file**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Generating app icons**
+
+I'm creating Contents.json files for AppIcon and SplashCenter.imageset with links to icon_*.png files. I'm adjusting iOS launch screen colors to ensure proper background rendering with transparent PNGs. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Writing `Contents.json` files and updating the launch UI.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset/Contents.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/SplashCenter.imageset/Contents.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/values/colors.xml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/drawable/splash_screen.xml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/values/styles.xml</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating asset catalog**
+
+I'm adding the SplashCenter.imageset to the Xcode project and ensuring Contents.json is present in the parent folder. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/LaunchScreen.storyboard</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install sharp@0.34.5 --save-dev --save-exact 2>&1 && npm run generate:icons 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install sharp@0.34.5 --save-dev --save-exact 2>&1 && npm run generate:icons 2>&1
+```
+
+```
+
+added 6 packages, and audited 957 packages in 14s
+
+184 packages are looking for funding
+  run &#96;npm fund&#96; for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run &#96;npm audit&#96; for details.
+
+&gt; Streamlist@0.0.1 generate:icons
+&gt; node scripts/generate-app-icons.cjs
+
+Error: Input file contains unsupported image format
+    at Sharp.toFile (/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/sharp/lib/output.js:90:19)
+    at pngFromSvg (/Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs:16:49)
+    at async main (/Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs:47:5)
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Handling SVG input**
+
+I'm testing if reading the SVG as a buffer instead of file path resolves the 'unsupported image format' error from Sharp. I'm trying sharp.svg() with explicit density parameter for SVG handling. I'm testing `sharp.svg()` with density parameter after discovering ibvips has SVG support. 
+
+**Testing SVG input**
+
+I'm trying to read SVG as buffer to bypass potential libvips issues on Node 22 + macOS. I'm switching to @resvg/resvg-js for more reliable SVG rasterization. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Switching the generator to `@resvg/resvg-js` because Sharp failed to parse the SVG on this environment.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install @resvg/resvg-js@2.6.2 --save-dev --save-exact 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm install @resvg/resvg-js@2.6.2 --save-dev --save-exact 2>&1
+```
+
+```
+
+added 2 packages, and audited 959 packages in 7s
+
+184 packages are looking for funding
+  run &#96;npm fund&#96; for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run &#96;npm audit&#96; for details.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Rewriting icon generator**
+
+I'm rewriting the icon generation script to use Resvg for SVG rendering instead of the previous method. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+The string to replace was not found in the file.
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm uninstall sharp && npm run generate:icons 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm uninstall sharp && npm run generate:icons 2>&1
+```
+
+```
+
+removed 6 packages, and audited 953 packages in 3s
+
+181 packages are looking for funding
+  run &#96;npm fund&#96; for details
+
+1 moderate severity vulnerability
+
+To address all issues, run:
+  npm audit fix
+
+Run &#96;npm audit&#96; for details.
+
+&gt; Streamlist@0.0.1 generate:icons
+&gt; node scripts/generate-app-icons.cjs
+
+/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@resvg/resvg-js/index.js:19
+    super(svg, JSON.stringify(options))
+    ^
+
+Error: SVG data parsing failed cause invalid comment at 2:1 cause a non-XML character '\u{14}' found at 3:14
+    at new Resvg (/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@resvg/resvg-js/index.js:19:5)
+    at pngFromSvg (/Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs:12:17)
+    at main (/Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs:58:5)
+    at Object.&lt;anonymous&gt; (/Users/ttnc2/Projects/streamlist/phase2/streamlist/scripts/generate-app-icons.cjs:84:1)
+    at Module._compile (node:internal/modules/cjs/loader:1706:14)
+    at Object..js (node:internal/modules/cjs/loader:1839:10)
+    at Module.load (node:internal/modules/cjs/loader:1441:32)
+    at Function._load (node:internal/modules/cjs/loader:1263:12)
+    at TracingChannel.traceSync (node:diagnostics_channel:322:14)
+    at wrapModuleLoad (node:internal/modules/cjs/loader:237:24) {
+  code: 'GenericFailure'
+}
+
+Node.js v22.19.0
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/app-icon.svg</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/splash-mark.svg</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run generate:icons 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run generate:icons 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 generate:icons
+&gt; node scripts/generate-app-icons.cjs
+
+Generated app icons, launcher mipmaps, and splash assets.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset/ | head -20
+ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/mipmap-xxhdpi/ 2>&1</summary>
+
+```bash
+ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset/ | head -20
+ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/mipmap-xxhdpi/ 2>&1
+```
+
+```
+total 96
+drwxr-xr-x@ 11 ttnc2  staff    352 Apr 14 17:31 .
+drwxr-xr-x@  5 ttnc2  staff    160 Apr 14 17:30 ..
+-rw-r--r--@  1 ttnc2  staff   1120 Apr 14 17:30 Contents.json
+-rw-r--r--@  1 ttnc2  staff  16285 Apr 14 17:31 icon_1024.png
+-rw-r--r--@  1 ttnc2  staff   1351 Apr 14 17:31 icon_120.png
+-rw-r--r--@  1 ttnc2  staff   2111 Apr 14 17:31 icon_180.png
+-rw-r--r--@  1 ttnc2  staff    472 Apr 14 17:31 icon_40.png
+-rw-r--r--@  1 ttnc2  staff    617 Apr 14 17:31 icon_58.png
+-rw-r--r--@  1 ttnc2  staff    634 Apr 14 17:31 icon_60.png
+-rw-r--r--@  1 ttnc2  staff    916 Apr 14 17:31 icon_80.png
+-rw-r--r--@  1 ttnc2  staff   1001 Apr 14 17:31 icon_87.png
+total 16
+drwxr-xr-x@ 4 ttnc2  staff   128 Apr 13 12:14 .
+drwxr-xr-x@ 9 ttnc2  staff   288 Apr 13 12:14 ..
+-rw-r--r--@ 1 ttnc2  staff  1662 Apr 14 17:32 ic_launcher_round.png
+-rw-r--r--@ 1 ttnc2  staff  1662 Apr 14 17:32 ic_launcher.png
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/SplashCenter.imageset/
+ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/drawable/</summary>
+
+```bash
+ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/SplashCenter.imageset/
+ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/drawable/
+```
+
+```
+Contents.json
+SplashCenter.png
+SplashCenter@2x.png
+SplashCenter@3x.png
+rn_edit_text_material.xml
+splash_logo.png
+splash_screen.xml
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/assets/brand/README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking image sets**
+
+I'm verifying that SplashCenter.imageset only contains the correct PNGs and Contents.json, excluding any incorrect rn_edit_text_material references. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/SplashCenter.imageset/</summary>
+
+```bash
+ls -la /Users/ttnc2/Projects/streamlist/phase2/streamlist/ios/Streamlist/Images.xcassets/SplashCenter.imageset/
+```
+
+```
+total 56
+drwxr-xr-x@ 6 ttnc2  staff    192 Apr 14 17:32 .
+drwxr-xr-x@ 5 ttnc2  staff    160 Apr 14 17:30 ..
+-rw-r--r--@ 1 ttnc2  staff    381 Apr 14 17:30 Contents.json
+-rw-r--r--@ 1 ttnc2  staff   3122 Apr 14 17:32 SplashCenter.png
+-rw-r--r--@ 1 ttnc2  staff   7299 Apr 14 17:32 SplashCenter@2x.png
+-rw-r--r--@ 1 ttnc2  staff  11744 Apr 14 17:32 SplashCenter@3x.png
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1 && npm test 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1 && npm test 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 7 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/Skeleton.test.tsx
+PASS __tests__/utils/trailer.test.ts
+PASS __tests__/App.test.tsx
+PASS __tests__/components/StreamlistIcons.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       29 passed, 29 total
+Snapshots:   0 total
+Time:        1.268 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do echo "=== $d ==="; ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/mipmap-$d/; done</summary>
+
+```bash
+for d in mdpi hdpi xhdpi xxhdpi xxxhdpi; do echo "=== $d ==="; ls /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/src/main/res/mipmap-$d/; done
+```
+
+```
+=== mdpi ===
+ic_launcher_round.png
+ic_launcher.png
+=== hdpi ===
+ic_launcher_round.png
+ic_launcher.png
+=== xhdpi ===
+ic_launcher_round.png
+ic_launcher.png
+=== xxhdpi ===
+ic_launcher_round.png
+ic_launcher.png
+=== xxxhdpi ===
+ic_launcher_round.png
+ic_launcher.png
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was added and how it works.
+
+### Original artwork (no third‑party marks)
+- **[`assets/brand/app-icon.svg`](phase2/streamlist/assets/brand/app-icon.svg)** — App icon: dark `#131313` field, list bars + play triangle + ring in **StreamList** colors (`#E5383B`, `#E5E2E1`). Simple geometry only.
+- **[`assets/brand/splash-mark.svg`](phase2/streamlist/assets/brand/splash-mark.svg)** — Smaller centered mark for splash (same motif, transparent background).
+- **[`assets/brand/README.md`](phase2/streamlist/assets/brand/README.md)** — Notes that vectors are project-original and how to regenerate PNGs.
+
+### Raster generation (standard sizes)
+- **`scripts/generate-app-icons.cjs`** — Renders SVG → PNG with **`@resvg/resvg-js`** (devDependency, pinned `2.6.2`).
+- **`npm run generate:icons`** — Regenerates:
+  - **iOS:** `AppIcon.appiconset` (20–60 pt @2x/@3x + 1024 marketing) and **`SplashCenter.imageset`** (1x/2x/3x).
+  - **Android:** `mipmap-mdpi` … `mipmap-xxxhdpi` — `ic_launcher.png` + `ic_launcher_round.png` (48→192 px).
+  - **Android splash:** `drawable/splash_logo.png` (288 px).
+
+### Platform wiring
+- **iOS:** [`AppIcon.appiconset/Contents.json`](phase2/streamlist/ios/Streamlist/Images.xcassets/AppIcon.appiconset/Contents.json) lists all PNGs; new **`SplashCenter.imageset`**. [`LaunchScreen.storyboard`](phase2/streamlist/ios/Streamlist/LaunchScreen.storyboard) uses dark `#131313`, centered **`SplashCenter`** image, title **StreamList**, subtitle **Discover & save** (React Native footer removed).
+- **Android:** [`values/colors.xml`](phase2/streamlist/android/app/src/main/res/values/colors.xml) (`splash_background`), [`drawable/splash_screen.xml`](phase2/streamlist/android/app/src/main/res/drawable/splash_screen.xml) (color + centered logo), [`styles.xml`](phase2/streamlist/android/app/src/main/res/values/styles.xml) — `AppTheme` `windowBackground` → splash (then your RN UI draws on top).
+
+### Already run
+`npm run generate:icons` completed successfully; PNGs are in the tree so **iOS/Android build without an extra step**. After editing the SVGs, run **`npm run generate:icons`** again before release.
+
+**Note:** Icons use the classic **mipmap PNG** set (not Android adaptive `mipmap-anydpi-v26`); that’s enough for a normal RN app; you can add adaptive layers later if you want.
+
+---
+
+_**User**_
+
+@/Users/ttnc2/.cursor/projects/Users-ttnc2-Projects-streamlist/terminals/2.txt:819-855 
+
+---
+
+_**Agent (composer-2)**_
+
+
+Investigating the AsyncStorage Android dependency resolution failure.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/android/build.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/settings.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/build.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="web_search">
+<details>
+<summary>Tool use: **web_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "searchTerm": "org.asyncstorage.shared_storage storage-android 1.0.0 maven"
+}
+```
+Result:
+
+```json
+{
+  "isFinal": true,
+  "references": [
+    {
+      "chunk": "Links:\n1. [UNPKG](https://app.unpkg.com/@react-native-async-storage/async-storage@3.0.1/files/android/local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module)\n2. [@react-native-async-storage/async-storage CDN by jsDelivr - A free, fast, and reliable Open Source CDN](https://cdn.jsdelivr.net/npm/@react-native-async-storage/async-storage@3.0.2/android/local_repo/org/asyncstorage/shared_storage/storage-android/)\n3. [[V3]It is recommended to migrate the dependency management of local_repo under the Android system into the project itself. · Issue #1280 · react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage/issues/1280)\n4. [Not working with latest react native version 0.84.0 · Issue #1257 · react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage/issues/1257)\n5. [react-native-async-storage/async-storage](https://github.com/react-native-async-storage/async-storage?tab=readme-ov-file)\n\n# org.asyncstorage.shared_storage storage-android 1.0.0\n\nThe &#96;org.asyncstorage.shared_storage:storage-android:1.0.0&#96; is a Maven dependency that is part of the React Native Async Storage library (version 3.0+).[1][3] \n\nThis dependency is **not available in standard Maven repositories** like Maven Central.[3] Instead, it's included as a local Maven repository within the &#96;@react-native-async-storage/async-storage&#96; npm package.\n\n## How to Access It\n\nTo resolve this dependency in Android projects, you must configure your &#96;android/build.gradle&#96; file to include the local repository:[5]\n\n&#96;&#96;&#96;groovy\nallprojects {\n    repositories {\n        maven {\n            url = uri(project(\":react-native-async-storage_async-storage\").file(\"local_repo\"))\n            // or uri(\"path/to/node_modules/@react-native-async-storage/async-storage/android/local_repo\")\n        }\n    }\n}\n&#96;&#96;&#96;\n\n## Common Issues\n\nUsers upgrading to Async Storage v3.0+ frequently encounter build errors like \"Could not find org.asyncstorage.shared_storage:storage-android:1.0.0\" if they skip this configuration step.[3][4] This is a known issue particularly affecting Expo managed applications and projects that don't manually configure the local_repo path.[3]",
+      "title": "Web search results for query: org.asyncstorage.shared_storage storage-android 1.0.0 maven"
+    }
+  ],
+  "rejected": false
+}
+```
+User decision: **accepted**
+
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="web_search"><details>
+<summary>Tool use: **web_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/package.json</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **27** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/android** (27 files)
+
+| File |
+|------|
+| `local_repo/org/asyncstorage/shared_storage/storage-android/maven-metadata.xml` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.pom.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.aar.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-sources.jar.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-javadoc.jar.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/maven-metadata.xml.sha512` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.pom.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.aar.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-sources.jar.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-javadoc.jar.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/maven-metadata.xml.sha256` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.pom.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.aar.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-sources.jar.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-javadoc.jar.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/maven-metadata.xml.sha1` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.pom` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.pom.md5` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.module.md5` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0.aar.md5` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-sources.jar.md5` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/1.0.0/storage-android-1.0.0-javadoc.jar.md5` |
+| `local_repo/org/asyncstorage/shared_storage/storage-android/maven-metadata.xml.md5` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/app/build.gradle</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking gradle structure**
+
+I'm reviewing android/settings.gradle and build.gradle to determine where to add repository configurations for RN 0.85. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Configuring android build**
+
+I'm adding a local Maven repository to android/build.gradle for async-storage. I'm adding the local Maven repository to settings.gradle under `dependencyResolutionManagement` to ensure async-storage can resolve correctly. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/android",
+  "pattern": "repositories|dependencyResolutionManagement|allprojects"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/android",
+  "pattern": "repositories|dependencyResolutionManagement|allprojects",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/android/build.gradle"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native/gradle-plugin/settings.gradle.kts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating build configuration**
+
+I'm adding the local repository path for async-storage in android/build.gradle. I'm moving the local repository definition to settings.gradle to avoid duplication in Gradle 8. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.gradle*",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native",
+  "pattern": "dependencyResolutionManagement|repositories"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native",
+  "pattern": "dependencyResolutionManagement|repositories",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native/settings.gradle.kts"
+    },
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/node_modules/react-native/ReactAndroid/hermes-engine/build.gradle.kts"
+    },
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/node_modules/react-native/ReactAndroid/build.gradle.kts"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native/ReactAndroid/publish.gradle"
+    }
+  ],
+  "totalFiles": 4,
+  "totalMatches": 8
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native/settings.gradle.kts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating gradle repositories**
+
+I'm adding the maven URL to allprojects in android/build.gradle to fix repository resolution. I'm switching from `preferSettings` to `allprojects` in root build.gradle to avoid RN plugin conflicts. I'm removing redundant google() and mavenCentral() declarations since they're already included via autolinking. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding the Async Storage v3 bundled Maven repo: `storage-android` ships in `node_modules` as `local_repo` and isn't on Maven Central. Registering that local Maven repository in the Android Gradle build.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/android/build.gradle</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :app:compileDebugJavaWithJavac --no-daemon 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :app:compileDebugJavaWithJavac --no-daemon 2>&1
+```
+
+```
+To honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+&gt; Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:shared:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:shared:processResources NO-SOURCE
+&gt; Task :gradle-plugin:shared:classes UP-TO-DATE
+&gt; Task :gradle-plugin:shared:jar UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+&gt; Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :app:generateAutolinkingNewArchitectureFiles
+&gt; Task :app:generateAutolinkingPackageList
+&gt; Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+&gt; Task :app:generateCodegenArtifactsFromSchema SKIPPED
+&gt; Task :app:generateReactNativeEntryPoint
+&gt; Task :react-native-async-storage_async-storage:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-async-storage_async-storage:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-async-storage_async-storage:preBuild
+&gt; Task :react-native-community_blur:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-community_blur:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-community_blur:preBuild
+&gt; Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-gesture-handler:preBuild
+&gt; Task :react-native-linear-gradient:preBuild UP-TO-DATE
+&gt; Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-safe-area-context:preBuild
+&gt; Task :react-native-screens:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-screens:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-screens:preBuild
+&gt; Task :react-native-svg:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-svg:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-svg:preBuild
+&gt; Task :react-native-webview:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-webview:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-webview:preBuild
+&gt; Task :app:preBuild
+&gt; Task :app:preDebugBuild
+&gt; Task :app:generateDebugBuildConfig
+&gt; Task :react-native-async-storage_async-storage:preDebugBuild
+&gt; Task :react-native-community_blur:preDebugBuild
+&gt; Task :react-native-gesture-handler:preDebugBuild
+&gt; Task :react-native-linear-gradient:preDebugBuild UP-TO-DATE
+&gt; Task :react-native-community_blur:writeDebugAarMetadata
+&gt; Task :react-native-gesture-handler:writeDebugAarMetadata
+&gt; Task :react-native-async-storage_async-storage:writeDebugAarMetadata
+&gt; Task :react-native-safe-area-context:preDebugBuild
+&gt; Task :react-native-linear-gradient:writeDebugAarMetadata
+&gt; Task :react-native-screens:preDebugBuild
+&gt; Task :react-native-safe-area-context:writeDebugAarMetadata
+&gt; Task :react-native-svg:preDebugBuild
+&gt; Task :react-native-screens:writeDebugAarMetadata
+&gt; Task :react-native-webview:preDebugBuild
+&gt; Task :react-native-svg:writeDebugAarMetadata
+&gt; Task :react-native-webview:writeDebugAarMetadata
+&gt; Task :app:generateDebugResValues
+]633;CTo honour the JVM settings for this build a single-use Daemon process will be forked. For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/gradle_daemon.html#sec:disabling_the_daemon in the Gradle documentation.
+Daemon will be stopped at the end of the build 
+&gt; Task :gradle-plugin:settings-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:shared:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:shared:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:shared:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:shared:processResources NO-SOURCE
+&gt; Task :gradle-plugin:shared:classes UP-TO-DATE
+&gt; Task :gradle-plugin:shared:jar UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:settings-plugin:pluginDescriptors UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:processResources UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:classes UP-TO-DATE
+&gt; Task :gradle-plugin:settings-plugin:jar UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :gradle-plugin:react-native-gradle-plugin:compileKotlin UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:compileJava NO-SOURCE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:pluginDescriptors UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:processResources UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:classes UP-TO-DATE
+&gt; Task :gradle-plugin:react-native-gradle-plugin:jar UP-TO-DATE
+&gt; Task :app:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :app:generateAutolinkingNewArchitectureFiles
+&gt; Task :app:generateAutolinkingPackageList
+&gt; Task :app:generateCodegenSchemaFromJavaScript SKIPPED
+&gt; Task :app:generateCodegenArtifactsFromSchema SKIPPED
+&gt; Task :app:generateReactNativeEntryPoint
+&gt; Task :react-native-async-storage_async-storage:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-async-storage_async-storage:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-async-storage_async-storage:preBuild
+&gt; Task :react-native-community_blur:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-community_blur:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-community_blur:preBuild
+&gt; Task :react-native-gesture-handler:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-gesture-handler:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-gesture-handler:preBuild
+&gt; Task :react-native-linear-gradient:preBuild UP-TO-DATE
+&gt; Task :react-native-safe-area-context:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-safe-area-context:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-safe-area-context:preBuild
+&gt; Task :react-native-screens:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-screens:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-screens:preBuild
+&gt; Task :react-native-svg:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-svg:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-svg:preBuild
+&gt; Task :react-native-webview:generateCodegenSchemaFromJavaScript
+&gt; Task :react-native-webview:generateCodegenArtifactsFromSchema
+&gt; Task :react-native-webview:preBuild
+&gt; Task :app:preBuild
+&gt; Task :app:preDebugBuild
+&gt; Task :app:generateDebugBuildConfig
+&gt; Task :react-native-async-storage_async-storage:preDebugBuild
+&gt; Task :react-native-community_blur:preDebugBuild
+&gt; Task :react-native-gesture-handler:preDebugBuild
+&gt; Task :react-native-linear-gradient:preDebugBuild UP-TO-DATE
+&gt; Task :react-native-community_blur:writeDebugAarMetadata
+&gt; Task :react-native-gesture-handler:writeDebugAarMetadata
+&gt; Task :react-native-async-storage_async-storage:writeDebugAarMetadata
+&gt; Task :react-native-safe-area-context:preDebugBuild
+&gt; Task :react-native-linear-gradient:writeDebugAarMetadata
+&gt; Task :react-native-screens:preDebugBuild
+&gt; Task :react-native-safe-area-context:writeDebugAarMetadata
+&gt; Task :react-native-svg:preDebugBuild
+&gt; Task :react-native-screens:writeDebugAarMetadata
+&gt; Task :react-native-webview:preDebugBuild
+&gt; Task :react-native-svg:writeDebugAarMetadata
+&gt; Task :react-native-webview:writeDebugAarMetadata
+&gt; Task :app:generateDebugResValues
+&gt; Task :app:checkDebugAarMetadata
+&gt; Task :react-native-async-storage_async-storage:generateDebugResValues
+&gt; Task :react-native-async-storage_async-storage:generateDebugResources
+&gt; Task :react-native-async-storage_async-storage:packageDebugResources
+&gt; Task :react-native-community_blur:generateDebugResValues
+&gt; Task :react-native-community_blur:generateDebugResources
+&gt; Task :react-native-community_blur:packageDebugResources
+&gt; Task :react-native-gesture-handler:generateDebugResValues
+&gt; Task :react-native-gesture-handler:generateDebugResources
+&gt; Task :react-native-gesture-handler:packageDebugResources
+&gt; Task :react-native-linear-gradient:generateDebugResValues
+&gt; Task :react-native-linear-gradient:generateDebugResources
+&gt; Task :react-native-linear-gradient:packageDebugResources
+&gt; Task :react-native-safe-area-context:generateDebugResValues
+&gt; Task :react-native-safe-area-context:generateDebugResources
+&gt; Task :react-native-safe-area-context:packageDebugResources
+&gt; Task :react-native-screens:generateDebugResValues
+&gt; Task :react-native-screens:generateDebugResources
+&gt; Task :react-native-screens:packageDebugResources
+&gt; Task :react-native-svg:generateDebugResValues
+&gt; Task :react-native-svg:generateDebugResources
+&gt; Task :react-native-svg:packageDebugResources
+&gt; Task :react-native-webview:generateDebugResValues
+&gt; Task :react-native-webview:generateDebugResources
+&gt; Task :react-native-webview:packageDebugResources
+&gt; Task :app:mapDebugSourceSetPaths
+&gt; Task :app:generateDebugResources
+&gt; Task :app:packageDebugResources
+&gt; Task :app:mergeDebugResources
+&gt; Task :app:createDebugCompatibleScreenManifests
+&gt; Task :app:extractDeepLinksDebug
+&gt; Task :react-native-async-storage_async-storage:extractDeepLinksDebug
+&gt; Task :react-native-community_blur:extractDeepLinksDebug
+&gt; Task :react-native-gesture-handler:extractDeepLinksDebug
+&gt; Task :react-native-linear-gradient:extractDeepLinksDebug
+&gt; Task :app:parseDebugLocalResources
+&gt; Task :react-native-safe-area-context:extractDeepLinksDebug
+&gt; Task :react-native-screens:extractDeepLinksDebug
+&gt; Task :react-native-async-storage_async-storage:processDebugManifest
+
+&gt; Task :react-native-community_blur:processDebugManifest
+package="com.reactnativecommunity.blurview" found in source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-community/blur/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.reactnativecommunity.blurview" from the source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-community/blur/android/src/main/AndroidManifest.xml.
+
+&gt; Task :react-native-linear-gradient:processDebugManifest
+package="com.BV.LinearGradient" found in source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-linear-gradient/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.BV.LinearGradient" from the source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-linear-gradient/android/src/main/AndroidManifest.xml.
+
+&gt; Task :react-native-gesture-handler:processDebugManifest
+
+&gt; Task :react-native-safe-area-context:processDebugManifest
+package="com.th3rdwave.safeareacontext" found in source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/AndroidManifest.xml.
+Setting the namespace via the package attribute in the source AndroidManifest.xml is no longer supported, and the value is ignored.
+Recommendation: remove package="com.th3rdwave.safeareacontext" from the source AndroidManifest.xml: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/AndroidManifest.xml.
+
+&gt; Task :react-native-svg:extractDeepLinksDebug
+&gt; Task :react-native-screens:processDebugManifest
+&gt; Task :react-native-webview:extractDeepLinksDebug
+&gt; Task :react-native-svg:processDebugManifest
+&gt; Task :react-native-webview:processDebugManifest
+&gt; Task :react-native-async-storage_async-storage:compileDebugLibraryResources
+&gt; Task :app:processDebugMainManifest
+&gt; Task :app:processDebugManifest
+&gt; Task :react-native-community_blur:compileDebugLibraryResources
+&gt; Task :react-native-async-storage_async-storage:parseDebugLocalResources
+&gt; Task :app:processDebugManifestForPackage
+&gt; Task :react-native-community_blur:parseDebugLocalResources
+&gt; Task :react-native-gesture-handler:compileDebugLibraryResources
+&gt; Task :react-native-gesture-handler:parseDebugLocalResources
+&gt; Task :react-native-linear-gradient:compileDebugLibraryResources
+&gt; Task :react-native-linear-gradient:parseDebugLocalResources
+&gt; Task :react-native-safe-area-context:compileDebugLibraryResources
+&gt; Task :react-native-safe-area-context:parseDebugLocalResources
+&gt; Task :react-native-community_blur:generateDebugRFile
+&gt; Task :react-native-async-storage_async-storage:generateDebugRFile
+&gt; Task :react-native-gesture-handler:generateDebugRFile
+&gt; Task :react-native-linear-gradient:generateDebugRFile
+&gt; Task :react-native-svg:compileDebugLibraryResources
+&gt; Task :react-native-svg:parseDebugLocalResources
+&gt; Task :react-native-screens:parseDebugLocalResources
+&gt; Task :react-native-safe-area-context:generateDebugRFile
+&gt; Task :react-native-webview:compileDebugLibraryResources
+&gt; Task :react-native-async-storage_async-storage:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :react-native-webview:parseDebugLocalResources
+&gt; Task :react-native-async-storage_async-storage:generateDebugBuildConfig
+&gt; Task :react-native-svg:generateDebugRFile
+&gt; Task :react-native-screens:generateDebugRFile
+&gt; Task :react-native-webview:generateDebugRFile
+&gt; Task :react-native-screens:compileDebugLibraryResources
+&gt; Task :react-native-community_blur:generateDebugBuildConfig
+&gt; Task :react-native-gesture-handler:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :react-native-community_blur:javaPreCompileDebug
+&gt; Task :react-native-gesture-handler:generateDebugBuildConfig
+&gt; Task :react-native-async-storage_async-storage:javaPreCompileDebug
+&gt; Task :app:processDebugResources
+&gt; Task :react-native-async-storage_async-storage:kspDebugKotlin
+
+&gt; Task :react-native-community_blur:compileDebugJavaWithJavac
+Note: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-community/blur/android/src/main/java/com/reactnativecommunity/blurview/BlurViewPackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+&gt; Task :react-native-svg:generateDebugBuildConfig
+&gt; Task :react-native-svg:javaPreCompileDebug
+&gt; Task :react-native-gesture-handler:javaPreCompileDebug
+&gt; Task :react-native-linear-gradient:generateDebugBuildConfig
+&gt; Task :react-native-community_blur:bundleLibCompileToJarDebug
+
+&gt; Task :react-native-svg:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+Note: Some input files use unchecked or unsafe operations.
+Note: Recompile with -Xlint:unchecked for details.
+
+&gt; Task :react-native-safe-area-context:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :react-native-linear-gradient:javaPreCompileDebug
+&gt; Task :react-native-safe-area-context:generateDebugBuildConfig
+&gt; Task :react-native-svg:bundleLibCompileToJarDebug
+
+&gt; Task :react-native-linear-gradient:compileDebugJavaWithJavac
+Note: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-linear-gradient/android/src/main/java/com/BV/LinearGradient/LinearGradientPackage.java uses or overrides a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+&gt; Task :react-native-linear-gradient:bundleLibCompileToJarDebug
+&gt; Task :react-native-screens:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :react-native-safe-area-context:javaPreCompileDebug
+&gt; Task :react-native-screens:generateDebugBuildConfig
+
+&gt; Task :react-native-async-storage_async-storage:compileDebugKotlin
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/android/src/main/kotlin/org/asyncstorage/legacy_storage/LegacyStorageSupplier.kt:63:69 Java type mismatch: inferred type is 'String?', but 'String' was expected.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/android/src/main/kotlin/org/asyncstorage/legacy_storage/LegacyStorageSupplier.kt:91:26 The corresponding parameter in the supertype 'Migration' is named 'db'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/@react-native-async-storage/async-storage/android/src/main/kotlin/org/asyncstorage/legacy_storage/LegacyStorageSupplier.kt:204:17 Unchecked cast of 'ArrayList&lt;Any?&gt;' to 'List&lt;String&gt;'.
+
+&gt; Task :react-native-async-storage_async-storage:compileDebugJavaWithJavac
+&gt; Task :react-native-webview:checkKotlinGradlePluginConfigurationErrors SKIPPED
+&gt; Task :react-native-screens:javaPreCompileDebug
+&gt; Task :react-native-webview:generateDebugBuildConfig
+&gt; Task :react-native-async-storage_async-storage:bundleLibCompileToJarDebug
+&gt; Task :react-native-webview:javaPreCompileDebug
+&gt; Task :app:javaPreCompileDebug
+
+&gt; Task :react-native-safe-area-context:compileDebugKotlin
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaProviderManager.kt:39:19 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:9:8 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:50:54 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaView.kt:59:23 'val uiImplementation: UIImplementation!' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewShadowNode.kt:9:32 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-safe-area-context/android/src/main/java/com/th3rdwave/safeareacontext/SafeAreaViewShadowNode.kt:110:61 'class NativeViewHierarchyOptimizer : Any' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+
+&gt; Task :react-native-safe-area-context:compileDebugJavaWithJavac
+&gt; Task :react-native-safe-area-context:bundleLibCompileToJarDebug
+
+&gt; Task :react-native-webview:compileDebugKotlin
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:22:8 'object MapBuilder : Any' is deprecated. Use Kotlin's built-in collections extensions.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:82:18 'var allowFileAccessFromFileURLs: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:83:18 'var allowUniversalAccessFromFileURLs: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:124:21 'fun allowScanningByMediaScanner(): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:161:36 'var systemUiVisibility: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:300:14 'object MapBuilder : Any' is deprecated. Use Kotlin's built-in collections extensions.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:350:34 Condition is always 'true'.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:369:38 'var allowUniversalAccessFromFileURLs: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:430:51 Unchecked cast of 'Any?' to 'HashMap&lt;String, String&gt;'.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:486:23 'var savePassword: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:487:23 'var saveFormData: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:557:23 'var allowFileAccessFromFileURLs: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:602:52 'static field FORCE_DARK_ON: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:602:89 'static field FORCE_DARK_OFF: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:603:35 'static fun setForceDark(p0: @NonNull() WebSettings, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:612:35 'static fun setForceDarkStrategy(p0: @NonNull() WebSettings, p1: Int): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:614:39 'static field DARK_STRATEGY_PREFER_WEB_THEME_OVER_USER_AGENT_DARKENING: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:658:65 Unchecked cast of 'ArrayList&lt;Any?&gt;' to 'List&lt;Map&lt;String, String&gt;&gt;'.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/RNCWebViewManagerImpl.kt:679:23 'var saveFormData: Boolean' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/SubResourceErrorEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/SubResourceErrorEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/SubResourceErrorEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/SubResourceErrorEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/SubResourceErrorEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopCustomMenuSelectionEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopCustomMenuSelectionEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopCustomMenuSelectionEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopCustomMenuSelectionEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopCustomMenuSelectionEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopHttpErrorEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopHttpErrorEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopHttpErrorEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopHttpErrorEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopHttpErrorEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingErrorEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingErrorEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingErrorEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingErrorEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingErrorEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingFinishEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingFinishEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingFinishEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingFinishEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingFinishEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingProgressEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingProgressEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingProgressEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingProgressEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingProgressEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingStartEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingStartEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingStartEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingStartEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopLoadingStartEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopMessageEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopMessageEvent.kt:10:75 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopMessageEvent.kt:21:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopMessageEvent.kt:21:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopMessageEvent.kt:22:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopNewWindowEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopNewWindowEvent.kt:11:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopNewWindowEvent.kt:22:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopNewWindowEvent.kt:22:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopNewWindowEvent.kt:23:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopRenderProcessGoneEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopRenderProcessGoneEvent.kt:12:3 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopRenderProcessGoneEvent.kt:23:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopRenderProcessGoneEvent.kt:23:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopRenderProcessGoneEvent.kt:24:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopShouldStartLoadWithRequestEvent.kt:5:8 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopShouldStartLoadWithRequestEvent.kt:10:89 'constructor&lt;T : Event&lt;T&gt;&gt;(viewTag: Int): Event&lt;T&gt;' is deprecated. Use constructor with explicit surfaceId instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopShouldStartLoadWithRequestEvent.kt:27:16 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopShouldStartLoadWithRequestEvent.kt:27:42 'interface RCTEventEmitter : JavaScriptModule' is deprecated. Use [RCTModernEventEmitter] instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/android/src/main/java/com/reactnativecommunity/webview/events/TopShouldStartLoadWithRequestEvent.kt:28:21 'fun receiveEvent(targetTag: Int, eventName: String, params: WritableMap?): Unit' is deprecated. Use [RCTModernEventEmitter.receiveEvent] instead.
+
+&gt; Task :react-native-webview:compileDebugJavaWithJavac
+Note: Some input files use or override a deprecated API.
+Note: Recompile with -Xlint:deprecation for details.
+
+&gt; Task :react-native-webview:bundleLibCompileToJarDebug
+
+&gt; Task :react-native-gesture-handler:compileDebugKotlin
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/Extensions.kt:8:8 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/Extensions.kt:13:29 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-gesture-handler/android/src/main/java/com/swmansion/gesturehandler/react/Extensions.kt:14:32 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+
+&gt; Task :react-native-gesture-handler:compileDebugJavaWithJavac
+&gt; Task :react-native-gesture-handler:bundleLibCompileToJarDebug
+
+&gt; Task :react-native-screens:compileDebugKotlin
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:62:9 The corresponding parameter in the supertype 'BaseReactPackage' is named 'name'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:63:9 The corresponding parameter in the supertype 'BaseReactPackage' is named 'reactContext'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/RNScreensPackage.kt:76:17 'constructor(name: String, className: String, canOverrideExistingModule: Boolean, needsEagerInit: Boolean, hasConstants: Boolean, isCxxModule: Boolean, isTurboModule: Boolean): ReactModuleInfo' is deprecated. This constructor is deprecated and will be removed in the future. Use ReactModuleInfo(String, String, boolean, boolean, boolean, boolean)].
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:26:8 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:56:77 Unchecked cast of '(CoordinatorLayout.Behavior&lt;View!&gt;?..CoordinatorLayout.Behavior&lt;*&gt;?)' to 'BottomSheetBehavior&lt;Screen&gt;'.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:59:33 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:428:42 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/Screen.kt:691:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:250:18 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainer.kt:260:18 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainerViewManager.kt:6:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenContainerViewManager.kt:56:78 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.kt:225:37 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.kt:242:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.kt:258:22 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenFragment.kt:325:22 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenModalFragment.kt:181:22 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStack.kt:106:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:165:18 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:222:31 'var targetElevation: Float' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:225:13 'fun setHasOptionsMenu(p0: Boolean): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:404:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:411:22 'fun onPrepareOptionsMenu(p0: Menu): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:414:18 This declaration overrides a deprecated member but is not marked as deprecated itself. Add the '@Deprecated' annotation or suppress the diagnostic.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackFragment.kt:419:22 'fun onCreateOptionsMenu(p0: Menu, p1: MenuInflater): Unit' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:155:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:165:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfig.kt:441:22 'val reactNativeHost: ReactNativeHost' is deprecated. You should not use ReactNativeHost directly in the New Architecture. Use ReactHost instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigShadowNode.kt:4:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigShadowNode.kt:10:5 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:9:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackHeaderConfigViewManager.kt:37:78 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackViewManager.kt:6:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenStackViewManager.kt:65:78 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:48:42 'fun replaceSystemWindowInsets(p0: Int, p1: Int, p2: Int, p3: Int): @NonNull() WindowInsetsCompat' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:49:39 'val systemWindowInsetLeft: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:51:39 'val systemWindowInsetRight: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreenWindowTraits.kt:52:39 'val systemWindowInsetBottom: Int' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensModule.kt:109:14 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:4:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:5:8 'class NativeViewHierarchyManager : Any' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:6:8 'class NativeViewHierarchyOptimizer : Any' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:7:8 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:11:5 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:12:63 'class NativeViewHierarchyOptimizer : Any' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:14:34 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:14:106 'class NativeViewHierarchyManager : Any' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/ScreensShadowNode.kt:18:51 'fun resolveView(p0: Int): View?' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/SearchBarView.kt:137:29 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:7:8 'object ReactFeatureFlags : Any' is deprecated. Use com.facebook.react.internal.featureflags.ReactNativeFeatureFlags instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:25:13 'object ReactFeatureFlags : Any' is deprecated. Use com.facebook.react.internal.featureflags.ReactNativeFeatureFlags instead.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:32:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'left'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:33:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'top'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:34:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'right'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:35:9 The corresponding parameter in the supertype 'ReactViewGroup' is named 'bottom'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:71:9 The corresponding parameter in the supertype 'RootView' is named 'childView'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:72:9 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:79:46 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:83:9 The corresponding parameter in the supertype 'RootView' is named 'childView'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:84:9 The corresponding parameter in the supertype 'RootView' is named 'ev'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/BottomSheetDialogRootView.kt:95:34 The corresponding parameter in the supertype 'RootView' is named 't'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:64:9 The corresponding parameter in the supertype 'ReactCompoundView' is named 'touchX'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:65:9 The corresponding parameter in the supertype 'ReactCompoundView' is named 'touchY'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:69:9 The corresponding parameter in the supertype 'ReactCompoundViewGroup' is named 'touchX'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/bottomsheet/DimmingView.kt:70:9 The corresponding parameter in the supertype 'ReactCompoundViewGroup' is named 'touchY'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/common/event/BaseEventEmitter.kt:12:38 'fun getEventDispatcherForReactTag(context: ReactContext, reactTag: Int): EventDispatcher?' is deprecated. reactTag is no longer needed.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/gamma/tabs/TabsHostViewManager.kt:37:9 The corresponding parameter in the supertype 'TabsHostViewManager' is named 'view'. This may cause problems when calling this function with named arguments.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/SafeAreaView.kt:19:8 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/SafeAreaView.kt:153:45 'fun consumeDisplayCutout(): @NonNull() WindowInsetsCompat' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/SafeAreaView.kt:194:58 'class UIManagerModule : ReactContextBaseJavaModule, LifecycleEventListener, UIManager' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/SafeAreaView.kt:201:31 'val uiImplementation: UIImplementation!' is deprecated. Deprecated in Java.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/paper/SafeAreaViewShadowNode.kt:7:8 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/paper/SafeAreaViewShadowNode.kt:8:8 'class NativeViewHierarchyOptimizer : Any' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/paper/SafeAreaViewShadowNode.kt:14:32 'class LayoutShadowNode : ReactShadowNodeImpl' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+w: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-screens/android/src/main/java/com/swmansion/rnscreens/safearea/paper/SafeAreaViewShadowNode.kt:83:63 'class NativeViewHierarchyOptimizer : Any' is deprecated. This class is part of Legacy Architecture and will be removed in a future release.
+
+&gt; Task :react-native-screens:compileDebugJavaWithJavac
+&gt; Task :react-native-screens:bundleLibCompileToJarDebug
+&gt; Task :app:compileDebugKotlin
+&gt; Task :app:compileDebugJavaWithJavac
+
+[Incubating] Problems report is available at: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 2m 55s
+154 actionable tasks: 144 executed, 10 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+]633;D;0
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/.cursor/projects/Users-ttnc2-Projects-streamlist/terminals/556573.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/.cursor/projects/Users-ttnc2-Projects-streamlist/terminals/556573.txt</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :react-native-async-storage_async-storage:dependencies --configuration debugCompileClasspath --no-daemon 2>&1 | tail -40</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :react-native-async-storage_async-storage:dependencies --configuration debugCompileClasspath --no-daemon 2>&1 | tail -40
+```
+
+```
++--- org.jetbrains.kotlinx:kotlinx-coroutines-bom:{strictly 1.10.2} -&gt; 1.10.2 (c)
++--- androidx.lifecycle:lifecycle-runtime:{strictly 2.6.2} -&gt; 2.6.2 (c)
++--- androidx.lifecycle:lifecycle-viewmodel:{strictly 2.6.2} -&gt; 2.6.2 (c)
++--- androidx.lifecycle:lifecycle-viewmodel-savedstate:{strictly 2.6.2} -&gt; 2.6.2 (c)
++--- androidx.annotation:annotation-jvm:{strictly 1.9.1} -&gt; 1.9.1 (c)
++--- androidx.annotation:annotation-experimental:{strictly 1.5.0} -&gt; 1.5.0 (c)
++--- androidx.versionedparcelable:versionedparcelable:{strictly 1.1.1} -&gt; 1.1.1 (c)
++--- androidx.customview:customview:{strictly 1.0.0} -&gt; 1.0.0 (c)
++--- androidx.core:core-ktx:{strictly 1.13.1} -&gt; 1.13.1 (c)
++--- androidx.lifecycle:lifecycle-livedata-core:{strictly 2.6.2} -&gt; 2.6.2 (c)
++--- androidx.loader:loader:{strictly 1.0.0} -&gt; 1.0.0 (c)
++--- androidx.viewpager:viewpager:{strictly 1.0.0} -&gt; 1.0.0 (c)
++--- com.facebook.fresco:ui-core:{strictly 3.6.0} -&gt; 3.6.0 (c)
++--- com.facebook.fresco:imagepipeline-base:{strictly 3.6.0} -&gt; 3.6.0 (c)
++--- org.jetbrains.kotlin:kotlin-stdlib-jdk7:{strictly 1.8.0} -&gt; 1.8.0 (c)
++--- androidx.collection:collection-jvm:{strictly 1.5.0} -&gt; 1.5.0 (c)
++--- androidx.sqlite:sqlite-android:{strictly 2.6.0} -&gt; 2.6.0 (c)
++--- androidx.sqlite:sqlite-framework-android:{strictly 2.6.0} -&gt; 2.6.0 (c)
++--- org.jetbrains.kotlinx:kotlinx-coroutines-core-jvm:{strictly 1.10.2} -&gt; 1.10.2 (c)
++--- androidx.arch.core:core-common:{strictly 2.2.0} -&gt; 2.2.0 (c)
++--- androidx.lifecycle:lifecycle-common:{strictly 2.6.2} -&gt; 2.6.2 (c)
++--- androidx.lifecycle:lifecycle-livedata:{strictly 2.6.2} -&gt; 2.6.2 (c)
+\--- androidx.arch.core:core-runtime:{strictly 2.2.0} -&gt; 2.2.0 (c)
+
+(c) - A dependency constraint, not a dependency. The dependency affected by the constraint occurs elsewhere in the tree.
+(*) - Indicates repeated occurrences of a transitive dependency subtree. Gradle expands transitive dependency subtrees only once per project; repeat occurrences only display the root of the subtree, followed by this annotation.
+
+A web-based, searchable dependency report is available by adding the --scan option.
+
+[Incubating] Problems report is available at: file:///Users/ttnc2/Projects/streamlist/phase2/streamlist/android/build/reports/problems/problems-report.html
+
+Deprecated Gradle features were used in this build, making it incompatible with Gradle 10.
+
+You can use '--warning-mode all' to show the individual deprecation warnings and determine if they come from your own scripts or plugins.
+
+For more on this, please refer to https://docs.gradle.org/9.3.1/userguide/command_line_interface.html#sec:command_line_warnings in the Gradle documentation.
+
+BUILD SUCCESSFUL in 16s
+11 actionable tasks: 1 executed, 10 up-to-date
+Consider enabling configuration cache to speed up this build: https://docs.gradle.org/9.3.1/userguide/configuration_cache_enabling.html
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :react-native-async-storage_async-storage:dependencies --configuration debugCompileClasspath --no-daemon 2>&1 | grep -i asyncstorage</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist/android && ./gradlew :react-native-async-storage_async-storage:dependencies --configuration debugCompileClasspath --no-daemon 2>&1 | grep -i asyncstorage
+```
+
+```
++--- org.asyncstorage.shared_storage:storage-android:1.0.0
++--- org.asyncstorage.shared_storage:storage-android:{strictly 1.0.0} -&gt; 1.0.0 (c)
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+`@react-native-async-storage/async-storage` **v3** depends on  
+`org.asyncstorage.shared_storage:storage-android:1.0.0`.  
+That artifact is **not** published to Maven Central; it’s shipped with the npm package under:
+
+`node_modules/@react-native-async-storage/async-storage/android/local_repo/`
+
+Gradle never looked at that folder, so resolution failed.
+
+### Fix
+In [`android/build.gradle`](phase2/streamlist/android/build.gradle), an `allprojects { repositories { maven { url = uri(...) } } }` block was added so every subproject (including the Async Storage module) can resolve that **local Maven repo**.
+
+After this, `./gradlew :react-native-async-storage_async-storage:dependencies` shows:
+
+`org.asyncstorage.shared_storage:storage-android:1.0.0` resolved successfully.
+
+### What you should do
+From `phase2/streamlist/android`, run:
+
+`./gradlew app:installDebug`  
+(or `npx react-native run-android` again).
+
+**Note:** If `node_modules` moves (e.g. monorepo / hoisting), adjust the `uri(...)` path or switch to the pattern from [async-storage#1280](https://github.com/react-native-async-storage/async-storage/issues/1280).
+
+---
+
+_**User**_
+
+in trailerscreen, when page loads and video loads auto play the video
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Testing autoplay behavior**
+
+I'm implementing play state toggle in onReady callback for iOS autoplay reliability. I'm muting autoplay on webview to comply with iOS Safari autoplay policies. 
+
+I'm implementing a delayed play state to prevent early playback before WebView readiness. I'm implementing delayed play state using onReady callback to ensure WebView readiness before playback. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing autoplay**
+
+I'm adding `mediaPlaybackRequiresUserAction={false}` to WebView props for iOS autoplay support. I'm setting `mediaPlaybackRequiresUserAction` to false for iOS autoplay support in WebView props. 
+
+I'm setting `forceAndroidAutoplay` for Android and keeping `mute` false for iOS autoplay support. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Toggling `play` after `onReady` (it was always `true` before the iframe was ready) and enabling WebView autoplay on iOS via `mediaPlaybackRequiresUserAction: false`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was wrong and what we changed.
+
+### Why it didn’t feel like autoplay
+- `play` was **always `true`** from the first render, **before** the YouTube iframe finished loading, so the player often never got a clean “play now” signal.
+- On **iOS**, WKWebView defaults to **requiring a user gesture** for media unless `mediaPlaybackRequiresUserAction` is turned off.
+
+### Updates in [`TrailerScreen.tsx`](phase2/streamlist/src/screens/TrailerScreen.tsx)
+1. **`playing` state** — starts as `false`, then set to **`true` in `onReady`** so playback starts right after the player is ready.
+2. **`onPlayerReady`** — calls `setReady(true)` (hide spinner) and `setPlaying(true)` (start playback).
+3. **`play={playing}`** — wires the player to that state.
+4. **`mute={false}`** — keeps normal audio (if the OS still blocks unmuted autoplay, you’d need to start muted and unmute; we can add that if you see issues).
+5. **`webViewProps={{ mediaPlaybackRequiresUserAction: false }}`** — allows autoplay in the embedded WebView without an extra tap.
+6. **`forceAndroidAutoplay`** — unchanged for Android.
+
+After this, the trailer should start as soon as the screen and player are ready. If iOS still blocks unmuted autoplay in your build, say so and we can add a short muted-then-unmute flow.
+
+---
+
+_**User**_
+
+yes ios video is not playing
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Investigating trailer screen**
+
+I'm examining the TrailerScreen implementation to identify iOS autoplay issues with YouTube iframe. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Inspecting TrailerScreen and how react-native-youtube-iframe handles iOS playback.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe",
+  "pattern": "YoutubePlayer|react-native-youtube"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe",
+  "pattern": "YoutubePlayer|react-native-youtube",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/node_modules/react-native-youtube-iframe/readme.md"
+    },
+    {
+      "matchCount": 4,
+      "uri": "phase2/streamlist/node_modules/react-native-youtube-iframe/package.json"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native-youtube-iframe/src/constants.js"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native-youtube-iframe/lib/commonjs/constants.js"
+    }
+  ],
+  "totalFiles": 5,
+  "totalMatches": 9
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/YoutubeIframe.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/YoutubeIframe.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/PlayerScripts.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Reviewing webview props**
+
+I'm confirming that webViewProps correctly overrides default props in YoutubeIframe.js. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/PlayerScripts.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing race condition**
+
+I discovered the race condition occurs because `onPlayerReady` fires before `playerReady` state is updated in YoutubeIframe. I see that `onReady()` fires before `setPlayerReady(true)` updates the state, causing the parent's `onPlayerReady` to set `playing` to true prematurely. I found that parent's `onPlayerReady` callback runs synchronously and schedules `setState` for `playing=true` before `setPlayerReady(true)` completes, creating a race condition where `playing` is set to true while `playerReady` is still false. 
+
+The race condition occurs because `playerReady` is still false in the child when `onReady` is called, causing the useEffect to run with inconsistent state. I'm tracing the race condition more carefully to understand the timing issues between parent and child component updates. I discovered that React 18 batches parent and child updates, causing timing issues in playerReady and playVideo execution. I suspect a Strict Mode double mount is causing the useEffect to run before playerReady is true. I found that unMute might never get sent when player becomes ready due to early return in sendPostMessage. 
+
+I confirmed that `sendPostMessage` now works correctly and `unMute` is being sent. 
+
+**Checking autoplay policy**
+
+The iOS autoplay policy prevents unmuted videos from playing without user gesture, causing playback issues in WKWebView. I'll implement muted autoplay initially, then unmute via useEffect after playback starts. 
+
+**Implementing autoplay**
+
+I'm implementing muted autoplay with platform-specific behavior and state management. I'm adding iOS-specific autoplay behavior with mute state management and airplay settings. I'm adding iOS autoplay with mute state and showing an unmute button overlay. </details></think>
+
+_**Agent (composer-2)**_
+
+
+iOS WKWebView blocks programmatic unmuted autoplay; `mediaPlaybackRequiresUserAction={false}` doesn't override that. Starting playback muted (allowed), then unmuting via an explicit user tap fixes it. Implementing muted autoplay on iOS and a "Tap for sound" control.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/colors.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "errors": [
+        {
+          "message": "Property 'unmuteOverlay' does not exist on type '{ root: { flex: number; backgroundColor: \"#131313\"; }; header: { flexDirection: \"row\"; alignItems: \"center\"; justifyContent: \"space-between\"; paddingHorizontal: 16; paddingBottom: 12; }; headerTitle: { ...; }; ... 4 more ...; err: { ...; }; }'.",
+          "range": {
+            "endPosition": {
+              "column": 44,
+              "line": 77
+            },
+            "startPosition": {
+              "column": 31,
+              "line": 77
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        },
+        {
+          "message": "Property 'unmuteLabel' does not exist on type '{ root: { flex: number; backgroundColor: \"#131313\"; }; header: { flexDirection: \"row\"; alignItems: \"center\"; justifyContent: \"space-between\"; paddingHorizontal: 16; paddingBottom: 12; }; headerTitle: { ...; }; ... 4 more ...; err: { ...; }; }'.",
+          "range": {
+            "endPosition": {
+              "column": 48,
+              "line": 82
+            },
+            "startPosition": {
+              "column": 37,
+              "line": 82
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        }
+      ],
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts",
+  "pattern": "labelMd"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts",
+  "pattern": "labelMd",
+  "topFiles": [],
+  "totalFiles": 0,
+  "totalMatches": 0
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "errors": [
+        {
+          "message": "Property 'absoluteFillObject' does not exist on type 'typeof StyleSheet'. Did you mean 'absoluteFill'?",
+          "range": {
+            "endPosition": {
+              "column": 37,
+              "line": 133
+            },
+            "startPosition": {
+              "column": 19,
+              "line": 133
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        },
+        {
+          "message": "Property 'labelMd' does not exist on type '{ readonly displayLg: { readonly fontFamily: string; readonly fontSize: 56; readonly letterSpacing: -1.12; }; readonly displayMd: { readonly fontFamily: string; readonly fontSize: 40; readonly letterSpacing: -0.8; }; ... 5 more ...; readonly ctaBold: { ...; }; }'. Did you mean 'labelSm'?",
+          "range": {
+            "endPosition": {
+              "column": 26,
+              "line": 139
+            },
+            "startPosition": {
+              "column": 19,
+              "line": 139
+            }
+          },
+          "severity": "DIAGNOSTIC_SEVERITY_ERROR",
+          "source": "ts"
+        }
+      ],
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing style imports**
+
+I'm using `StyleSheet.absoluteFill` instead of `absoluteFillObject` to fix the React Native styling issue. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/typography.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Handling touch events**
+
+I'm ensuring the unmute overlay correctly captures taps on iOS while preserving YouTube player gesture handling. I'm adjusting the unmute overlay positioning to avoid blocking video controls while maintaining touch responsiveness. I confirmed the Pressable covers full overlay area for touch targets, ensuring good UX for unmute functionality. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Cause
+On **iOS**, **WKWebView** does not allow **unmuted** playback without a **user gesture**, even with `mediaPlaybackRequiresUserAction={false}`. The YouTube iframe can load, but `playVideo()` with sound never really starts.
+
+### Fix (in `TrailerScreen.tsx`)
+1. **`muted` state** — On iOS it starts as **`true`** so autoplay is allowed; on Android it stays **`false`** so behavior stays the same with `forceAndroidAutoplay`.
+2. **`mute={muted}`** on `YoutubePlayer` so the first play is muted on iOS.
+3. **“Tap for sound”** — When the player is ready and still muted on iOS, a bottom **Pressable** sets `muted` to **`false`**. That tap counts as a user gesture, so unmuting works.
+4. **Removed** redundant `webViewProps`; `react-native-youtube-iframe` already sets `mediaPlaybackRequiresUserAction={false}` and `allowsInlineMediaPlayback`.
+
+Styles use **`colors.hero_secondary_cta_bg`**, **`typography.labelSm`**, and **`spacing`** only.
+
+After pulling the change, run the trailer on a device/simulator: the trailer should **start muted and playing**; tap **“Tap for sound”** (or anywhere on the overlay) to turn audio on.
+
+---
+
+_**User**_
+
+still video did not auto play 
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Debugging video playback**
+
+I'm investigating why videos aren't autoplaying on iOS by examining TrailerScreen.tsx and the react-native-youtube-iframe behavior. I'm investigating a race condition where play might be called before playerReady, potentially causing issues with `sendPostMessage`. I found that React batches state updates, so playerReady might not be true yet when the play effect runs in YoutubeIframe. 
+
+I realized that in React 18, both parent and child updates in the same event handler commit together, causing a race condition where playerReady becomes true but play prop is still false on the first frame. I found that the play effect might run with playerReady false on first mount, causing initial play=false to be passed despite playerReady being true. 
+
+I found that both mute and play effects now run in the correct order when playerReady becomes true, resolving the sequence issue. I see the play effect is declared before the mute effect in the file, but they execute in declaration order. I confirmed the effects run in declaration order: play first, then mute, and the initial load behavior matches the expected sequence. I'm investigating whether iOS requires playVideo to occur after mute, or if pauseVideo is being triggered incorrectly during playerReady transition. I'm investigating whether the timing of `setPlayerReady` relative to parent re-renders causes race conditions in video playback state. I found that the parent's state update in `onReady` might be delayed due to React's batching behavior, causing a race condition where the child updates before the parent propagates the `play` prop. 
+
+I identified a potential race condition where parent and child updates batch together in React 18, but the actual issue may be platform-specific mute behavior on Android vs iOS. 
+
+**Checking iOS playback**
+
+I'm investigating whether `playsinline` attribute or delayed play logic on iOS resolves the video playback issue. The playback issue may stem from `onReady` firing before the internal `playerReady` flag is set, causing timing issues in the parent component's effect. I found the race condition: `onReady` fires before `setPlayerReady` is called, leaving `playerReady` false when parent tries to set `playing=true`. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Tracing playback flow and library timing to fix iOS autoplay.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/YoutubeIframe.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing race condition**
+
+I found a race condition where parent's `onReady` executes before `playerReady` state is updated, causing incorrect `playing` state propagation. 
+
+**Handling postmessage**
+
+I'm ensuring `sendPostMessage` only runs after `playerReady` is true and `play` prop is active. I'm investigating whether `playing` state initialization order could cause `sendPostMessage` to run with `play=false` despite `playerReady` being true. I'm investigating whether Strict Mode might cause double mounting that resets the `playing` state before `playerReady` completes. 
+
+I'm exploring potential timing issues with postMessage and window message listeners. I'm implementing a workaround using `injectJavaScript` with a timeout to bypass the `postMessage` path for playing videos. 
+
+I'm adding a toggle for play state in onPlayerReady to force re-render and bypass postMessage issues. I'm exploring iOS WebView quirks with setTimeout and checking if DEFAULT_BASE_URL is blocked by ATS. I'm implementing useRef for YoutubePlayer to properly manage the iframe reference. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+File not found
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "glob": "*.tsx",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview",
+  "pattern": "postMessage"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview",
+  "pattern": "postMessage",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/src/WebView.windows.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/src/WebView.macos.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/src/WebView.ios.tsx"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/src/WebView.android.tsx"
+    }
+  ],
+  "totalFiles": 4,
+  "totalMatches": 9
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **6** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe** (6 files)
+
+| File |
+|------|
+| `lib/commonjs/WebView.web.js.map` |
+| `lib/commonjs/WebView.native.js.map` |
+| `src/WebView.web.js` |
+| `lib/commonjs/WebView.web.js` |
+| `src/WebView.native.js` |
+| `lib/commonjs/WebView.native.js` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/WebView.native.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Investigating postMessage**
+
+I'm checking how postMessage works in React Native WebView and whether the YouTube iframe is blocking messages due to cross-origin restrictions. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/src/WebView.ios.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/apple",
+  "pattern": "postMessage"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/apple",
+  "pattern": "postMessage",
+  "topFiles": [
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/apple/RNCWebViewManager.mm"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/apple/RNCWebView.mm"
+    },
+    {
+      "matchCount": 10,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/apple/RNCWebViewImpl.m"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/node_modules/react-native-webview/apple/RNCWebViewImpl.h"
+    }
+  ],
+  "totalFiles": 4,
+  "totalMatches": 14
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-webview/apple/RNCWebViewImpl.m</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Injecting postMessage**
+
+I'm injecting a MessageEvent with data property using window.dispatchEvent. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/PlayerScripts.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing volume handling**
+
+I found that setVolume is missing from the message handler switch statement. I discovered that setVolume messages fall through the switch statement because there's no default case, causing them to be silently ignored. 
+
+I found that playVideo events aren't being handled because the switch statement lacks a default case and the event name doesn't match exactly. 
+
+**Analyzing iframe loading**
+
+I discovered that `onReady` fires before `setPlayerReady(true)`, which causes timing issues in iframe initialization. I found that `sendPostMessage` could run before `webViewRef.current` is populated, but this seems unlikely after mount. 
+
+I realized that `sendPostMessage` might execute before the YouTube iframe player is ready, causing potential errors. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/src/constants.js</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Trying fixes**
+
+I'm testing deferred play with queueMicrotask to ensure YoutubeIframe playerReady fires before setting playing state. I'm experimenting with injecting JavaScript to force play after cued or paused states. 
+
+**Identifying playback bug**
+
+I found the bug: initial play=true causes play effect to run but no-op due to playerReady false, then play doesn't change so effect doesn't re-run. I confirmed the bug occurs when play starts false and playerReady becomes true in same render, causing effect to run with play=true but no-op due to missing playerReady. The effect re-runs due to sendPostMessage identity change when playerReady becomes true, but no playVideo is sent because play=true was already consumed. 
+
+**Handling edge case**
+
+I'm handling the edge case where play=false initially and playerReady becomes true, ensuring pauseVideo is sent correctly. I found that playerReady being true before play=true can cancel autoplay, requiring careful timing of effects. I'm checking if Strict Mode's double-mounting causes intermediate renders that could sync `playing` state incorrectly. I found that parent's onReady being delayed could cause a frame where playerReady is true but play is false. I'm implementing injectJavaScript fallback using webViewProps to access playVideo method. 
+
+I'm exploring options for handling video state transitions, considering `onChangeState` callback and `initialPlayerParams` with autoplay URL parameter. 
+
+**Checking YouTube API**
+
+I'm verifying the YouTube IFrame API player parameters, specifically the `autoplay` flag and `playerVars` configuration. I discovered that `autoplay` isn't included in `InitialPlayerParams` type definition, but it might be supported via `playerVars` in `MAIN_SCRIPT`. 
+
+I found that autoplay isn't passed through `initialPlayerParams` and may need to be patched or handled via `useLocalHTML`. 
+
+**Handling player states**
+
+I'm implementing a retry mechanism in `onChangeState` to force playback when paused or unstarted. I'm trying deferred `setPlaying(true)` on iOS to avoid initial playback issues. I'm starting with `playing={true}` for iOS to resolve the play state bug. 
+
+I'm setting `playing` to `true` for all platforms initially to ensure autoplay works correctly. I'm using initial `playing=true` to avoid dependency on `onReady` for autoplay, and the effect re-runs reliably because `sendPostMessage` is in deps. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/readme.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing autoplay fixes**
+
+I'm setting `playing` to true initially to prevent effect re-run when sendPostMessage receives playerReady. I'm adding baseUrlOverride to fix iOS WKWebView compatibility for the htmlString. I'm testing userAgent override for iOS WKWebView to match Chrome desktop for YouTube embed compatibility. I'm debugging the autoplay logic where `playVideo` runs only when `sendPostMessage` changes, not `play`. 
+
+**Debugging autoplay logic**
+
+I found that playVideo only runs when sendPostMessage changes, not when play changes, causing potential bugs in autoplay behavior. I'm setting playing initial state to true and removing setPlaying from onPlayerReady to fix stale closure issues with play prop. 
+
+I'm adding `setReady(true)` in `onPlayerReady` and considering edge cases like navigation and iOS settings. I'm adding `InteractionManager.runAfterInteractions` for iOS autoplay redundancy and implementing retry logic for paused states. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Identifying a likely race: with `playing` starting false we rely on `onReady` to set `playing` true — batching/order can leave the library's `play` effect not re-firing reliably. Starting with `play={true}` so when `playerReady` flips, `sendPostMessage` changes and the `play` effect re-runs (documented pattern for this library). Implementing that plus a small iOS retry via `onChangeState` if playback stays paused.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/node_modules/react-native-youtube-iframe/index.d.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing player states**
+
+I'm setting `playing` to `true` initially and simplifying `onPlayerReady` to only set ready state. I'm adding a useEffect in TrailerScreen to toggle playing state on iOS after 300ms to force library reinitialization. I'm refactoring the iOS playback toggle logic to use refs instead of direct state manipulation to avoid flicker. I'm testing the initial playback state with `useLocalHTML` set to true on iOS. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Starting with `play={true}` so when the library's `playerReady` flips to true, `sendPostMessage` is recreated and the `play` effect re-runs (the effect no-ops until then). Relying on `onReady` to set `playing` true can miss that re-run if updates batch oddly. Applying the change.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Simplifying state handler**
+
+I'm simplifying the onChangeState handler to only retry once on PAUSED or VIDEO_CUED when autoplay is enabled, not on every pause. 
+
+**Removing state handler**
+
+I'm removing the onChangeState handler entirely to prevent potential loops and erratic behavior. I'm removing the `onPlayerStateChange` handler and simplifying the nudge to `setPlaying(false); setPlaying(true)` in a timeout. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Removing the flawed `onChangeState` handler (it could loop) and fixing the iOS nudge so the play toggle uses two ticks.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+Incorrect tool arguments
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Handling cleanup**
+
+I'm storing the inner setTimeout ID to prevent setting state on unmounted components. I'm preventing double effects in Strict Mode by checking `iosPlayNudgeDone.current` before cleanup. I'm simplifying the cleanup logic by removing `iosPlayNudgeDone` and letting the effect run on every `ready` toggle. I'm removing the `iosPlayNudgeDone` ref because the effect properly handles cancellation now. I'm adjusting the cleanup logic to ensure proper cancellation in Strict Mode. I'm ensuring inner timeouts are cleared when cleanup occurs. 
+
+I'm simplifying the timeout cleanup logic to avoid double execution in Strict Mode by using a cancelled pattern instead of refs. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Fixing the iOS nudge so React Strict Mode doesn't skip it (ref stayed `true` after the first effect cleanup) and clearing both timeouts on unmount.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test 2>&1
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 7 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/Skeleton.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+PASS __tests__/App.test.tsx
+PASS __tests__/utils/trailer.test.ts
+PASS __tests__/components/StreamlistIcons.test.tsx
+
+Test Suites: 6 passed, 6 total
+Tests:       29 passed, 29 total
+Snapshots:   0 total
+Time:        1.125 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was going wrong and what we changed.
+
+### Why autoplay failed
+`react-native-youtube-iframe` only sends `playVideo` when **`play` is true** and its internal **`playerReady`** is true. The `play` effect also depends on **`sendPostMessage`**, which changes when `playerReady` flips.
+
+If **`playing` started as `false`** and we only set it to **`true` in `onReady`**, that usually works, but the important case is: when **`play` is already `true` on mount**, turning **`playerReady` on** updates **`sendPostMessage`**, so the effect runs again and actually sends **`playVideo`**. If that second run doesn’t happen reliably (ordering / batching), iOS never gets a **`playVideo`** postMessage.
+
+### What we did
+1. **`playing` defaults to `true`** so when the player becomes ready, the library’s `play` effect is tied to **`sendPostMessage` becoming valid** and **`playVideo` is sent** as intended.
+2. **`onReady` only sets `ready`** (for the spinner) — it no longer has to drive **`playing`**.
+3. **iOS-only nudge (~400ms after `ready`)**: **`play` → `false`**, then **`true` on the next tick**, so the iframe gets a clear **pause/play** sequence. Some WKWebView + YouTube setups need that to start.
+4. **Cleanup** cancels both timeouts so we don’t update state after unmount; no **`useRef` “done” flag** so React Strict Mode doesn’t skip the nudge.
+
+Muted + “Tap for sound” on iOS is unchanged.
+
+File touched: `phase2/streamlist/src/screens/TrailerScreen.tsx`. Lint and tests pass.
+
+If it still doesn’t start on a device, say whether you see the first frame / poster or a black rectangle — that tells us embed vs. playback.
+
+---
+
+_**User**_
+
+auto play is not working, remove all the logic for auto play tap for sound
+
+---
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Simplifying `TrailerScreen`: removing autoplay, mute/tap-for-sound, and related state/effects. Leaving the player with default controls so users tap play in the embed.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/TrailerScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint 2>&1
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
 
 </details></tool-use>

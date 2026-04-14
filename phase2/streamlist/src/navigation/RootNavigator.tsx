@@ -1,9 +1,13 @@
 import { BlurView } from '@react-native-community/blur';
 import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
-import { NavigationContainer, DarkTheme } from '@react-navigation/native';
+import {
+  CommonActions,
+  NavigationContainer,
+  DarkTheme,
+} from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 import React from 'react';
-import { StyleSheet, View } from 'react-native';
+import { Platform, StyleSheet, View } from 'react-native';
 import {
   IconBookmarkOutline,
   IconHome,
@@ -13,10 +17,12 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { HomeScreen } from '../screens/HomeScreen';
 import { MovieListScreen } from '../screens/MovieListScreen';
+import { NotificationsScreen } from '../screens/NotificationsScreen';
 import { ProfileScreen } from '../screens/ProfileScreen';
 import { SearchScreen } from '../screens/SearchScreen';
 import { WatchlistScreen } from '../screens/WatchlistScreen';
 import { DetailScreen } from '../screens/DetailScreen';
+import { TrailerScreen } from '../screens/TrailerScreen';
 import {
   selectWatchlistCount,
   useWatchlistStore,
@@ -80,8 +86,11 @@ function WatchlistStackNav() {
 
 function ProfileStackNav() {
   return (
-    <ProfileStack.Navigator screenOptions={{ headerShown: false }}>
+    <ProfileStack.Navigator
+      initialRouteName="ProfileMain"
+      screenOptions={{ headerShown: false }}>
       <ProfileStack.Screen name="ProfileMain" component={ProfileScreen} />
+      <ProfileStack.Screen name="Notifications" component={NotificationsScreen} />
     </ProfileStack.Navigator>
   );
 }
@@ -210,6 +219,18 @@ function MainTabs() {
             title: 'Profile',
             tabBarIcon: ProfileTabIcon,
           }}
+          listeners={({ navigation }) => ({
+            tabPress: () => {
+              navigation.dispatch(
+                CommonActions.navigate({
+                  name: 'ProfileTab',
+                  params: {
+                    screen: 'ProfileMain',
+                  },
+                }),
+              );
+            },
+          })}
         />
       </Tab.Navigator>
   );
@@ -221,6 +242,14 @@ export function RootNavigator() {
       <RootStack.Navigator screenOptions={{ headerShown: false }}>
         <RootStack.Screen name="Main" component={MainTabs} />
         <RootStack.Screen name="Detail" component={DetailScreen} />
+        <RootStack.Screen
+          name="Trailer"
+          component={TrailerScreen}
+          options={Platform.select({
+            ios: { presentation: 'fullScreenModal' },
+            default: {},
+          })}
+        />
       </RootStack.Navigator>
     </NavigationContainer>
   );

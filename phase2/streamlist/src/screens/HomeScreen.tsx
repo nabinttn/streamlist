@@ -1,7 +1,6 @@
 import React, { useCallback } from 'react';
 import { LinearGradient } from 'react-native-linear-gradient';
 import {
-  Alert,
   FlatList,
   ImageBackground,
   NativeSyntheticEvent,
@@ -162,7 +161,10 @@ function HomeScreenInner({
         <Pressable
           hitSlop={12}
           accessibilityLabel="Notifications"
-          onPress={() => Alert.alert('StreamList', 'Notifications coming soon.')}>
+          accessibilityRole="button"
+          onPress={() =>
+            navigation.navigate('ProfileTab', { screen: 'Notifications' })
+          }>
           <IconNotificationsOutline
             size={iconSize.topBar}
             color={colors.on_surface_variant}

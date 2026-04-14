@@ -3,6 +3,7 @@ import type { NormalizedError } from '../api/client';
 import {
   fetchMovieCredits,
   fetchMovieDetail,
+  fetchMovieVideos,
   fetchSimilarMovies,
 } from '../api/movies';
 import type {
@@ -10,12 +11,18 @@ import type {
   ApiMovieListItem,
   CreditsResponse,
 } from '../api/types';
+import { pickYoutubeTrailerKey } from '../utils/trailer';
 import type { UseQueryResult } from './types';
+
+export interface MovieVideosData {
+  trailerYoutubeKey: string | null;
+}
 
 interface MovieDetailBundle {
   details: UseQueryResult<ApiMovieDetail>;
   credits: UseQueryResult<CreditsResponse>;
   similar: UseQueryResult<{ results: ApiMovieListItem[] }>;
+  videos: UseQueryResult<MovieVideosData>;
   /** Pull-to-refresh: soft reload without clearing existing content or toggling section spinners. */
   pullToRefresh: { refreshing: boolean; onRefresh: () => Promise<void> };
 }
@@ -26,12 +33,15 @@ export function useMovieDetail(movieId: number): MovieDetailBundle {
   const [similarData, setSimilarData] = useState<ApiMovieListItem[] | null>(
     null,
   );
+  const [videosData, setVideosData] = useState<MovieVideosData | null>(null);
   const [detailLoading, setDetailLoading] = useState(true);
   const [creditsLoading, setCreditsLoading] = useState(true);
   const [similarLoading, setSimilarLoading] = useState(true);
+  const [videosLoading, setVideosLoading] = useState(true);
   const [detailErr, setDetailErr] = useState<string | null>(null);
   const [creditsErr, setCreditsErr] = useState<string | null>(null);
   const [similarErr, setSimilarErr] = useState<string | null>(null);
+  const [videosErr, setVideosErr] = useState<string | null>(null);
   const [refreshing, setRefreshing] = useState(false);
 
   const load = useCallback(async (soft = false) => {
@@ -39,18 +49,21 @@ export function useMovieDetail(movieId: number): MovieDetailBundle {
       setDetailLoading(true);
       setCreditsLoading(true);
       setSimilarLoading(true);
+      setVideosLoading(true);
       setDetailErr(null);
       setCreditsErr(null);
       setSimilarErr(null);
+      setVideosErr(null);
     }
 
     const results = await Promise.allSettled([
       fetchMovieDetail(movieId),
       fetchMovieCredits(movieId),
       fetchSimilarMovies(movieId, 1),
+      fetchMovieVideos(movieId),
     ]);
 
-    const [dRes, cRes, sRes] = results;
+    const [dRes, cRes, sRes, vRes] = results;
 
     if (dRes.status === 'fulfilled') {
       setDetailData(dRes.value);
@@ -84,6 +97,19 @@ export function useMovieDetail(movieId: number): MovieDetailBundle {
       setSimilarErr((sRes.reason as NormalizedError).message);
     }
     setSimilarLoading(false);
+
+    if (vRes.status === 'fulfilled') {
+      setVideosData({
+        trailerYoutubeKey: pickYoutubeTrailerKey(vRes.value.results),
+      });
+      setVideosErr(null);
+    } else {
+      if (!soft) {
+        setVideosData(null);
+      }
+      setVideosErr((vRes.reason as NormalizedError).message);
+    }
+    setVideosLoading(false);
   }, [movieId]);
 
   useEffect(() => {
@@ -120,6 +146,12 @@ export function useMovieDetail(movieId: number): MovieDetailBundle {
       data: similarData ? { results: similarData } : null,
       loading: similarLoading,
       error: similarErr,
+      refetch: refetchHard,
+    },
+    videos: {
+      data: videosData,
+      loading: videosLoading,
+      error: videosErr,
       refetch: refetchHard,
     },
     pullToRefresh: { refreshing, onRefresh },

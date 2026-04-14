@@ -20,6 +20,8 @@ export interface ContentCardProps {
   genreLabel?: string;
   showRating?: boolean;
   width?: number;
+  /** Poster rating chip: default `right` to match home/search rows; use `left` when top-right is used for actions (e.g. watchlist remove). */
+  ratingBadgeSide?: 'left' | 'right';
 }
 
 function ContentCardInner({
@@ -28,6 +30,7 @@ function ContentCardInner({
   genreLabel,
   showRating = true,
   width: widthOverride,
+  ratingBadgeSide = 'right',
 }: ContentCardProps) {
   const { width: screenW } = useWindowDimensions();
   const colWidth = (screenW - spacing.md * 3) / 2;
@@ -47,7 +50,11 @@ function ContentCardInner({
           </View>
         )}
         {showRating && movie.vote_average > 0 ? (
-          <View style={styles.badge}>
+          <View
+            style={[
+              styles.badge,
+              ratingBadgeSide === 'left' ? styles.badgeLeft : styles.badgeRight,
+            ]}>
             <Text style={styles.badgeStar}>★</Text>
             <Text style={styles.badgeVal}>
               {movie.vote_average.toFixed(1)}
@@ -88,13 +95,18 @@ const styles = StyleSheet.create({
   badge: {
     position: 'absolute',
     top: spacing.xs,
-    right: spacing.xs,
     flexDirection: 'row',
     alignItems: 'center',
     backgroundColor: colors.surface_container_highest,
     paddingHorizontal: spacing.xs,
     paddingVertical: spacing.xxs,
     borderRadius: spacing.xs,
+  },
+  badgeLeft: {
+    left: spacing.xs,
+  },
+  badgeRight: {
+    right: spacing.xs,
   },
   badgeStar: {
     ...typography.labelSm,
