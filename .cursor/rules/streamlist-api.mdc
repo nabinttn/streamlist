@@ -1,0 +1,13 @@
+---
+description: StreamList API layer — Axios client and TMDB helpers only
+globs:
+  - "**/phase2/streamlist/src/api/**"
+  - "**/src/api/**"
+---
+
+**Application root:** `phase2/streamlist/` — paths below are relative to it.
+
+- **Single HTTP surface:** Configure Axios in **`src/api/client.ts`** only. TMDB request helpers live in **`src/api/movies.ts`**. Do not add a second HTTP client or `import axios` outside this folder.
+- **Types:** TMDB DTOs and shared API types belong in **`src/api/types.ts`**. Export shapes consumed by hooks; avoid leaking raw responses into screens without typing.
+- **Consumers:** Screens and UI components use **`src/hooks/*`** (or the watchlist store), not `fetch`/Axios directly. If a new endpoint is needed, add a typed helper in `movies.ts` and consume it from a hook.
+- **Env:** Base URL and tokens come from **`@env`** / `react-native-dotenv` via the client setup — never hardcode secrets.

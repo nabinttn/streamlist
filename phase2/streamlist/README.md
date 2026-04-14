@@ -47,8 +47,10 @@ Open **`ios/Streamlist.xcworkspace`** in Xcode (not `.xcodeproj`) after `pod ins
 
 ## Project docs
 
-- [docs/PROJECT_SPEC.md](docs/PROJECT_SPEC.md) — local spec (see upstream course Phase 2 for full detail)
-- [docs/ADR.md](docs/ADR.md) — architectural decisions
+Canonical docs live at the **repository root** (not under this folder):
+
+- [Project specification — `docs/PROJECT_SPEC.md`](../../docs/PROJECT_SPEC.md) — local contract (see upstream course Phase 2 for full rubric)
+- [Architectural decisions — `docs/ADR.md`](../../docs/ADR.md)
 
 ## Security
 

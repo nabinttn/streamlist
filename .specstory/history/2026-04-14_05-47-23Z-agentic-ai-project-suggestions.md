@@ -476,3 +476,545 @@ Status: **completed**
 <summary>Tool use: **create_plan**</summary>
 
 </details></tool-use>
+
+---
+
+_**User**_
+
+Implement the plan as specified, it is attached for your reference. Do NOT edit the plan file itself.
+
+To-do's from the plan have already been created. Do not create them again. Mark them as in_progress as you work, starting with the first one. Don't stop until you have completed all the to-dos.
+
+---
+
+_**Agent (composer-2)**_
+
+
+Implementing the plan: starting with README/spec links, then updating PROJECT_SPEC, adding scoped Cursor rules, AGENTS.md + .cursorignore, and the Phase 2 prompt playbook.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "in_progress"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section to match phase2/streamlist (e.g. useSearchExplore, useRecentSearches, MovieListScreen) and remove placeholder ADR bullets",
+      "id": "refresh-project-spec-tree",
+      "status": "pending"
+    },
+    {
+      "content": "Add 1–2 glob-scoped .mdc rules for src/api and src/hooks (and optionally navigation/tests) without duplicating always-applied invariants",
+      "id": "add-scoped-cursor-rules",
+      "status": "pending"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Align phase2/streamlist README (and any docs) with real paths: docs/PROJECT_SPEC.md and docs/ADR.md at repo root, or add thin pointers under phase2/streamlist/docs/",
+      "id": "fix-readme-spec-links",
+      "status": "pending"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section to match phase2/streamlist (e.g. useSearchExplore, useRecentSearches, MovieListScreen) and remove placeholder ADR bullets",
+      "id": "refresh-project-spec-tree",
+      "status": "pending"
+    },
+    {
+      "content": "Add 1–2 glob-scoped .mdc rules for src/api and src/hooks (and optionally navigation/tests) without duplicating always-applied invariants",
+      "id": "add-scoped-cursor-rules",
+      "status": "pending"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/README.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **0** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist** (0 files)
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/docs/PROJECT_SPEC.md</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating readme links**
+
+I'm updating the README links in phase2/streamlist to use relative paths from repo root docs. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **1** result in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist** (1 file)
+
+| File |
+|------|
+| `phase2/streamlist/.env.example` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search">
+<details>
+<summary>Tool use: **glob_file_search** • Searched codebase "" • **30** results in **1** directory</summary>
+
+Directory: **/Users/ttnc2/Projects/streamlist/phase2/streamlist/src** (30 files)
+
+| File |
+|------|
+| `screens/SearchScreen.tsx` |
+| `screens/WatchlistScreen.tsx` |
+| `api/types.ts` |
+| `navigation/types.ts` |
+| `screens/ProfileScreen.tsx` |
+| `theme/typography.ts` |
+| `hooks/useSearchExplore.ts` |
+| `theme/fontFamily.ts` |
+| `navigation/RootNavigator.tsx` |
+| `api/movies.ts` |
+| `components/common/ScreenErrorBoundary.tsx` |
+| `screens/HomeScreen.tsx` |
+| `components/common/ContentCard.tsx` |
+| `screens/MovieListScreen.tsx` |
+| `components/icons/StreamlistIcons.tsx` |
+| `store/watchlistStore.ts` |
+| `utils/format.ts` |
+| `utils/genres.ts` |
+| `screens/DetailScreen.tsx` |
+| `hooks/useRecentSearches.ts` |
+| `theme/spacing.ts` |
+| `components/common/Skeleton.tsx` |
+| `hooks/useSearch.ts` |
+| `hooks/useMovieDetail.ts` |
+| `api/client.ts` |
+| `utils/image.ts` |
+| `theme/iconSizes.ts` |
+| `theme/colors.ts` |
+| `hooks/types.ts` |
+| `hooks/useHome.ts` |
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="search" data-tool-name="glob_file_search"><details>
+<summary>Tool use: **glob_file_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating docs links**
+
+I'm updating the docs/PROJECT_SPEC.md link to point to phase2/streamlist/.env.example and fixing the ADR section. I'm implementing the phase2 copy structure strategy with glob-scoped .mdc rules for api and hooks. I'm adding 2 glob-scoped rules for api and hooks, with navigation/tests as optional third file. I'm adding glob patterns for navigation and tests in streamlist-navigation-tests.mdc, using MDC's array format for multiple globs. I'm using glob patterns with `**/src/api/**` to match the API directory, since there's only one project in the workspace. I'm updating the glob patterns to use explicit paths like `phase2/streamlist/src/api/**` instead of `**/src/api/**` to avoid ambiguity in the monorepo structure. 
+
+I'm refining glob patterns to use explicit paths like `phase2/streamlist/src/api/**` for clarity. I'm implementing glob-scoped .mdc rules for src/api and src/hooks as specified in the todo. 
+
+I'm adding three new .mdc files (api, hooks, and navigation-tests) to implement the glob-scoped rules. I'm combining navigation and tests into one rule to meet the 2-file limit for glob-scoped rules. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Updating `phase2/streamlist/README.md` links to the repo-root docs.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/README.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "completed"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section",
+      "id": "refresh-project-spec-tree",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add 1–2 glob-scoped .mdc rules for src/api and src/hooks (and optionally navigation/tests) without duplicating always-applied invariants",
+      "id": "add-scoped-cursor-rules",
+      "status": "pending"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "in_progress"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section to match phase2/streamlist (e.g. useSearchExplore, useRecentSearches, MovieListScreen) and remove placeholder ADR bullets",
+      "id": "refresh-project-spec-tree",
+      "status": "pending"
+    },
+    {
+      "content": "Add 1–2 glob-scoped .mdc rules for src/api and src/hooks (and optionally navigation/tests) without duplicating always-applied invariants",
+      "id": "add-scoped-cursor-rules",
+      "status": "pending"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/docs/PROJECT_SPEC.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/docs/PROJECT_SPEC.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/docs/PROJECT_SPEC.md</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing project spec**
+
+I'm adding MovieListScreen to the screens table with a short row, and leaving the navigation version mismatch as specified. 
+
+**Creating cursor rules**
+
+I'm defining cursor rules for streamlist-api, streamlist-hooks, and streamlist-navigation-tests with their respective globs. 
+
+**Updating cursor rules**
+
+I'm revising cursor rules to prevent screens from importing api directly, restricting imports to hooks or store only. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Adding scoped Cursor rules and creating `AGENTS.md`, `.cursorignore`, and the Phase 2 prompt doc.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "completed"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section",
+      "id": "refresh-project-spec-tree",
+      "status": "completed"
+    },
+    {
+      "content": "Add glob-scoped .mdc rules for api, hooks, navigation, tests",
+      "id": "add-scoped-cursor-rules",
+      "status": "in_progress"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "completed"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section",
+      "id": "refresh-project-spec-tree",
+      "status": "in_progress"
+    },
+    {
+      "content": "Add 1–2 glob-scoped .mdc rules for src/api and src/hooks (and optionally navigation/tests) without duplicating always-applied invariants",
+      "id": "add-scoped-cursor-rules",
+      "status": "pending"
+    },
+    {
+      "content": "Optionally add repo-root AGENTS.md index and .cursorignore for .specstory/ to speed indexing",
+      "id": "optional-agents-cursorignore",
+      "status": "pending"
+    },
+    {
+      "content": "Optional: short phase2/docs prompt-strategy mirroring phase1 CDIR + verification commands for phase2/streamlist",
+      "id": "phase2-prompt-playbook",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/.cursor/rules/streamlist-api.mdc</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/.cursor/rules/streamlist-hooks.mdc</summary>
+
+Status: **loading**
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>

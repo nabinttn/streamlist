@@ -7,7 +7,8 @@ Monorepo-style layout for the **AI-first development** program: **Phase 1** docu
 | Path | Contents |
 |------|----------|
 | [`phase1/`](phase1/) | Phase 1 deliverables (prompt strategy, links to the course Phase 1 briefing) |
-| [`phase2/streamlist/`](phase2/streamlist/) | **Streamlist** — React Native CLI app, `package.json`, `android/`, `ios/`, `src/`, and app docs under `docs/` |
+| [`docs/`](docs/) | **Project spec** ([`PROJECT_SPEC.md`](docs/PROJECT_SPEC.md)), **ADRs** ([`ADR.md`](docs/ADR.md)) — canonical contracts for the app |
+| [`phase2/streamlist/`](phase2/streamlist/) | **Streamlist** — React Native CLI app (`package.json`, `android/`, `ios/`, `src/`); pointers to root docs in [`phase2/streamlist/docs/README.md`](phase2/streamlist/docs/README.md) |
 | [`.cursor/`](.cursor/) | Cursor rules for this project |
 | [`.specstory/`](.specstory/) | SpecStory / agent history (local tooling) |
 

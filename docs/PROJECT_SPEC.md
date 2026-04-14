@@ -21,7 +21,7 @@ React Native **OTT discovery and watchlist** app (no video playback): browse TMD
 
 ## Environment variables
 
-Defined in [`.env.example`](../.env.example):
+Defined in [`phase2/streamlist/.env.example`](../phase2/streamlist/.env.example):
 
 - `TMDB_BASE_URL`
 - `TMDB_IMAGE_BASE_URL`
@@ -29,16 +29,24 @@ Defined in [`.env.example`](../.env.example):
 
 ## Source layout (prescribed)
 
+All paths below are under **`phase2/streamlist/`** (the app root).
+
 ```
 src/
 ├── api/client.ts, movies.ts, types.ts
-├── components/common/
-├── hooks/useHome.ts, useSearch.ts, useMovieDetail.ts
+├── components/common/          # e.g. ContentCard, Skeleton, ScreenErrorBoundary
+├── components/icons/
+├── hooks/
+│   ├── types.ts
+│   ├── useHome.ts, useSearch.ts, useMovieDetail.ts
+│   ├── useSearchExplore.ts, useRecentSearches.ts
 ├── navigation/RootNavigator.tsx, types.ts
-├── screens/HomeScreen, SearchScreen, DetailScreen, WatchlistScreen, ProfileScreen
+├── screens/
+│   ├── HomeScreen, SearchScreen, DetailScreen, WatchlistScreen, ProfileScreen
+│   └── MovieListScreen.tsx
 ├── store/watchlistStore.ts
-├── theme/colors.ts, typography.ts, spacing.ts
-└── utils/image.ts
+├── theme/colors.ts, typography.ts, spacing.ts, fontFamily.ts, iconSizes.ts
+└── utils/format.ts, genres.ts, image.ts
 ```
 
 **Rules:** Screens fetch **only through hooks** (no inline `useEffect` + fetch). Colors/spacing only from theme files. Navigation params typed in **`src/navigation/types.ts`**.
@@ -72,6 +80,7 @@ interface UseQueryResult<T> {
 | Search | Debounced search (e.g. 400ms), cancel stale requests, recent searches, grid |
 | Detail | **`Promise.allSettled`** for movie + credits + similar; per-section loading/error/retry |
 | Watchlist | Filters, grid, optimistic remove, “Because you saved”, empty state |
+| MovieListScreen | Stack screen for a titled movie grid (e.g. explore / list routes) |
 | Profile | Placeholder / “Coming Soon” |
 
 ## Submission artifacts (course)
@@ -81,13 +90,9 @@ interface UseQueryResult<T> {
 - `README.md` — setup instructions  
 - `.cursor/rules` — substantive (≥10 rules)
 
-## Deviations / ADR hooks
+## Deviations / ADR
 
-Document intentional divergences from the course spec in [`ADR.md`](ADR.md):
-
-1. _(placeholder)_  
-2. _(placeholder)_  
-3. _(placeholder)_  
+Recorded architectural decisions (CLI merge, omitting Reanimated, watchlist hydration) live in **[`ADR.md`](ADR.md)**. Update that file when the implementation intentionally diverges from the upstream course spec.
 
 ---
 

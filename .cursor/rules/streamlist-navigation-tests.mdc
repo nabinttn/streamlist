@@ -1,0 +1,21 @@
+---
+description: StreamList navigation types and Jest tests
+globs:
+  - "**/phase2/streamlist/src/navigation/**"
+  - "**/src/navigation/**"
+  - "**/phase2/streamlist/__tests__/**"
+  - "**/__tests__/**"
+  - "**/phase2/streamlist/**/*.test.tsx"
+---
+
+**Application root:** `phase2/streamlist/` — paths below are relative to it.
+
+### Navigation
+
+- **Typed params:** Add or change route params only in **`src/navigation/types.ts`** and keep navigators in sync. Prefer nested stacks under each tab so **back** returns to the correct tab context.
+- **No untyped jumps:** Use typed `navigate` / param payloads — avoid stringly route names without the shared param list.
+
+### Tests
+
+- **No live network:** Unit tests must not hit TMDB or the real API; mock **`src/api/movies.ts`** / client behavior as needed.
+- **Consistency:** Follow patterns in **`__tests__/App.test.tsx`** for render/setup; keep tests deterministic and fast.

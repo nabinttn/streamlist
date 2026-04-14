@@ -1,0 +1,2 @@
+# Large / generated — exclude from Cursor indexing to reduce noise and speed up context
+.specstory/

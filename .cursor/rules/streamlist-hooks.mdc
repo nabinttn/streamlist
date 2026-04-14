@@ -1,0 +1,13 @@
+---
+description: StreamList data hooks — UseQueryResult, search cancellation
+globs:
+  - "**/phase2/streamlist/src/hooks/**"
+  - "**/src/hooks/**"
+---
+
+**Application root:** `phase2/streamlist/` — paths below are relative to it.
+
+- **Return shape:** Data hooks return **`UseQueryResult<T>`** from **`src/hooks/types.ts`** (`data`, `loading`, `error`, `refetch`) unless a documented exception (e.g. `useMovieDetail` section bundles).
+- **API usage:** Call **`src/api/movies.ts`** (and the configured client) from hooks — not from screens. Keep side effects and request logic here.
+- **Search / explore:** Hooks that drive search or exploratory lists (e.g. **`useSearch`**, **`useSearchExplore`**) must **debounce** input (~400 ms) and **cancel** in-flight work with **`AbortSignal`** / `AbortController` so older responses cannot overwrite newer queries.
+- **Presentation:** Prefer returning data + flags; avoid embedding long user-facing copy in hooks (keep strings in screens/components).
