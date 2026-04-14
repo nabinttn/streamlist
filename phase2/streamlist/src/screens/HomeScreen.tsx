@@ -7,6 +7,7 @@ import {
   NativeSyntheticEvent,
   NativeScrollEvent,
   Pressable,
+  RefreshControl,
   ScrollView,
   StyleSheet,
   Text,
@@ -16,7 +17,7 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { ContentCard } from '../components/common/ContentCard';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
-import { Skeleton } from '../components/common/Skeleton';
+import { HomeScreenSkeleton } from '../components/common/HomeScreenSkeleton';
 import {
   IconMovie,
   IconNotificationsOutline,
@@ -53,6 +54,8 @@ function HomeScreenInner({
     loadMoreTopRated,
     loadMoreGenre,
     genres,
+    refreshing,
+    onRefresh,
   } = home;
 
   const onScrollRow = useCallback(
@@ -122,10 +125,31 @@ function HomeScreenInner({
 
   const heroUri = hero ? posterUrl(hero.backdrop_path, 'w780') : null;
 
+  const refreshControl = (
+    <RefreshControl
+      refreshing={refreshing}
+      onRefresh={onRefresh}
+      tintColor={colors.primary}
+      progressViewOffset={insets.top}
+    />
+  );
+
+  if (trending.loading && !hero) {
+    return (
+      <ScrollView
+        style={[styles.root, { paddingTop: insets.top }]}
+        contentContainerStyle={styles.homeScrollContent}
+        refreshControl={refreshControl}>
+        <HomeScreenSkeleton />
+      </ScrollView>
+    );
+  }
+
   return (
     <ScrollView
       style={[styles.root, { paddingTop: insets.top }]}
-      contentContainerStyle={styles.homeScrollContent}>
+      contentContainerStyle={styles.homeScrollContent}
+      refreshControl={refreshControl}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <IconMovie size={iconSize.topBarLogo} color={colors.brand} />
@@ -166,13 +190,7 @@ function HomeScreenInner({
         })}
       </ScrollView>
 
-      {trending.loading && !hero ? (
-        <Skeleton
-          width="92%"
-          height={220}
-          style={styles.heroSkeletonAlign}
-        />
-      ) : hero && heroUri ? (
+      {hero && heroUri ? (
         <View style={styles.heroWrap}>
           <Pressable
             onPress={() => navigation.navigate('Detail', { movieId: hero.id })}
@@ -486,9 +504,6 @@ const styles = StyleSheet.create({
   },
   rowPosterWrap: {
     width: 140,
-  },
-  heroSkeletonAlign: {
-    alignSelf: 'center',
   },
   heroPlaceholderShort: {
     height: 200,

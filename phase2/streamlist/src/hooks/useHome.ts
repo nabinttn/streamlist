@@ -45,6 +45,7 @@ export function useHome() {
   const [genres, setGenres] = useState<Genre[]>([]);
   const [genresError, setGenresError] = useState<string | null>(null);
   const [selectedGenreId, setSelectedGenreId] = useState<number | null>(null);
+  const [refreshing, setRefreshing] = useState(false);
 
   const [trending, setTrending] = useState<RowState>(emptyRow);
   const [topRated, setTopRated] = useState<RowState>(emptyRow);
@@ -267,6 +268,28 @@ export function useHome() {
   const refetchTopRated = loadTopRatedInitial;
   const refetchGenreRow = loadGenreRowInitial;
 
+  const onRefresh = useCallback(async () => {
+    setRefreshing(true);
+    try {
+      await Promise.all([
+        loadTrendingInitial(),
+        loadTopRatedInitial(),
+        loadGenreRowInitial(),
+        (async () => {
+          try {
+            const data = await fetchMovieGenres();
+            setGenres(data.genres);
+            setGenresError(null);
+          } catch (e) {
+            setGenresError((e as NormalizedError).message);
+          }
+        })(),
+      ]);
+    } finally {
+      setRefreshing(false);
+    }
+  }, [loadTrendingInitial, loadTopRatedInitial, loadGenreRowInitial]);
+
   return {
     genres,
     genresError,
@@ -284,5 +307,7 @@ export function useHome() {
     refetchTrending,
     refetchTopRated,
     refetchGenreRow,
+    refreshing,
+    onRefresh,
   };
 }

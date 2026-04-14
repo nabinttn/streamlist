@@ -6,6 +6,7 @@ import {
   Image,
   ImageBackground,
   Pressable,
+  RefreshControl,
   Share,
   StyleSheet,
   Text,
@@ -22,6 +23,11 @@ import {
   IconShare,
   IconStarFilled,
 } from '../components/icons/StreamlistIcons';
+import {
+  DetailCastRowSkeleton,
+  DetailScreenSkeleton,
+  DetailSimilarRowSkeleton,
+} from '../components/common/DetailScreenSkeleton';
 import { Skeleton } from '../components/common/Skeleton';
 import { useMovieDetail } from '../hooks/useMovieDetail';
 import { colors } from '../theme/colors';
@@ -39,7 +45,7 @@ export function DetailScreen({
 }: DetailScreenProps) {
   const { movieId } = route.params;
   const insets = useSafeAreaInsets();
-  const { details, credits, similar } = useMovieDetail(movieId);
+  const { details, credits, similar, pullToRefresh } = useMovieDetail(movieId);
   const hydrated = useWatchlistStore(s => s.hydrated);
   const isSaved = useWatchlistStore(s => s.isInWatchlist(movieId));
   const addItem = useWatchlistStore(s => s.addItem);
@@ -185,7 +191,15 @@ export function DetailScreen({
       <Animated.ScrollView
         contentContainerStyle={{ paddingBottom: spacing.xxl }}
         onScroll={onScroll}
-        scrollEventThrottle={16}>
+        scrollEventThrottle={16}
+        refreshControl={
+          <RefreshControl
+            refreshing={pullToRefresh.refreshing}
+            onRefresh={pullToRefresh.onRefresh}
+            tintColor={colors.primary}
+            progressViewOffset={insets.top}
+          />
+        }>
         <View style={{ height: BACKDROP_H }}>
           {details.loading && !movie ? (
             <View style={{ height: BACKDROP_H }}>
@@ -253,179 +267,205 @@ export function DetailScreen({
           )}
         </View>
 
-        {details.error ? (
-          <View style={styles.section}>
-            <Text style={styles.err}>{details.error}</Text>
-            <Pressable style={styles.retry} onPress={details.refetch}>
-              <Text style={styles.retryTxt}>Retry</Text>
-            </Pressable>
-          </View>
-        ) : null}
-
-        {movie ? (
+        {details.loading && !movie ? (
+          <DetailScreenSkeleton />
+        ) : (
           <>
-            <Text style={[styles.title, { paddingHorizontal: spacing.md }]}>
-              {movie.title}
-            </Text>
-            <View style={styles.chipRow}>
-              {chips.map(c =>
-                c.kind === 'rating' ? (
-                  <View key={c.key} style={styles.chipRating}>
-                    <IconStarFilled size={14} color={colors.on_brand} />
-                    <Text style={styles.chipRatingTxt}>{c.value}</Text>
-                  </View>
-                ) : (
-                  <View key={c.key} style={styles.chip}>
-                    <Text style={styles.chipTxt}>{c.value}</Text>
-                  </View>
-                ),
-              )}
-            </View>
+            {details.error ? (
+              <View style={styles.section}>
+                <Text style={styles.err}>{details.error}</Text>
+                <Pressable style={styles.retry} onPress={details.refetch}>
+                  <Text style={styles.retryTxt}>Retry</Text>
+                </Pressable>
+              </View>
+            ) : null}
 
-            {hydrated ? (
-              <Pressable
-                onPress={toggleWatchlist}
-                accessibilityRole="button"
-                accessibilityLabel={
-                  isSaved ? 'Remove from watchlist' : 'Add to watchlist'
-                }
-                style={({ pressed }) => [
-                  styles.watchBtn,
-                  pressed ? styles.watchBtnPressed : null,
-                ]}>
-                {isSaved ? (
-                  <View style={styles.watchSaved}>
-                    <View style={styles.watchlistRow}>
-                      <View style={styles.watchlistIconWrap}>
-                        <IconBookmarkAdded
-                          size={iconSize.detailWatchlist}
-                          color={colors.primary}
-                        />
+            {movie ? (
+              <>
+                <Text style={[styles.title, { paddingHorizontal: spacing.md }]}>
+                  {movie.title}
+                </Text>
+                <View style={styles.chipRow}>
+                  {chips.map(c =>
+                    c.kind === 'rating' ? (
+                      <View key={c.key} style={styles.chipRating}>
+                        <IconStarFilled size={14} color={colors.on_brand} />
+                        <Text style={styles.chipRatingTxt}>{c.value}</Text>
                       </View>
-                      <Text
-                        style={styles.watchSavedTxt}
-                        numberOfLines={1}>
-                        In Watchlist
-                      </Text>
-                    </View>
-                  </View>
+                    ) : (
+                      <View key={c.key} style={styles.chip}>
+                        <Text style={styles.chipTxt}>{c.value}</Text>
+                      </View>
+                    ),
+                  )}
+                </View>
+
+                {hydrated ? (
+                  <Pressable
+                    onPress={toggleWatchlist}
+                    accessibilityRole="button"
+                    accessibilityLabel={
+                      isSaved ? 'Remove from watchlist' : 'Add to watchlist'
+                    }
+                    style={({ pressed }) => [
+                      styles.watchBtn,
+                      pressed ? styles.watchBtnPressed : null,
+                    ]}>
+                    {isSaved ? (
+                      <View style={styles.watchSaved}>
+                        <View style={styles.watchlistRow}>
+                          <View style={styles.watchlistIconWrap}>
+                            <IconBookmarkAdded
+                              size={iconSize.detailWatchlist}
+                              color={colors.primary}
+                            />
+                          </View>
+                          <Text
+                            style={styles.watchSavedTxt}
+                            numberOfLines={1}>
+                            In Watchlist
+                          </Text>
+                        </View>
+                      </View>
+                    ) : (
+                      <View style={styles.watchAddOuter}>
+                        <LinearGradient
+                          colors={[colors.primary, colors.primary_container]}
+                          start={{ x: 0, y: 0.5 }}
+                          end={{ x: 1, y: 0.5 }}
+                          style={StyleSheet.absoluteFill}
+                        />
+                        <View style={styles.watchlistRow}>
+                          <View style={styles.watchlistIconWrap}>
+                            <IconBookmarkAdd
+                              size={iconSize.detailWatchlist}
+                              color={colors.on_brand}
+                            />
+                          </View>
+                          <Text
+                            style={styles.watchAddTxt}
+                            numberOfLines={1}>
+                            Add to Watchlist
+                          </Text>
+                        </View>
+                      </View>
+                    )}
+                  </Pressable>
                 ) : (
-                  <View style={styles.watchAddOuter}>
-                    <LinearGradient
-                      colors={[colors.primary, colors.primary_container]}
-                      start={{ x: 0, y: 0.5 }}
-                      end={{ x: 1, y: 0.5 }}
-                      style={StyleSheet.absoluteFill}
-                    />
-                    <View style={styles.watchlistRow}>
-                      <View style={styles.watchlistIconWrap}>
-                        <IconBookmarkAdd
-                          size={iconSize.detailWatchlist}
-                          color={colors.on_brand}
-                        />
-                      </View>
-                      <Text
-                        style={styles.watchAddTxt}
-                        numberOfLines={1}>
-                        Add to Watchlist
-                      </Text>
-                    </View>
+                  <Skeleton
+                    width="90%"
+                    height={52}
+                    style={styles.skeletonWatchBtnAlign}
+                  />
+                )}
+
+                <Text
+                  style={[styles.headline, { paddingHorizontal: spacing.md }]}>
+                  Synopsis
+                </Text>
+                <Text
+                  style={[styles.body, { paddingHorizontal: spacing.md }]}
+                  numberOfLines={expanded ? undefined : 3}>
+                  {movie.overview || 'No synopsis available.'}
+                </Text>
+                {movie.overview.length > 180 ? (
+                  <Pressable onPress={() => setExpanded(!expanded)}>
+                    <Text style={styles.readMore}>
+                      {expanded ? 'Show less' : 'Read more'}
+                    </Text>
+                  </Pressable>
+                ) : null}
+              </>
+            ) : null}
+
+            <Text style={[styles.headline, { paddingHorizontal: spacing.md }]}>
+              Cast
+            </Text>
+            {credits.loading ? (
+              <View style={styles.castSkeletonWrap}>
+                <DetailCastRowSkeleton />
+              </View>
+            ) : credits.error ? (
+              <Text style={styles.metaMuted}>{credits.error}</Text>
+            ) : castList.length === 0 ? (
+              <Text style={styles.metaMuted}>Cast information unavailable</Text>
+            ) : (
+              <FlatList
+                horizontal
+                data={castList}
+                keyExtractor={item => String(item.id)}
+                contentContainerStyle={{ paddingHorizontal: spacing.md, gap: spacing.sm }}
+                showsHorizontalScrollIndicator={false}
+                renderItem={({ item }) => (
+                  <View style={styles.castCell}>
+                    {item.profile_path ? (
+                      <Image
+                        source={{ uri: posterUrl(item.profile_path, 'w185')! }}
+                        style={styles.castImg}
+                      />
+                    ) : (
+                      <View style={[styles.castImg, styles.castPh]} />
+                    )}
+                    <Text style={styles.castName} numberOfLines={2}>
+                      {item.name}
+                    </Text>
+                    <Text style={styles.castChar} numberOfLines={1}>
+                      {item.character}
+                    </Text>
                   </View>
                 )}
-              </Pressable>
-            ) : (
-              <Skeleton
-                width="90%"
-                height={52}
-                style={styles.skeletonWatchBtnAlign}
               />
             )}
 
-            <Text
-              style={[styles.headline, { paddingHorizontal: spacing.md }]}>
-              Synopsis
-            </Text>
-            <Text
-              style={[styles.body, { paddingHorizontal: spacing.md }]}
-              numberOfLines={expanded ? undefined : 3}>
-              {movie.overview || 'No synopsis available.'}
-            </Text>
-            {movie.overview.length > 180 ? (
-              <Pressable onPress={() => setExpanded(!expanded)}>
-                <Text style={styles.readMore}>
-                  {expanded ? 'Show less' : 'Read more'}
-                </Text>
-              </Pressable>
-            ) : null}
-          </>
-        ) : null}
-
-        <Text style={[styles.headline, { paddingHorizontal: spacing.md }]}>
-          Cast
-        </Text>
-        {credits.loading ? (
-          <Skeleton width="100%" height={80} style={{ marginHorizontal: spacing.md }} />
-        ) : credits.error ? (
-          <Text style={styles.metaMuted}>{credits.error}</Text>
-        ) : castList.length === 0 ? (
-          <Text style={styles.metaMuted}>Cast information unavailable</Text>
-        ) : (
-          <FlatList
-            horizontal
-            data={castList}
-            keyExtractor={item => String(item.id)}
-            contentContainerStyle={{ paddingHorizontal: spacing.md, gap: spacing.sm }}
-            showsHorizontalScrollIndicator={false}
-            renderItem={({ item }) => (
-              <View style={styles.castCell}>
-                {item.profile_path ? (
-                  <Image
-                    source={{ uri: posterUrl(item.profile_path, 'w185')! }}
-                    style={styles.castImg}
-                  />
-                ) : (
-                  <View style={[styles.castImg, styles.castPh]} />
-                )}
-                <Text style={styles.castName} numberOfLines={2}>
-                  {item.name}
-                </Text>
-                <Text style={styles.castChar} numberOfLines={1}>
-                  {item.character}
+            {similar.loading && similarMovies.length === 0 ? (
+              <>
+                <View style={styles.rowHead}>
+                  <Text style={styles.rowSectionTitle}>More Like This</Text>
+                  <Pressable onPress={onSeeAllSimilar} hitSlop={8}>
+                    <Text style={styles.seeAll}>See All</Text>
+                  </Pressable>
+                </View>
+                <View style={styles.similarSkeletonWrap}>
+                  <DetailSimilarRowSkeleton />
+                </View>
+              </>
+            ) : similar.error && similarMovies.length === 0 ? (
+              <View style={styles.section}>
+                <Text style={[styles.metaMuted, styles.similarErr]}>
+                  {similar.error}
                 </Text>
               </View>
-            )}
-          />
-        )}
-
-        {similarMovies.length > 0 ? (
-          <>
-            <View style={styles.rowHead}>
-              <Text style={styles.rowSectionTitle}>More Like This</Text>
-              <Pressable onPress={onSeeAllSimilar} hitSlop={8}>
-                <Text style={styles.seeAll}>See All</Text>
-              </Pressable>
-            </View>
-            <FlatList
-              horizontal
-              data={similarMovies}
-              keyExtractor={item => String(item.id)}
-              contentContainerStyle={{ paddingHorizontal: spacing.md }}
-              showsHorizontalScrollIndicator={false}
-              renderItem={({ item }) => (
-                <View style={styles.similarRowCardWrap}>
-                  <ContentCard
-                    movie={item}
-                    width={130}
-                    onPress={() =>
-                      navigation.push('Detail', { movieId: item.id })
-                    }
-                    genreLabel={formatYear(item.release_date)}
-                  />
+            ) : similarMovies.length > 0 ? (
+              <>
+                <View style={styles.rowHead}>
+                  <Text style={styles.rowSectionTitle}>More Like This</Text>
+                  <Pressable onPress={onSeeAllSimilar} hitSlop={8}>
+                    <Text style={styles.seeAll}>See All</Text>
+                  </Pressable>
                 </View>
-              )}
-            />
+                <FlatList
+                  horizontal
+                  data={similarMovies}
+                  keyExtractor={item => String(item.id)}
+                  contentContainerStyle={{ paddingHorizontal: spacing.md }}
+                  showsHorizontalScrollIndicator={false}
+                  renderItem={({ item }) => (
+                    <View style={styles.similarRowCardWrap}>
+                      <ContentCard
+                        movie={item}
+                        width={130}
+                        onPress={() =>
+                          navigation.push('Detail', { movieId: item.id })
+                        }
+                        genreLabel={formatYear(item.release_date)}
+                      />
+                    </View>
+                  )}
+                />
+              </>
+            ) : null}
           </>
-        ) : null}
+        )}
       </Animated.ScrollView>
     </View>
   );
@@ -664,5 +704,16 @@ const styles = StyleSheet.create({
   similarRowCardWrap: {
     marginRight: spacing.sm,
     width: 130,
+  },
+  castSkeletonWrap: {
+    marginTop: spacing.sm,
+    paddingHorizontal: spacing.md,
+  },
+  similarSkeletonWrap: {
+    paddingHorizontal: spacing.md,
+    marginTop: spacing.sm,
+  },
+  similarErr: {
+    marginTop: spacing.xs,
   },
 });
