@@ -1730,3 +1730,2219 @@ _**Agent (composer-2)**_
 <summary>Tool use: **read_file_v2**</summary>
 
 </details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating home screen**
+
+I'm replacing ScrollView with RefreshControl on home screen to support pull-to-refresh functionality. 
+
+**Checking Animated.ScrollView**
+
+I confirmed that Animated.ScrollView accepts the refreshControl prop. 
+
+**Updating detail screen skeleton**
+
+I'm implementing DetailScreenSkeleton with backdrop, title lines, chips, watch button, synopsis, and cast row using ContentCard dimensions. I'm adding genre support to the detail screen skeleton and implementing refresh logic in useHome. I'm refining the loading state logic to prevent skeleton flashes during pull refresh and will adjust how trending.loading affects the hero display. 
+
+I found that loading state updates correctly preserve items, but the hero display may flicker due to interim loading state with stale data. The hero display won't flicker during refresh because old hero data persists while loading state is active. I'm adding a refreshing state to the RefreshControl using useState hook. I'm adding fetchMovieGenres to the refresh handler for completeness. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/Skeleton.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/ContentCard.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Creating skeleton components**
+
+I'm creating HomeScreenSkeleton.tsx to mirror the layout constants and will implement DetailScreenSkeleton.tsx for the detail view. I'm adding skeleton loading states for similar movies and cast rows, matching the layout dimensions. 
+
+**Handling refetch logic**
+
+I'm ensuring refetch logic doesn't cause UI flashing by managing loading states properly in the detail hook. I'm implementing a soft refresh mechanism to prevent UI flickering during movie detail updates. 
+
+I'm implementing soft refresh to avoid clearing data and loading states during movie detail updates. I'm adding a soft flag to the refetch function to preserve loading states and errors during movie detail updates. I'm implementing soft refresh pattern with refreshing state for RefreshControl. I'm moving the refresh logic to the hook for cleaner separation of concerns. I'm exposing `load` function internally to support soft refresh behavior. I'm implementing soft refresh logic in `load` function to avoid setting *Loading state initially and optionally preserve old data on failure. 
+
+**Improving detail skeleton**
+
+I'm implementing skeleton loading states for DetailScreen with backdrop, title, chips, watch button, synopsis, cast, and similar rows. I'm adding skeleton loading states for the similar movies section in DetailScreen. 
+
+**Computing skeleton dimensions**
+
+I'm computing skeleton row dimensions based on poster width and aspect ratio. 
+
+**Updating home screen**
+
+I'm updating the home screen to use RefreshControl with onRefresh and refreshing state. I'm refactoring the home screen refresh logic to fetch genres in parallel and handle errors properly. 
+
+I'm handling errors in genre loading by setting a dedicated error state. I'm adding skeleton screens for initial load and updating cast skeleton to match horizontal layout. I'm implementing soft loading for movie details to avoid resetting loading states unnecessarily. 
+
+I'm adding refresh functionality with loading state to the home screen hook. I'm refactoring the hook to include refresh state in the return object and updating the destructuring accordingly. I'm refactoring the hook to expose pull-to-refresh functionality with internal refreshing state. 
+
+**Implementing skeleton**
+
+I'm implementing DetailScreenSkeleton with backdrop area, padding, title skeleton, and chips row. I'm adding watch button, synopsis, cast, and similar sections to DetailScreenSkeleton with specified dimensions. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Implementing pull-to-refresh in `useHome` and `useMovieDetail`, adding layout-matched skeleton components, and updating both screens.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "useHome + useMovieDetail: refresh / soft reload APIs",
+      "id": "1",
+      "status": "in_progress"
+    },
+    {
+      "content": "HomeScreenSkeleton + HomeScreen RefreshControl + layout",
+      "id": "2",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreenSkeleton + Detail refresh + cast/similar skeletons",
+      "id": "3",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint/tests; fix Skeleton tests if needed",
+      "id": "4",
+      "status": "pending"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "Align phase2/streamlist README with real paths to docs/",
+      "id": "fix-readme-spec-links",
+      "status": "completed"
+    },
+    {
+      "content": "Update docs/PROJECT_SPEC.md src/ tree and ADR section",
+      "id": "refresh-project-spec-tree",
+      "status": "completed"
+    },
+    {
+      "content": "Add glob-scoped .mdc rules for api, hooks, navigation, tests",
+      "id": "add-scoped-cursor-rules",
+      "status": "completed"
+    },
+    {
+      "content": "Add repo-root AGENTS.md and .cursorignore",
+      "id": "optional-agents-cursorignore",
+      "status": "completed"
+    },
+    {
+      "content": "phase2/docs/phase-2-prompt-strategy.md",
+      "id": "phase2-prompt-playbook",
+      "status": "completed"
+    }
+  ],
+  "success": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing hook**
+
+I'm adding pullToRefresh functionality to the useMovieDetail hook with refreshing state and onRefresh handler. I'm updating the pull-to-refresh implementation to ensure proper refetch behavior with non-soft reloads. 
+
+I'm refactoring the load function to handle soft reloads properly and ensure loading states are managed correctly. I'm implementing the load function with proper loading states and error handling for soft reloads. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+Incorrect tool arguments
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Designing hero skeleton**
+
+I'm simplifying the hero skeleton to avoid stacking multiple skeleton layers, opting for a single rounded block with inner placeholder elements instead. 
+
+**Fixing skeleton layout**
+
+I'm restructuring the skeleton layout to avoid nested ScrollViews by moving RowStripSkeleton outside of HomeRowBlockSkeleton and adjusting the flex direction. 
+
+**Adjusting skeleton layout**
+
+I'm fixing the hero overlay by removing relative positioning on heroWrap and using bottom spacing for the overlay. I'm adding bottom spacing to heroOverlay to properly position the absolute element. I'm removing the duplicate ScrollView in HomeScreenSkeleton's row layout. 
+
+**Creating skeleton components**
+
+I'm creating DetailScreenSkeleton with topInset prop for backdrop spacing. I'm implementing DetailScreenSkeleton with backdropHeight and contentPaddingTop props, matching DetailScreen styles for title padding and layout. 
+
+**Implementing skeletons**
+
+I'm replacing detail skeleton with CastSectionSkeleton for credits section. I'm implementing DetailScreenSkeleton with backdropHeight prop for safe area handling. 
+
+I'm adjusting DetailScreenSkeleton to include absolute top bar placeholders for the initial state. I'm replacing the loading skeleton block with the DetailScreenSkeleton component. I'm rendering the same structure as current Detail screen for the skeleton loading state. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Refactoring layout**
+
+I'm restructuring the nested ScrollView and View hierarchy to use a single ScrollView with flexDirection row for better performance. I removed the unused colors import from DetailScreenSkeleton. 
+
+**Fixing layout issues**
+
+I'm wrapping CastRowSkeleton in a horizontal ScrollView for consistency with the real screen. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Integrating detail screen**
+
+I'm replacing the mixed loading state with a full DetailScreenSkeleton layout while preserving the sticky header area. I'm refactoring DetailScreenSkeleton to remove ScrollView and let parent Animated.ScrollView handle wrapping. 
+
+**Refactoring detail screen**
+
+I'm removing ScrollView from DetailScreenSkeleton and letting parent Animated.ScrollView handle scrolling. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating homescreen**
+
+I'm replacing the loading state with HomeScreenSkeleton and adding refreshControl to ScrollView. I'm wrapping HomeScreenSkeleton with paddingTop insets and extracting refreshControl into a reusable variable. I'm extracting refreshControl into a reusable variable and passing refreshing props down to HomeScreenInner. I'm implementing a skeleton loader for the homescreen with early return logic. I'm restructuring the homescreen layout to include sticky header, animated scrollview with backdrop, error states, and skeleton loaders for movie content and cast. 
+
+I'm refactoring the backdrop implementation to avoid duplication by separating the skeleton backdrop from the main detail screen content. I'm extracting the backdrop rendering into a separate component to simplify the loading flow. 
+
+**Refactoring skeleton components**
+
+I'm splitting DetailScreenSkeleton into separate components for backdrop and content to eliminate duplication. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Updating `HomeScreen.tsx` and `DetailScreen.tsx`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating detail screen**
+
+I'm adding RefreshControl to DetailScreen with skeleton loading states. I'm implementing RefreshControl on Animated.ScrollView with conditional loading states. I'm adding RefreshControl to Animated.ScrollView with conditional loading states. 
+
+I'm removing duplicate DetailScreenSkeleton rendering when backdrop is absent. I'm removing duplicate backdrop rendering in DetailScreenSkeleton and keeping only the necessary skeleton body structure. 
+
+I'm refining the loading state handling to show skeleton body instead of jumping to error display. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating detail screen**
+
+I'm updating DetailScreen.tsx to use the new skeleton components and remove the old skeleton import. I'm adding the skeleton loader conditionally before the movie details content. 
+
+I'm conditionalizing the skeleton loader to hide subsequent sections during initial load. I'm implementing conditional rendering logic for the detail screen based on loading and movie states. I'm restructuring the detail screen layout to place backdrop as the first child in scroll view and implement conditional rendering for loading states. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Updating `DetailScreen.tsx`: applying changes in logical chunks.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing skeleton components**
+
+I'm adjusting DetailSimilarRowSkeleton to fix its inner View layout within the horizontal ScrollView. I'm adjusting DetailSimilarRowSkeleton to prevent double padding caused by nested horizontal ScrollView and paddingHorizontal. 
+
+**Handling error states**
+
+I'm ensuring DetailScreenSkeleton doesn't render when an error occurs after loading failure. I'm implementing conditional rendering logic to show errors only after loading completes and avoiding duplicate error/skeleton displays. I'm showing 'No similar titles' when similar movies load empty to avoid showing nothing. I'm preventing cast section rendering when movie is null to avoid showing stale data. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/theme/spacing.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx",
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx"
+    },
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "useMovieDetail"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "useMovieDetail",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/DetailScreen.tsx"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/src/hooks/useMovieDetail.ts"
+    }
+  ],
+  "totalFiles": 2,
+  "totalMatches": 3
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx
+  4:10  error  'colors' is defined but never used  @typescript-eslint/no-unused-vars
+
+/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts
+  90:5  warning  Expected 'undefined' and instead saw 'void'  no-void
+
+✖ 2 problems (1 error, 1 warning)
+
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Cleaning up unused colors**
+
+I'm removing unused colors from DetailScreenSkeleton and fixing the eslint warning about void operator in load function. I'm refactoring the useEffect to handle the load function without void operator and prevent floating promises. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating effect cleanup**
+
+I'm implementing the useEffect cleanup pattern with a return function to handle the load task. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useMovieDetail.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing detail screen**
+
+I'm fixing the duplicate cast section bug in DetailScreen where Cast headline shows even when movie is null. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Fixing broken JSX structure in `DetailScreen.tsx`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/DetailScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 5 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/components/StreamlistIcons.test.tsx
+PASS __tests__/App.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/Skeleton.test.tsx
+
+Test Suites: 5 passed, 5 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        0.771 s, estimated 4 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking skeleton components**
+
+I'm removing unused ROW_STRIP_H constant from HomeScreenSkeleton. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints">
+<details>
+<summary>Tool use: **read_lints**</summary>
+
+
+Parameters:
+
+```json
+{
+  "paths": [
+    "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx"
+  ]
+}
+```
+Result:
+
+```json
+{
+  "linterErrorsByFile": [
+    {
+      "relativeWorkspacePath": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx"
+    }
+  ]
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="read_lints"><details>
+<summary>Tool use: **read_lints**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write">
+<details>
+<summary>Tool use: **todo_write**</summary>
+
+
+Parameters:
+
+```json
+{
+  "merge": true
+}
+```
+Result:
+
+```json
+{
+  "finalTodos": [
+    {
+      "content": "useHome + useMovieDetail: refresh / soft reload APIs",
+      "id": "1",
+      "status": "completed"
+    },
+    {
+      "content": "HomeScreenSkeleton + HomeScreen RefreshControl + layout",
+      "id": "2",
+      "status": "completed"
+    },
+    {
+      "content": "DetailScreenSkeleton + Detail refresh + cast/similar skeletons",
+      "id": "3",
+      "status": "completed"
+    },
+    {
+      "content": "Run lint/tests; fix Skeleton tests if needed",
+      "id": "4",
+      "status": "completed"
+    }
+  ],
+  "initialTodos": [
+    {
+      "content": "useHome + useMovieDetail: refresh / soft reload APIs",
+      "id": "1",
+      "status": "in_progress"
+    },
+    {
+      "content": "HomeScreenSkeleton + HomeScreen RefreshControl + layout",
+      "id": "2",
+      "status": "pending"
+    },
+    {
+      "content": "DetailScreenSkeleton + Detail refresh + cast/similar skeletons",
+      "id": "3",
+      "status": "pending"
+    },
+    {
+      "content": "Run lint/tests; fix Skeleton tests if needed",
+      "id": "4",
+      "status": "pending"
+    }
+  ],
+  "success": true,
+  "wasMerge": true
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="todo_write"><details>
+<summary>Tool use: **todo_write**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx",
+  "pattern": "ROW_STRIP_H"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx",
+  "pattern": "ROW_STRIP_H",
+  "topFiles": [
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 2
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was implemented:
+
+### Pull to refresh
+- **Home** ([`src/screens/HomeScreen.tsx`](phase2/streamlist/src/screens/HomeScreen.tsx)): `RefreshControl` on the main scroll view; `refreshing` / `onRefresh` from [`useHome`](phase2/streamlist/src/hooks/useHome.ts) reloads trending, top rated, genre row, and genres in parallel.
+- **Detail** ([`src/screens/DetailScreen.tsx`](phase2/streamlist/src/screens/DetailScreen.tsx)): `RefreshControl` on `Animated.ScrollView`; [`useMovieDetail`](phase2/streamlist/src/hooks/useMovieDetail.ts) exposes `pullToRefresh: { refreshing, onRefresh }`.
+
+### `useMovieDetail` soft refresh
+- `load(soft?: boolean)`: **soft** reload does **not** flip section loading flags or wipe existing data on failure, so the UI doesn’t jump while refreshing.
+- Hard retry still uses `refetch` → `load(false)` (full loading behavior).
+- Initial mount: `load(false)` with promise handling for lint.
+
+### Skeletons aligned with real UI
+- **[`HomeScreenSkeleton.tsx`](phase2/streamlist/src/components/common/HomeScreenSkeleton.tsx)**: Header, chip strip, **hero block `minHeight` 460** (same as `heroBg`), badge/title/synopsis/CTA placeholders, **three row blocks** with **140×210** posters (3:2) + title/meta lines — replaces the old single 220px bar while trending loads.
+- **[`DetailScreenSkeleton.tsx`](phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx)**: Optional `backdropHeight` (full-page use); body-only mode when the screen draws the backdrop. **Exported** [`DetailCastRowSkeleton`](phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx) and [`DetailSimilarRowSkeleton`](phase2/streamlist/src/components/common/DetailScreenSkeleton.tsx) for reuse.
+- **Detail**: Initial load shows backdrop skeleton + chrome, then body skeleton only (no duplicate sections). Cast uses **horizontal avatar strips** (60px circles, 72px cells); “More like this” uses **130px-wide** cards while `similar` is loading. Loaded screen reuses the same cast/similar skeletons for loading states.
+
+### Verification
+- `npm run lint` and `npm test` both pass in `phase2/streamlist/`.
+
+---
+
+_**User**_
+
+chips filter in home screen at the top of screen is not working, check and fix the issue
+
+---
+
+_**Agent (composer-2)**_
+
+
+Tracing how genre chips connect to data loading in `useHome` and `HomeScreen`.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Reviewing chip logic**
+
+The chip selection logic seems correct, but I need to verify how duplicate labels might affect the key mapping in orderedChips. I found a potential bug where TMDB genre names may not match CHIP_ORDER exactly, causing lookup failures with 'Science Fiction' vs 'Scienc'. 
+
+**Checking tmdb genres**
+
+I'm verifying TMDB genre mappings to ensure CHIP_ORDER matches exactly, especially for 'Science Fiction' which might be listed as 'Scienc' in some cases. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/movies.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/utils/genres.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Checking genre mappings**
+
+I'm verifying TMDB genre IDs against the CHIP_ORDER to ensure correct mapping. I'm verifying TMDB genre names against CHIP_ORDER, ensuring lowercase matching works correctly. 
+
+I confirmed setSelectedGenreId works correctly with genre ID 28. I'm investigating potential duplicate key issues with genre labels and checking for ScrollView nesting bugs. I found that nested ScrollViews require `nestedScrollEnabled={true}` on Android and may need adjustments on iOS for touch handling. I found potential type coercion issues with `chip.id` and `selectedGenreId` where `chip.id` might be 0, causing mismatches. I found that TMDB returns 'Science Fiction' but our mapping uses 'sci-fi', so I need to normalize the case for matching. I'm normalizing TMDB genre names to match our internal mapping. 
+
+**Fixing render row bug**
+
+I found a bug in renderRow where empty state checks used trending.loading instead of the row's loading state. I'm fixing the renderRow bug to use the specific row's loading flag instead of trending.loading to prevent incorrect empty state displays during row loading. I'm investigating why the filter isn't working and checking if discoverMoviesByGenre needs comma-separated genres. I'm implementing a race condition fix for genre row loading to prevent old requests from overwriting new data. I'm adding abort controllers to prevent stale responses from overwriting fresh data. The reId update isn't triggering the effect due to a stale closure, but React 18 Strict Mode isn't causing double mounting. 
+
+**Replacing scroll view**
+
+I'm replacing the outer ScrollView with FlatList and nestedScrollEnabled to fix touch handling on Android. I'm trying `nestedScrollEnabled={true}` on the outer ScrollView for Android touch handling. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/client.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Verifying genre mapping**
+
+I'm verifying that the genre mapping uses lowercase keys for TMDB names and checking if localization affects the lookup. I found that TMDB uses 'Science Fiction' not 'Sci-Fi' and the issue may be mismatched genre names from the API response. 
+
+**Fixing genre chips**
+
+I'll fix the genre chips by matching TMDB IDs instead of names to ensure all chips display correctly. 
+
+**Using hardcoded genre IDs**
+
+I'm switching to hardcoded genre IDs to avoid name matching issues with API responses. 
+
+**Fixing genre filter**
+
+The genre filter shows only 'All' when name lookups fail, but works correctly when mappings succeed. I'm investigating why the genre filter shows only 'All' when name lookups fail and exploring how TMDB's **with_genres** API parameter works with single vs multiple genres. 
+
+I'll fix the genre filter by using genre IDs instead of names for CHIP_ORDER to avoid locale and API inconsistencies. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "contextAfter": 15,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts",
+  "pattern": "GenresListResponse"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/types.ts",
+  "pattern": "GenresListResponse",
+  "topFiles": [
+    {
+      "matchCount": 16,
+      "uri": "phase2/streamlist/src/api/types.ts"
+    }
+  ],
+  "totalFiles": 1,
+  "totalMatches": 1
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Implementing genre chips**
+
+I'm implementing genre chips using known TMDB genre IDs with optional label overrides to fix potential name mismatches. I'm removing API-based genres from the chip list while keeping `genres` for genreLine in ContentCard. 
+
+I'm adding stale request guard and fallback to HOME_GENRE_CHIPS for genreRowTitle label. I'm implementing a request ID counter to prevent stale requests in genre chips. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Checking chip construction and `renderRow` usage. Suspecting TMDB name mismatches (chips not appearing or wrong IDs) or a race when switching genres.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Fixing chip behavior**
+
+I'm implementing chip list to use TMDB genre IDs instead of string matching for consistent filtering. I'm adding stale-request guards for genre row loads to prevent incorrect data display. I'm implementing nested scroll support for genre rows. 
+
+**Implementing nested scroll**
+
+I'm enabling nested scroll support by adding `nestedScrollEnabled` to the inner ScrollView. 
+
+**Adding genre constants**
+
+I'm adding hardcoded TMDB genre IDs as constants to avoid dependency on locale-specific genre names. I'm implementing stale guard with useRef to prevent outdated state issues. 
+
+I'm adding a ref to track load sequence and prevent race conditions in genre row loading. I'm implementing sequence-based race condition prevention for genre row loading. 
+
+**Handling genre loading**
+
+I'm implementing sequence-based loading for genre rows to prevent race conditions during initial load. I'm capturing load sequence at start of async functions to prevent race conditions. I'm using a ref for selected genre to avoid stale closure issues with pagination. 
+
+**Refactoring scroll view**
+
+I'm replacing ScrollView with FlatList and adding nestedScrollEnabled for proper scrolling behavior. 
+
+**Handling genre changes**
+
+I'm adding a ref to track selectedGenreId and prevent stale data from old fetches. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Identifying issues:
+1. Chips built by matching English names from `/genre/movie/list` — API/locale can make lookups fail so only "All" works or IDs don't match.
+2. Race: rapid chip changes can let an older request overwrite newer results.
+3. `renderRow` uses `!trending.loading` for all rows, so the genre row can show "No titles..." while the genre row is still loading.
+
+Fixing by using TMDB genre IDs for chips, adding a stale-request guard, correcting per-row loading for empty states, and enabling nested scrolling for the chip strip.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/HomeScreen.tsx</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Handling loading states**
+
+I'm implementing skeleton loading for empty trending items while data is fetching. I'm adding ListEmptyComponent to handle empty FlatList states during loading to prevent showing empty rows. I'll clear items on genre change to prevent showing stale data while loading. 
+
+**Clearing items on genre change**
+
+I'm clearing items on genre change to prevent stale data from flashing before loading new data. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Clearing the genre row when the selection changes so we don't show stale movies while the new request loads.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2">
+
+<details><summary>Tool use: **edit_file_v2** • Edit file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+
+</tool-use>
+
+<tool-use data-tool-type="write" data-tool-name="edit_file_v2"><details>
+<summary>Tool use: **edit_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2">
+<details><summary>Tool use: **run_terminal_command_v2** • Run command: cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test</summary>
+
+```bash
+cd /Users/ttnc2/Projects/streamlist/phase2/streamlist && npm run lint && npm test
+```
+
+```
+
+&gt; Streamlist@0.0.1 lint
+&gt; eslint .
+
+
+&gt; Streamlist@0.0.1 test
+&gt; jest
+
+watchman warning:  Recrawled this watch 5 times, most recently because:
+MustScanSubDirs UserDroppedTo resolve, please review the information on
+https://facebook.github.io/watchman/docs/troubleshooting.html#recrawl
+To clear this warning, run:
+&#96;watchman watch-del '/Users/ttnc2/Projects/streamlist/phase2/streamlist' ; watchman watch-project '/Users/ttnc2/Projects/streamlist/phase2/streamlist'&#96;
+
+PASS __tests__/components/Skeleton.test.tsx
+PASS __tests__/components/ContentCard.test.tsx
+PASS __tests__/components/ScreenErrorBoundary.test.tsx
+PASS __tests__/App.test.tsx
+PASS __tests__/components/StreamlistIcons.test.tsx
+
+Test Suites: 5 passed, 5 total
+Tests:       23 passed, 23 total
+Snapshots:   0 total
+Time:        0.962 s, estimated 1 s
+Ran all test suites.
+
+```
+</details>
+</tool-use>
+
+<tool-use data-tool-type="shell" data-tool-name="run_terminal_command_v2"><details>
+<summary>Tool use: **run_terminal_command_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+Here’s what was wrong and what we changed:
+
+### Root cause: chip → genre mapping
+Chips were built by **matching hard-coded English names** (`Action`, `Science Fiction`, etc.) to `/genre/movie/list`. If the list is localized, uses different wording, or doesn’t match exactly, lookups fail so you only get a reliable **“All”** chip, or the wrong/empty behavior when “filtering.”
+
+**Change:** Use **fixed TMDB movie genre IDs** (`28`, `18`, `35`, `878`, `27`, `99`) in [`useHome.ts`](phase2/streamlist/src/hooks/useHome.ts) (`HOME_FILTER_GENRES`) so chips no longer depend on name matching.
+
+### Other fixes
+1. **Stale requests** — Rapid chip changes could let an older discover response overwrite a newer one. Added a **sequence ref** so only the latest `loadGenreRowInitial` result applies; **`loadMoreGenre`** ignores responses if the selected genre changed mid-request (`selectedGenreIdRef`).
+2. **Stale third row** — On chip change, the genre row **resets `items`** while loading so you don’t keep seeing the previous genre’s movies.
+3. **Wrong empty state** — `renderRow` used `!trending.loading` for **every** row, so the genre row could show “No titles…” while it was still loading. Each row now passes its **own** loading flag (`trending.loading`, `topRated.loading`, `genreRow.loading`).
+4. **Touches / nested scroll** — Outer `ScrollView` has `nestedScrollEnabled`, `keyboardShouldPersistTaps="handled"`, and the chip strip has `nestedScrollEnabled` so taps and horizontal scroll behave better inside the vertical scroll (especially on Android).
+
+**Note:** The chips still only drive the **third row** (“Popular” / genre discover), not Trending or Top Rated—that matches the previous design. Hero stays tied to **Trending**. If you want chips to filter those rows too, that would be a separate product change.
+
+---
+
+_**User**_
+
+selected genreid should filter only the respective genre id data in the whole page
+
+---
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Updating genre filtering**
+
+I'm adjusting the genre chip to filter the entire home page instead of just the third row. I'm implementing genre filtering using TMDB's discover endpoint with `with_genres` parameter for consistent filtering across rows. I'm adding sort parameters to the TMDB discover API calls for consistent genre-filtered results. I'm implementing genre-specific sorting for trending and top-rated rows in the discover API. I'm adjusting the discover API rows to differentiate between trending, top rated, and popular when a genre is selected. I'm implementing distinct sorting for trending, top rated, and popular rows in genre-specific discovery. 
+
+I'm updating the discovery logic to handle genre-specific sorting for trending, top rated, and popular rows. I'm implementing genre-specific sorting for trending, top rated, and popular rows using discover endpoints with appropriate sort parameters. I'm adjusting the filtering logic to handle genre-specific rows by consolidating to two rows when genre is selected. I'm adjusting the filtering logic so that row 1 and 2 also respect the genre selection instead of always showing global trending. 
+
+I'm implementing genre-specific filtering for rows 1 and 2 to match the selected genre instead of always showing global trends. I'm duplicating content between row 1 and 3 to implement genre-specific filtering. </details></think>
+
+_**Agent (composer-2)**_
+
+
+Refactoring `useHome` so a selected genre filters the hero, trending, top-rated, and third rows via TMDB discover. Checking the hook and `movies.ts` to implement it.
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/hooks/useHome.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/api/movies.ts</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Adding fetch helpers**
+
+I'm adding `fetchDiscoverMovie` helpers in movies.ts with support for genres, sorting, and vote count filters. I'm updating `fetchDiscoverMovies` to accept optional `sort_by` parameter in the request. I'm refactoring the axios params to ensure `vote_count.gte` is properly formatted as a string key in the request object. 
+
+**Checking TMDB defaults**
+
+I found that TMDB's default sort for discover is popularity.desc, so I'll update discoverMoviesByGenre to match. 
+
+**Updating genre row titles**
+
+I'm updating the genre row titles to reflect the new sorting logic for trending, top rated, and latest releases. I'm exporting `trendingRowTitle` from the hook to handle dynamic row titles. I'm adding `thirdRowTitle` logic to show 'Popular' or 'Latest' based on genre selection. 
+
+I'm adding stale guards and refs to prevent overwrites when switching genres quickly. I'm implementing loading states for trending and top-rated rows when genre changes. I'll replace `discoverMoviesByGenre` with `fetchDiscoverMovies` to avoid duplication and support sorting. I'm replacing `discoverMoviesByGenre` with `fetchDiscoverMovies` to avoid duplication and support sorting. 
+
+I'm replacing `discoverMoviesByGenre` usage with `fetchDiscoverMovies` and passing `with_genres` as a parameter. </details></think>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search">
+<details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+
+Parameters:
+
+```json
+{
+  "caseInsensitive": false,
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "discoverMoviesByGenre"
+}
+```
+Additional data:
+
+```json
+{
+  "isPruned": true,
+  "outputMode": "content",
+  "path": "/Users/ttnc2/Projects/streamlist/phase2/streamlist",
+  "pattern": "discoverMoviesByGenre",
+  "topFiles": [
+    {
+      "matchCount": 3,
+      "uri": "phase2/streamlist/src/hooks/useHome.ts"
+    },
+    {
+      "matchCount": 2,
+      "uri": "phase2/streamlist/src/screens/MovieListScreen.tsx"
+    },
+    {
+      "matchCount": 1,
+      "uri": "phase2/streamlist/src/api/movies.ts"
+    }
+  ],
+  "totalFiles": 3,
+  "totalMatches": 6
+}
+```
+Status: **completed**
+
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="unknown" data-tool-name="ripgrep_raw_search"><details>
+<summary>Tool use: **ripgrep_raw_search**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+
+
+
+
+
+_**Agent (composer-2)**_
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2">
+<details><summary>Tool use: **read_file_v2** • Read file: /Users/ttnc2/Projects/streamlist/phase2/streamlist/src/screens/MovieListScreen.tsx</summary>
+
+</details>
+</tool-use>
+
+<tool-use data-tool-type="read" data-tool-name="read_file_v2"><details>
+<summary>Tool use: **read_file_v2**</summary>
+
+</details></tool-use>
+
+_**Agent (composer-2)**_
+
+<think><details><summary>Thought Process</summary>
+**Refactoring home filter**
+
+I'm implementing a single `homeFilterSeq` to manage concurrent loads for trending, top-rated, and genre rows. 
+
+**Managing filter epochs**
+
+I'm using a shared `filterEpoch` ref to synchronize concurrent loads for trending, top-rated, and genre rows. I'm refactoring the epoch management to pass `epoch` from a parent effect instead of incrementing in each useEffect. 
+
+I'm implementing a single `homeDataEpochRef` to track load epochs and skip outdated responses. I'm updating the epoch tracking to increment once per selectedGenreId change and share the same epoch across related loads. 
+
+I'm merging separate useEffects into a single effect to manage epoch tracking and pass epoch parameter to load functions. </details></think>

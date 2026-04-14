@@ -27,14 +27,42 @@ export async function fetchMovieGenres(): Promise<GenresListResponse> {
   return data;
 }
 
+export interface DiscoverMoviesParams {
+  page?: number;
+  with_genres: number;
+  sort_by: string;
+  /** TMDB `vote_count.gte` — trims low-vote noise for top-rated-style lists. */
+  vote_count_gte?: number;
+}
+
+/** TMDB `/discover/movie` with explicit sort (genre-scoped home rows, etc.). */
+export async function fetchDiscoverMovies(
+  params: DiscoverMoviesParams,
+): Promise<PaginatedMoviesResponse> {
+  const page = params.page ?? 1;
+  const query: Record<string, string | number> = {
+    page,
+    sort_by: params.sort_by,
+    with_genres: params.with_genres,
+  };
+  if (params.vote_count_gte != null) {
+    query['vote_count.gte'] = params.vote_count_gte;
+  }
+  const { data } = await client.get<PaginatedMoviesResponse>('/discover/movie', {
+    params: query,
+  });
+  return data;
+}
+
 export async function discoverMoviesByGenre(
   genreId: number,
   page = 1,
 ): Promise<PaginatedMoviesResponse> {
-  const { data } = await client.get<PaginatedMoviesResponse>('/discover/movie', {
-    params: { with_genres: genreId, page },
+  return fetchDiscoverMovies({
+    with_genres: genreId,
+    sort_by: 'popularity.desc',
+    page,
   });
-  return data;
 }
 
 /** "All" chip — popular movies without genre filter. */

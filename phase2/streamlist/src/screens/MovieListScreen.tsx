@@ -10,7 +10,7 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { NormalizedError } from '../api/client';
 import {
-  discoverMoviesByGenre,
+  fetchDiscoverMovies,
   fetchDiscoverPopular,
   fetchMovieGenres,
   fetchTopRatedMovies,
@@ -29,7 +29,7 @@ import { genreLine } from '../utils/genres';
 type Props = MovieListScreenProps;
 
 export function MovieListScreen({ navigation, route }: Props) {
-  const { title, listType, genreId } = route.params;
+  const { title, listType, genreId, genreListSort } = route.params;
   const insets = useSafeAreaInsets();
   const [genres, setGenres] = useState<Genre[]>([]);
 
@@ -51,14 +51,36 @@ export function MovieListScreen({ navigation, route }: Props) {
       try {
         let data;
         if (listType === 'trending') {
-          data = await fetchTrendingMovies(p);
+          data =
+            genreId != null
+              ? await fetchDiscoverMovies({
+                  with_genres: genreId,
+                  sort_by: 'popularity.desc',
+                  page: p,
+                })
+              : await fetchTrendingMovies(p);
         } else if (listType === 'topRated') {
-          data = await fetchTopRatedMovies(p);
+          data =
+            genreId != null
+              ? await fetchDiscoverMovies({
+                  with_genres: genreId,
+                  sort_by: 'vote_average.desc',
+                  vote_count_gte: 200,
+                  page: p,
+                })
+              : await fetchTopRatedMovies(p);
         } else {
           data =
             genreId == null
               ? await fetchDiscoverPopular(p)
-              : await discoverMoviesByGenre(genreId, p);
+              : await fetchDiscoverMovies({
+                  with_genres: genreId,
+                  sort_by:
+                    genreListSort === 'latest'
+                      ? 'primary_release_date.desc'
+                      : 'popularity.desc',
+                  page: p,
+                });
         }
         setTotalPages(data.total_pages);
         setItems(prev => (append ? [...prev, ...data.results] : data.results));
@@ -71,7 +93,7 @@ export function MovieListScreen({ navigation, route }: Props) {
         setLoadingMore(false);
       }
     },
-    [listType, genreId],
+    [listType, genreId, genreListSort],
   );
 
   useEffect(() => {

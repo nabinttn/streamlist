@@ -49,7 +49,7 @@ function HomeScreenInner({
     trending,
     topRated,
     genreRow,
-    genreRowTitle,
+    thirdRowTitle,
     loadMoreTrending,
     loadMoreTopRated,
     loadMoreGenre,
@@ -80,6 +80,7 @@ function HomeScreenInner({
     onEnd: () => void,
     hasMore: boolean,
     seeAll: () => void,
+    rowLoading: boolean,
   ) => (
     <View style={styles.rowBlock}>
       <View style={styles.rowHeader}>
@@ -88,7 +89,7 @@ function HomeScreenInner({
           <Text style={styles.seeAll}>See All</Text>
         </Pressable>
       </View>
-      {data.length === 0 && !trending.loading ? (
+      {data.length === 0 && !rowLoading ? (
         <Text style={styles.emptyRow}>No titles in this row yet.</Text>
       ) : (
         <FlatList
@@ -139,6 +140,7 @@ function HomeScreenInner({
       <ScrollView
         style={[styles.root, { paddingTop: insets.top }]}
         contentContainerStyle={styles.homeScrollContent}
+        nestedScrollEnabled
         refreshControl={refreshControl}>
         <HomeScreenSkeleton />
       </ScrollView>
@@ -149,6 +151,8 @@ function HomeScreenInner({
     <ScrollView
       style={[styles.root, { paddingTop: insets.top }]}
       contentContainerStyle={styles.homeScrollContent}
+      nestedScrollEnabled
+      keyboardShouldPersistTaps="handled"
       refreshControl={refreshControl}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
@@ -168,7 +172,9 @@ function HomeScreenInner({
 
       <ScrollView
         horizontal
+        nestedScrollEnabled
         showsHorizontalScrollIndicator={false}
+        keyboardShouldPersistTaps="handled"
         contentContainerStyle={styles.chipStrip}>
         {orderedChips.map(chip => {
           const active =
@@ -176,7 +182,7 @@ function HomeScreenInner({
             (chip.id === null && selectedGenreId === null);
           return (
             <Pressable
-              key={chip.label}
+              key={chip.id === null ? 'all' : String(chip.id)}
               onPress={() => setSelectedGenreId(chip.id)}
               style={[
                 styles.chip,
@@ -263,7 +269,9 @@ function HomeScreenInner({
           navigation.navigate('MovieList', {
             title: 'Trending Now',
             listType: 'trending',
+            genreId: selectedGenreId,
           }),
+        trending.loading,
       )}
 
       {renderRow(
@@ -275,20 +283,25 @@ function HomeScreenInner({
           navigation.navigate('MovieList', {
             title: 'Top Rated',
             listType: 'topRated',
+            genreId: selectedGenreId,
           }),
+        topRated.loading,
       )}
 
       {renderRow(
-        genreRowTitle,
+        thirdRowTitle,
         genreRow.items,
         loadMoreGenre,
         genreRow.page < genreRow.totalPages,
         () =>
           navigation.navigate('MovieList', {
-            title: genreRowTitle,
+            title: thirdRowTitle,
             listType: 'genre',
             genreId: selectedGenreId,
+            genreListSort:
+              selectedGenreId === null ? undefined : 'latest',
           }),
+        genreRow.loading,
       )}
     </ScrollView>
   );
@@ -299,9 +312,7 @@ export function HomeScreen(props: Props) {
   return (
     <ScreenErrorBoundary
       onRetry={() => {
-        home.refetchTrending();
-        home.refetchTopRated();
-        home.refetchGenreRow();
+        home.refetchAllHomeRows();
       }}>
       <HomeScreenInner {...props} home={home} />
     </ScreenErrorBoundary>

@@ -8,7 +8,10 @@ export type HomeStackParamList = {
   MovieList: {
     title: string;
     listType: 'trending' | 'topRated' | 'genre';
+    /** When set, “See All” matches genre-scoped discover lists from Home. */
     genreId?: number | null;
+    /** Third row: `popular` vs `latest` discover sort when `listType` is `genre` and `genreId` is set. */
+    genreListSort?: 'popular' | 'latest';
   };
 };
 

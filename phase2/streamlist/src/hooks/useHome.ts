@@ -1,7 +1,7 @@
-import { useCallback, useEffect, useMemo, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import type { NormalizedError } from '../api/client';
 import {
-  discoverMoviesByGenre,
+  fetchDiscoverMovies,
   fetchDiscoverPopular,
   fetchMovieGenres,
   fetchTopRatedMovies,
@@ -9,15 +9,19 @@ import {
 } from '../api/movies';
 import type { ApiMovieListItem, Genre } from '../api/types';
 
-const CHIP_ORDER = [
-  'All',
-  'Action',
-  'Drama',
-  'Comedy',
-  'Science Fiction',
-  'Horror',
-  'Documentary',
-] as const;
+/**
+ * TMDB movie genre ids for home filter chips.
+ * Do not resolve these via `/genre/movie/list` name matching — API locale/wording can break lookups.
+ * @see https://developer.themoviedb.org/reference/genre-movie-list
+ */
+const HOME_FILTER_GENRES: readonly { label: string; id: number }[] = [
+  { label: 'Action', id: 28 },
+  { label: 'Drama', id: 18 },
+  { label: 'Comedy', id: 35 },
+  { label: 'Sci-Fi', id: 878 },
+  { label: 'Horror', id: 27 },
+  { label: 'Documentary', id: 99 },
+];
 
 interface RowState {
   items: ApiMovieListItem[];
@@ -51,20 +55,17 @@ export function useHome() {
   const [topRated, setTopRated] = useState<RowState>(emptyRow);
   const [genreRow, setGenreRow] = useState<RowState>(emptyRow);
 
-  const orderedChips = useMemo(() => {
-    const byName = new Map(genres.map(g => [g.name.toLowerCase(), g]));
-    const list: { label: string; id: number | null }[] = [{ label: 'All', id: null }];
-    for (const name of CHIP_ORDER.slice(1)) {
-      const g = byName.get(name.toLowerCase());
-      if (g) {
-        list.push({
-          label: name === 'Science Fiction' ? 'Sci-Fi' : g.name,
-          id: g.id,
-        });
-      }
-    }
-    return list;
-  }, [genres]);
+  /** Bumped when `selectedGenreId` changes or full refetch — stale responses must not apply. */
+  const dataEpochRef = useRef(0);
+  const selectedGenreIdRef = useRef<number | null>(null);
+  selectedGenreIdRef.current = selectedGenreId;
+
+  const orderedChips = useMemo((): { label: string; id: number | null }[] => {
+    return [
+      { label: 'All', id: null },
+      ...HOME_FILTER_GENRES.map(g => ({ label: g.label, id: g.id })),
+    ];
+  }, []);
 
   useEffect(() => {
     let cancelled = false;
@@ -85,98 +86,181 @@ export function useHome() {
     };
   }, []);
 
-  const loadTrendingInitial = useCallback(async () => {
-    setTrending(s => ({ ...s, loading: true, error: null }));
-    try {
-      const data = await fetchTrendingMovies(1);
-      setTrending({
-        items: data.results,
-        page: 1,
-        totalPages: data.total_pages,
-        loading: false,
-        loadingMore: false,
-        error: null,
-        initialLoaded: true,
-      });
-    } catch (e) {
+  const loadTrendingInitial = useCallback(
+    async (epoch: number) => {
       setTrending(s => ({
         ...s,
-        loading: false,
-        error: (e as NormalizedError).message,
-        initialLoaded: true,
-      }));
-    }
-  }, []);
-
-  const loadTopRatedInitial = useCallback(async () => {
-    setTopRated(s => ({ ...s, loading: true, error: null }));
-    try {
-      const data = await fetchTopRatedMovies(1);
-      setTopRated({
-        items: data.results,
-        page: 1,
-        totalPages: data.total_pages,
-        loading: false,
+        items: [],
+        page: 0,
+        totalPages: 1,
+        loading: true,
         loadingMore: false,
         error: null,
-        initialLoaded: true,
-      });
-    } catch (e) {
+      }));
+      try {
+        const data =
+          selectedGenreId === null
+            ? await fetchTrendingMovies(1)
+            : await fetchDiscoverMovies({
+                with_genres: selectedGenreId,
+                sort_by: 'popularity.desc',
+                page: 1,
+              });
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setTrending({
+          items: data.results,
+          page: 1,
+          totalPages: data.total_pages,
+          loading: false,
+          loadingMore: false,
+          error: null,
+          initialLoaded: true,
+        });
+      } catch (e) {
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setTrending(s => ({
+          ...s,
+          loading: false,
+          error: (e as NormalizedError).message,
+          initialLoaded: true,
+        }));
+      }
+    },
+    [selectedGenreId],
+  );
+
+  const loadTopRatedInitial = useCallback(
+    async (epoch: number) => {
       setTopRated(s => ({
         ...s,
-        loading: false,
-        error: (e as NormalizedError).message,
-        initialLoaded: true,
-      }));
-    }
-  }, []);
-
-  const loadGenreRowInitial = useCallback(async () => {
-    setGenreRow(s => ({ ...s, loading: true, error: null }));
-    try {
-      const data =
-        selectedGenreId === null
-          ? await fetchDiscoverPopular(1)
-          : await discoverMoviesByGenre(selectedGenreId, 1);
-      setGenreRow({
-        items: data.results,
-        page: 1,
-        totalPages: data.total_pages,
-        loading: false,
+        items: [],
+        page: 0,
+        totalPages: 1,
+        loading: true,
         loadingMore: false,
         error: null,
-        initialLoaded: true,
-      });
-    } catch (e) {
+      }));
+      try {
+        const data =
+          selectedGenreId === null
+            ? await fetchTopRatedMovies(1)
+            : await fetchDiscoverMovies({
+                with_genres: selectedGenreId,
+                sort_by: 'vote_average.desc',
+                vote_count_gte: 200,
+                page: 1,
+              });
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setTopRated({
+          items: data.results,
+          page: 1,
+          totalPages: data.total_pages,
+          loading: false,
+          loadingMore: false,
+          error: null,
+          initialLoaded: true,
+        });
+      } catch (e) {
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setTopRated(s => ({
+          ...s,
+          loading: false,
+          error: (e as NormalizedError).message,
+          initialLoaded: true,
+        }));
+      }
+    },
+    [selectedGenreId],
+  );
+
+  const loadGenreRowInitial = useCallback(
+    async (epoch: number) => {
       setGenreRow(s => ({
         ...s,
-        loading: false,
-        error: (e as NormalizedError).message,
-        initialLoaded: true,
+        items: [],
+        page: 0,
+        totalPages: 1,
+        loading: true,
+        loadingMore: false,
+        error: null,
       }));
-    }
-  }, [selectedGenreId]);
+      try {
+        const data =
+          selectedGenreId === null
+            ? await fetchDiscoverPopular(1)
+            : await fetchDiscoverMovies({
+                with_genres: selectedGenreId,
+                sort_by: 'primary_release_date.desc',
+                page: 1,
+              });
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setGenreRow({
+          items: data.results,
+          page: 1,
+          totalPages: data.total_pages,
+          loading: false,
+          loadingMore: false,
+          error: null,
+          initialLoaded: true,
+        });
+      } catch (e) {
+        if (epoch !== dataEpochRef.current) {
+          return;
+        }
+        setGenreRow(s => ({
+          ...s,
+          loading: false,
+          error: (e as NormalizedError).message,
+          initialLoaded: true,
+        }));
+      }
+    },
+    [selectedGenreId],
+  );
 
   useEffect(() => {
-    loadTrendingInitial();
-  }, [loadTrendingInitial]);
-
-  useEffect(() => {
-    loadTopRatedInitial();
-  }, [loadTopRatedInitial]);
-
-  useEffect(() => {
-    loadGenreRowInitial();
-  }, [loadGenreRowInitial]);
+    const epoch = ++dataEpochRef.current;
+    loadTrendingInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+    loadTopRatedInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+    loadGenreRowInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+  }, [selectedGenreId, loadTrendingInitial, loadTopRatedInitial, loadGenreRowInitial]);
 
   const loadMoreTrending = useCallback(() => {
+    const gid = selectedGenreId;
     setTrending(s => {
       if (s.loadingMore || s.page >= s.totalPages || s.page < 1) {
         return s;
       }
       const nextPage = s.page + 1;
-      fetchTrendingMovies(nextPage)
+      const req =
+        gid === null
+          ? fetchTrendingMovies(nextPage)
+          : fetchDiscoverMovies({
+              with_genres: gid,
+              sort_by: 'popularity.desc',
+              page: nextPage,
+            });
+      req
         .then(data => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setTrending(prev => ({
             ...prev,
             items: [...prev.items, ...data.results],
@@ -186,6 +270,9 @@ export function useHome() {
           }));
         })
         .catch(e => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setTrending(prev => ({
             ...prev,
             loadingMore: false,
@@ -194,16 +281,29 @@ export function useHome() {
         });
       return { ...s, loadingMore: true };
     });
-  }, []);
+  }, [selectedGenreId]);
 
   const loadMoreTopRated = useCallback(() => {
+    const gid = selectedGenreId;
     setTopRated(s => {
       if (s.loadingMore || s.page >= s.totalPages || s.page < 1) {
         return s;
       }
       const nextPage = s.page + 1;
-      fetchTopRatedMovies(nextPage)
+      const req =
+        gid === null
+          ? fetchTopRatedMovies(nextPage)
+          : fetchDiscoverMovies({
+              with_genres: gid,
+              sort_by: 'vote_average.desc',
+              vote_count_gte: 200,
+              page: nextPage,
+            });
+      req
         .then(data => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setTopRated(prev => ({
             ...prev,
             items: [...prev.items, ...data.results],
@@ -213,6 +313,9 @@ export function useHome() {
           }));
         })
         .catch(e => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setTopRated(prev => ({
             ...prev,
             loadingMore: false,
@@ -221,20 +324,28 @@ export function useHome() {
         });
       return { ...s, loadingMore: true };
     });
-  }, []);
+  }, [selectedGenreId]);
 
   const loadMoreGenre = useCallback(() => {
+    const gid = selectedGenreId;
     setGenreRow(s => {
       if (s.loadingMore || s.page >= s.totalPages || s.page < 1) {
         return s;
       }
       const nextPage = s.page + 1;
-      const fetchPage =
-        selectedGenreId === null
+      const req =
+        gid === null
           ? fetchDiscoverPopular(nextPage)
-          : discoverMoviesByGenre(selectedGenreId, nextPage);
-      fetchPage
+          : fetchDiscoverMovies({
+              with_genres: gid,
+              sort_by: 'primary_release_date.desc',
+              page: nextPage,
+            });
+      req
         .then(data => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setGenreRow(prev => ({
             ...prev,
             items: [...prev.items, ...data.results],
@@ -244,6 +355,9 @@ export function useHome() {
           }));
         })
         .catch(e => {
+          if (selectedGenreIdRef.current !== gid) {
+            return;
+          }
           setGenreRow(prev => ({
             ...prev,
             loadingMore: false,
@@ -256,25 +370,32 @@ export function useHome() {
 
   const hero = trending.items[0] ?? null;
 
-  const genreRowTitle = useMemo(() => {
-    if (selectedGenreId === null) {
-      return 'Popular';
-    }
-    const g = genres.find(x => x.id === selectedGenreId);
-    return g?.name ?? 'Movies';
-  }, [selectedGenreId, genres]);
+  /** Third home row: global popular vs newest-in-genre (distinct from row 1 popularity). */
+  const thirdRowTitle = useMemo(() => {
+    return selectedGenreId === null ? 'Popular' : 'Latest';
+  }, [selectedGenreId]);
 
-  const refetchTrending = loadTrendingInitial;
-  const refetchTopRated = loadTopRatedInitial;
-  const refetchGenreRow = loadGenreRowInitial;
+  const refetchAllHomeRows = useCallback(() => {
+    const epoch = ++dataEpochRef.current;
+    loadTrendingInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+    loadTopRatedInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+    loadGenreRowInitial(epoch).catch(() => {
+      /* errors in row state */
+    });
+  }, [loadTrendingInitial, loadTopRatedInitial, loadGenreRowInitial]);
 
   const onRefresh = useCallback(async () => {
     setRefreshing(true);
     try {
+      const epoch = ++dataEpochRef.current;
       await Promise.all([
-        loadTrendingInitial(),
-        loadTopRatedInitial(),
-        loadGenreRowInitial(),
+        loadTrendingInitial(epoch),
+        loadTopRatedInitial(epoch),
+        loadGenreRowInitial(epoch),
         (async () => {
           try {
             const data = await fetchMovieGenres();
@@ -300,13 +421,11 @@ export function useHome() {
     trending,
     topRated,
     genreRow,
-    genreRowTitle,
+    thirdRowTitle,
     loadMoreTrending,
     loadMoreTopRated,
     loadMoreGenre,
-    refetchTrending,
-    refetchTopRated,
-    refetchGenreRow,
+    refetchAllHomeRows,
     refreshing,
     onRefresh,
   };

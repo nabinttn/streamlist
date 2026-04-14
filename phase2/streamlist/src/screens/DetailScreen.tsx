@@ -5,11 +5,14 @@ import {
   FlatList,
   Image,
   ImageBackground,
+  LayoutAnimation,
+  Platform,
   Pressable,
   RefreshControl,
   Share,
   StyleSheet,
   Text,
+  UIManager,
   View,
 } from 'react-native';
 import { LinearGradient } from 'react-native-linear-gradient';
@@ -39,6 +42,13 @@ import { posterUrl } from '../utils/image';
 import { useWatchlistStore, type WatchlistItem } from '../store/watchlistStore';
 import type { DetailScreenProps } from '../navigation/types';
 
+if (
+  Platform.OS === 'android' &&
+  UIManager.setLayoutAnimationEnabledExperimental != null
+) {
+  UIManager.setLayoutAnimationEnabledExperimental(true);
+}
+
 export function DetailScreen({
   navigation,
   route,
@@ -52,6 +62,10 @@ export function DetailScreen({
   const removeItem = useWatchlistStore(s => s.removeItem);
 
   const [expanded, setExpanded] = useState(false);
+  const toggleSynopsisExpanded = () => {
+    LayoutAnimation.configureNext(LayoutAnimation.Presets.easeInEaseOut);
+    setExpanded(prev => !prev);
+  };
   const scrollY = useRef(new Animated.Value(0)).current;
   const BACKDROP_H = 220 + insets.top;
   const HEADER_H = 48 + insets.top;
@@ -369,7 +383,7 @@ export function DetailScreen({
                   {movie.overview || 'No synopsis available.'}
                 </Text>
                 {movie.overview.length > 180 ? (
-                  <Pressable onPress={() => setExpanded(!expanded)}>
+                  <Pressable onPress={toggleSynopsisExpanded}>
                     <Text style={styles.readMore}>
                       {expanded ? 'Show less' : 'Read more'}
                     </Text>
