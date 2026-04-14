@@ -108,7 +108,7 @@ export function MovieListScreen({ navigation, route }: Props) {
         keyExtractor={item => String(item.id)}
         numColumns={2}
         columnWrapperStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
-        contentContainerStyle={{ paddingBottom: 100, gap: spacing.sm }}
+        contentContainerStyle={styles.listContent}
         onEndReached={onEnd}
         onEndReachedThreshold={0.3}
         ListFooterComponent={
@@ -164,5 +164,9 @@ const styles = StyleSheet.create({
   },
   center: {
     ...StyleSheet.absoluteFill,
+  },
+  listContent: {
+    paddingBottom: 100,
+    gap: spacing.sm,
   },
 });

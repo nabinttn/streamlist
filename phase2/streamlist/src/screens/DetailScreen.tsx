@@ -334,7 +334,11 @@ export function DetailScreen({
                 )}
               </Pressable>
             ) : (
-              <Skeleton width="90%" height={52} style={{ alignSelf: 'center' }} />
+              <Skeleton
+                width="90%"
+                height={52}
+                style={styles.skeletonWatchBtnAlign}
+              />
             )}
 
             <Text
@@ -408,7 +412,7 @@ export function DetailScreen({
               contentContainerStyle={{ paddingHorizontal: spacing.md }}
               showsHorizontalScrollIndicator={false}
               renderItem={({ item }) => (
-                <View style={{ marginRight: spacing.sm, width: 130 }}>
+                <View style={styles.similarRowCardWrap}>
                   <ContentCard
                     movie={item}
                     width={130}
@@ -653,5 +657,12 @@ const styles = StyleSheet.create({
   retryTxt: {
     ...typography.titleSm,
     color: colors.on_surface,
+  },
+  skeletonWatchBtnAlign: {
+    alignSelf: 'center',
+  },
+  similarRowCardWrap: {
+    marginRight: spacing.sm,
+    width: 130,
   },
 });

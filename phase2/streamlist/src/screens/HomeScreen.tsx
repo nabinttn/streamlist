@@ -97,7 +97,7 @@ function HomeScreenInner({
           showsHorizontalScrollIndicator={false}
           contentContainerStyle={{ paddingHorizontal: spacing.md, gap: spacing.sm }}
           renderItem={({ item }) => (
-            <View style={{ width: 140 }}>
+            <View style={styles.rowPosterWrap}>
               <ContentCard
                 movie={item}
                 width={140}
@@ -125,7 +125,7 @@ function HomeScreenInner({
   return (
     <ScrollView
       style={[styles.root, { paddingTop: insets.top }]}
-      contentContainerStyle={{ paddingBottom: 100 }}>
+      contentContainerStyle={styles.homeScrollContent}>
       <View style={styles.header}>
         <View style={styles.headerLeft}>
           <IconMovie size={iconSize.topBarLogo} color={colors.brand} />
@@ -167,7 +167,11 @@ function HomeScreenInner({
       </ScrollView>
 
       {trending.loading && !hero ? (
-        <Skeleton width="92%" height={220} style={{ alignSelf: 'center' }} />
+        <Skeleton
+          width="92%"
+          height={220}
+          style={styles.heroSkeletonAlign}
+        />
       ) : hero && heroUri ? (
         <View style={styles.heroWrap}>
           <Pressable
@@ -227,7 +231,7 @@ function HomeScreenInner({
           </Pressable>
         </View>
       ) : (
-        <View style={[styles.heroPlaceholder, { height: 200 }]}>
+        <View style={[styles.heroPlaceholder, styles.heroPlaceholderShort]}>
           <Text style={styles.meta}>No hero content</Text>
         </View>
       )}
@@ -476,5 +480,17 @@ const styles = StyleSheet.create({
   meta: {
     ...typography.bodyMd,
     color: colors.on_surface_variant,
+  },
+  homeScrollContent: {
+    paddingBottom: 100,
+  },
+  rowPosterWrap: {
+    width: 140,
+  },
+  heroSkeletonAlign: {
+    alignSelf: 'center',
+  },
+  heroPlaceholderShort: {
+    height: 200,
   },
 });

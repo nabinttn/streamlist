@@ -13,7 +13,7 @@ export interface IconProps {
 function IconWrapper(
   props: IconProps & { children: React.ReactNode },
 ): React.ReactElement {
-  const { size = 24, color, children } = props;
+  const { size = 24, children } = props;
   return (
     <Svg width={size} height={size} viewBox="0 0 24 24" accessible={false}>
       {children}

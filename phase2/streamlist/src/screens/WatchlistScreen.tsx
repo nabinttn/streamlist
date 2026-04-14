@@ -108,7 +108,8 @@ function WatchlistInner({ navigation }: Props) {
       <ScrollView
         contentContainerStyle={[
           styles.emptyRoot,
-          { paddingTop: insets.top, paddingBottom: 100 },
+          styles.emptyScrollBottomPad,
+          { paddingTop: insets.top },
         ]}>
         <Text style={styles.label}>YOUR COLLECTION</Text>
         <Text style={styles.bigTitle}>My Watchlist</Text>
@@ -182,7 +183,7 @@ function WatchlistInner({ navigation }: Props) {
           keyExtractor={item => String(item.id)}
           numColumns={2}
           columnWrapperStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
-          contentContainerStyle={{ paddingBottom: 120 }}
+          contentContainerStyle={styles.watchGridContent}
           ListHeaderComponent={
             similar.length > 0 && !emptyFilter ? (
               <View style={styles.because}>
@@ -198,7 +199,7 @@ function WatchlistInner({ navigation }: Props) {
                   showsHorizontalScrollIndicator={false}
                   contentContainerStyle={{ gap: spacing.sm, paddingHorizontal: spacing.md }}
                   renderItem={({ item }) => (
-                    <View style={{ width: 130 }}>
+                    <View style={styles.similarCardWrap}>
                       <ContentCard
                         movie={item}
                         width={130}
@@ -407,5 +408,14 @@ const styles = StyleSheet.create({
     color: colors.on_surface,
     lineHeight: 20,
     includeFontPadding: false,
+  },
+  emptyScrollBottomPad: {
+    paddingBottom: 100,
+  },
+  watchGridContent: {
+    paddingBottom: 120,
+  },
+  similarCardWrap: {
+    width: 130,
   },
 });

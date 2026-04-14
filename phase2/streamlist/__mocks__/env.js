@@ -1,0 +1,6 @@
+/** Test doubles for `@env` (Jest maps `^@env$` here; Babel uses react-native-dotenv in app builds). */
+module.exports = {
+  TMDB_BASE_URL: 'https://api.themoviedb.org/3',
+  TMDB_IMAGE_BASE_URL: 'https://image.tmdb.org/t/p',
+  TMDB_ACCESS_TOKEN: 'test-token',
+};

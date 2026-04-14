@@ -23,6 +23,7 @@ import {
 } from '../store/watchlistStore';
 import { colors } from '../theme/colors';
 import { iconSize } from '../theme/iconSizes';
+import { spacing } from '../theme/spacing';
 import { typography } from '../theme/typography';
 import type {
   HomeStackParamList,
@@ -106,12 +107,46 @@ function TabBarGlyph({
 }) {
   return (
     <View
-      style={{
-        marginBottom: 4,
-        transform: [{ scale: focused ? 1.1 : 1 }],
-      }}>
+      style={[
+        tabBarStyles.glyph,
+        focused ? tabBarStyles.glyphFocused : tabBarStyles.glyphIdle,
+      ]}>
       {children}
     </View>
+  );
+}
+
+type TabBarIconProps = { color: string; focused: boolean; size: number };
+
+function HomeTabIcon({ color, focused }: TabBarIconProps) {
+  return (
+    <TabBarGlyph focused={focused}>
+      <IconHome size={iconSize.tab} color={color} filled={focused} />
+    </TabBarGlyph>
+  );
+}
+
+function SearchTabIcon({ color, focused }: TabBarIconProps) {
+  return (
+    <TabBarGlyph focused={focused}>
+      <IconSearch size={iconSize.tab} color={color} />
+    </TabBarGlyph>
+  );
+}
+
+function WatchlistTabIcon({ color, focused }: TabBarIconProps) {
+  return (
+    <TabBarGlyph focused={focused}>
+      <IconBookmarkOutline size={iconSize.tab} color={color} />
+    </TabBarGlyph>
+  );
+}
+
+function ProfileTabIcon({ color, focused }: TabBarIconProps) {
+  return (
+    <TabBarGlyph focused={focused}>
+      <IconPersonOutline size={iconSize.tab} color={color} />
+    </TabBarGlyph>
   );
 }
 
@@ -147,15 +182,7 @@ function MainTabs() {
           component={HomeStackNav}
           options={{
             title: 'Home',
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarGlyph focused={focused}>
-                <IconHome
-                  size={iconSize.tab}
-                  color={color}
-                  filled={focused}
-                />
-              </TabBarGlyph>
-            ),
+            tabBarIcon: HomeTabIcon,
           }}
         />
         <Tab.Screen
@@ -163,11 +190,7 @@ function MainTabs() {
           component={SearchStackNav}
           options={{
             title: 'Search',
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarGlyph focused={focused}>
-                <IconSearch size={iconSize.tab} color={color} />
-              </TabBarGlyph>
-            ),
+            tabBarIcon: SearchTabIcon,
           }}
         />
         <Tab.Screen
@@ -175,11 +198,7 @@ function MainTabs() {
           component={WatchlistStackNav}
           options={{
             title: 'Watchlist',
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarGlyph focused={focused}>
-                <IconBookmarkOutline size={iconSize.tab} color={color} />
-              </TabBarGlyph>
-            ),
+            tabBarIcon: WatchlistTabIcon,
             tabBarBadge: hydrated && count > 0 ? count : undefined,
             tabBarBadgeStyle: { backgroundColor: colors.primary_container },
           }}
@@ -189,11 +208,7 @@ function MainTabs() {
           component={ProfileStackNav}
           options={{
             title: 'Profile',
-            tabBarIcon: ({ color, focused }) => (
-              <TabBarGlyph focused={focused}>
-                <IconPersonOutline size={iconSize.tab} color={color} />
-              </TabBarGlyph>
-            ),
+            tabBarIcon: ProfileTabIcon,
           }}
         />
       </Tab.Navigator>
@@ -210,4 +225,16 @@ export function RootNavigator() {
     </NavigationContainer>
   );
 }
+
+const tabBarStyles = StyleSheet.create({
+  glyph: {
+    marginBottom: spacing.xxs,
+  },
+  glyphFocused: {
+    transform: [{ scale: 1.1 }],
+  },
+  glyphIdle: {
+    transform: [{ scale: 1 }],
+  },
+});
 
