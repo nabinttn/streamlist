@@ -59,9 +59,15 @@ const navTheme = {
   },
 };
 
+/** Native stack / tab surfaces (react-native-screens) default to light until set explicitly. */
+const nativeStackScreenOptions = {
+  headerShown: false,
+  contentStyle: { backgroundColor: colors.surface },
+} as const;
+
 function HomeStackNav() {
   return (
-    <HomeStack.Navigator screenOptions={{ headerShown: false }}>
+    <HomeStack.Navigator screenOptions={nativeStackScreenOptions}>
       <HomeStack.Screen name="HomeMain" component={HomeScreen} />
       <HomeStack.Screen name="MovieList" component={MovieListScreen} />
     </HomeStack.Navigator>
@@ -70,7 +76,7 @@ function HomeStackNav() {
 
 function SearchStackNav() {
   return (
-    <SearchStack.Navigator screenOptions={{ headerShown: false }}>
+    <SearchStack.Navigator screenOptions={nativeStackScreenOptions}>
       <SearchStack.Screen name="SearchMain" component={SearchScreen} />
     </SearchStack.Navigator>
   );
@@ -78,7 +84,7 @@ function SearchStackNav() {
 
 function WatchlistStackNav() {
   return (
-    <WatchlistStack.Navigator screenOptions={{ headerShown: false }}>
+    <WatchlistStack.Navigator screenOptions={nativeStackScreenOptions}>
       <WatchlistStack.Screen name="WatchlistMain" component={WatchlistScreen} />
     </WatchlistStack.Navigator>
   );
@@ -88,7 +94,7 @@ function ProfileStackNav() {
   return (
     <ProfileStack.Navigator
       initialRouteName="ProfileMain"
-      screenOptions={{ headerShown: false }}>
+      screenOptions={nativeStackScreenOptions}>
       <ProfileStack.Screen name="ProfileMain" component={ProfileScreen} />
       <ProfileStack.Screen name="Notifications" component={NotificationsScreen} />
     </ProfileStack.Navigator>
@@ -165,7 +171,8 @@ function MainTabs() {
   const count = useWatchlistStore(selectWatchlistCount);
 
   return (
-    <Tab.Navigator
+    <View style={styles.tabSceneRoot}>
+      <Tab.Navigator
         screenOptions={{
           headerShown: false,
           tabBarActiveTintColor: colors.brand,
@@ -233,27 +240,42 @@ function MainTabs() {
           })}
         />
       </Tab.Navigator>
+    </View>
   );
 }
 
 export function RootNavigator() {
   return (
-    <NavigationContainer theme={navTheme}>
-      <RootStack.Navigator screenOptions={{ headerShown: false }}>
-        <RootStack.Screen name="Main" component={MainTabs} />
-        <RootStack.Screen name="Detail" component={DetailScreen} />
-        <RootStack.Screen
-          name="Trailer"
-          component={TrailerScreen}
-          options={Platform.select({
-            ios: { presentation: 'fullScreenModal' },
-            default: {},
-          })}
-        />
-      </RootStack.Navigator>
-    </NavigationContainer>
+    <View style={styles.navigationRoot}>
+      <NavigationContainer theme={navTheme}>
+        <RootStack.Navigator screenOptions={nativeStackScreenOptions}>
+          <RootStack.Screen name="Main" component={MainTabs} />
+          <RootStack.Screen name="Detail" component={DetailScreen} />
+          <RootStack.Screen
+            name="Trailer"
+            component={TrailerScreen}
+            options={Platform.select({
+              ios: { presentation: 'fullScreenModal' },
+              default: {},
+            })}
+          />
+        </RootStack.Navigator>
+      </NavigationContainer>
+    </View>
   );
 }
+
+const styles = StyleSheet.create({
+  /** Fills the tree under NavigationContainer so the theme background paints immediately. */
+  navigationRoot: {
+    flex: 1,
+    backgroundColor: colors.surface,
+  },
+  tabSceneRoot: {
+    flex: 1,
+    backgroundColor: colors.surface,
+  },
+});
 
 const tabBarStyles = StyleSheet.create({
   glyph: {

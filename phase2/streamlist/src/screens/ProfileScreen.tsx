@@ -1,6 +1,7 @@
 import React from 'react';
 import { Alert, Pressable, ScrollView, StyleSheet, Text, View } from 'react-native';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
+import { MainTabHeader } from '../components/common/MainTabHeader';
 import { IconPersonOutline } from '../components/icons/StreamlistIcons';
 import type { ProfileMainScreenProps } from '../navigation/types';
 import { colors } from '../theme/colors';
@@ -32,7 +33,11 @@ export function ProfileScreen({ navigation }: Props) {
       style={[styles.root, { paddingTop: insets.top }]}
       contentContainerStyle={styles.scrollContent}
       showsVerticalScrollIndicator={false}>
-      <Text style={styles.screenTitle}>Profile</Text>
+      <MainTabHeader
+        onPressNotifications={() =>
+          navigation.navigate('ProfileTab', { screen: 'Notifications' })
+        }
+      />
 
       <View style={styles.hero}>
         <View style={styles.avatar}>
@@ -93,11 +98,6 @@ const styles = StyleSheet.create({
   scrollContent: {
     paddingHorizontal: spacing.md,
     paddingBottom: spacing.xxl,
-  },
-  screenTitle: {
-    ...typography.headlineMd,
-    color: colors.on_surface,
-    marginBottom: spacing.lg,
   },
   hero: {
     alignItems: 'center',

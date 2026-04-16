@@ -19,7 +19,7 @@ function App() {
 
   return (
     <GestureHandlerRootView style={styles.flex}>
-      <SafeAreaProvider>
+      <SafeAreaProvider style={styles.flex}>
         <StatusBar barStyle="light-content" backgroundColor={colors.surface} />
         <RootNavigator />
       </SafeAreaProvider>
@@ -28,7 +28,7 @@ function App() {
 }
 
 const styles = StyleSheet.create({
-  flex: { flex: 1 },
+  flex: { flex: 1, backgroundColor: colors.surface },
 });
 
 export default App;

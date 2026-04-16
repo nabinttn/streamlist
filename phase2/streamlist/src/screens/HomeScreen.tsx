@@ -15,13 +15,10 @@ import {
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { ContentCard } from '../components/common/ContentCard';
-import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
 import { HomeScreenSkeleton } from '../components/common/HomeScreenSkeleton';
-import {
-  IconMovie,
-  IconNotificationsOutline,
-  IconPlayArrowFilled,
-} from '../components/icons/StreamlistIcons';
+import { MainTabHeader } from '../components/common/MainTabHeader';
+import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
+import { IconPlayArrowFilled } from '../components/icons/StreamlistIcons';
 import { useHome } from '../hooks/useHome';
 import type { HomeMainScreenProps } from '../navigation/types';
 import { colors } from '../theme/colors';
@@ -153,24 +150,11 @@ function HomeScreenInner({
       nestedScrollEnabled
       keyboardShouldPersistTaps="handled"
       refreshControl={refreshControl}>
-      <View style={styles.header}>
-        <View style={styles.headerLeft}>
-          <IconMovie size={iconSize.topBarLogo} color={colors.brand} />
-          <Text style={styles.logo}>StreamList</Text>
-        </View>
-        <Pressable
-          hitSlop={12}
-          accessibilityLabel="Notifications"
-          accessibilityRole="button"
-          onPress={() =>
-            navigation.navigate('ProfileTab', { screen: 'Notifications' })
-          }>
-          <IconNotificationsOutline
-            size={iconSize.topBar}
-            color={colors.on_surface_variant}
-          />
-        </Pressable>
-      </View>
+      <MainTabHeader
+        onPressNotifications={() =>
+          navigation.navigate('ProfileTab', { screen: 'Notifications' })
+        }
+      />
 
       <ScrollView
         horizontal
@@ -325,24 +309,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: colors.surface,
-  },
-  header: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    marginBottom: spacing.sm,
-  },
-  headerLeft: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: spacing.sm,
-  },
-  logo: {
-    ...typography.titleLg,
-    color: colors.brand,
-    textTransform: 'uppercase',
-    letterSpacing: -0.5,
   },
   chipStrip: {
     paddingHorizontal: spacing.md,

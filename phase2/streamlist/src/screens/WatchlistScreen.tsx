@@ -13,8 +13,9 @@ import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import type { ApiMovieListItem } from '../api/types';
 import { fetchSimilarMovies } from '../api/movies';
 import { ContentCard } from '../components/common/ContentCard';
-import { IconBookmarkOutline, IconPersonOutline } from '../components/icons/StreamlistIcons';
+import { MainTabHeader } from '../components/common/MainTabHeader';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
+import { IconBookmarkOutline } from '../components/icons/StreamlistIcons';
 import { useWatchlistStore, type WatchlistItem } from '../store/watchlistStore';
 import { colors } from '../theme/colors';
 import { iconSize } from '../theme/iconSizes';
@@ -24,7 +25,6 @@ import { genreLine } from '../utils/genres';
 import { fetchMovieGenres } from '../api/movies';
 import type { Genre } from '../api/types';
 import type { WatchlistMainScreenProps } from '../navigation/types';
-import { formatYear } from '../utils/format';
 
 type Props = WatchlistMainScreenProps;
 
@@ -96,9 +96,13 @@ function WatchlistInner({ navigation }: Props) {
   const emptyFilter =
     filtered.length === 0 && items.length > 0 && filter !== 'all';
 
+  const openNotifications = () =>
+    navigation.navigate('ProfileTab', { screen: 'Notifications' });
+
   if (!hydrated) {
     return (
       <View style={[styles.root, { paddingTop: insets.top }]}>
+        <MainTabHeader onPressNotifications={openNotifications} />
         <Text style={styles.meta}>Loading…</Text>
       </View>
     );
@@ -112,6 +116,7 @@ function WatchlistInner({ navigation }: Props) {
           styles.emptyScrollBottomPad,
           { paddingTop: insets.top },
         ]}>
+        <MainTabHeader onPressNotifications={openNotifications} />
         <Text style={styles.label}>YOUR COLLECTION</Text>
         <Text style={styles.bigTitle}>My Watchlist</Text>
         <Text style={styles.count}>0 titles</Text>
@@ -143,12 +148,10 @@ function WatchlistInner({ navigation }: Props) {
 
   return (
     <View style={[styles.root, { paddingTop: insets.top }]}>
-      <View style={styles.topRow}>
-        <View>
-          <Text style={styles.label}>YOUR COLLECTION</Text>
-          <Text style={styles.bigTitle}>My Watchlist</Text>
-        </View>
-        <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
+      <MainTabHeader onPressNotifications={openNotifications} />
+      <View style={styles.titleBlock}>
+        <Text style={styles.label}>YOUR COLLECTION</Text>
+        <Text style={styles.bigTitle}>My Watchlist</Text>
       </View>
 
       <ScrollView
@@ -213,7 +216,6 @@ function WatchlistInner({ navigation }: Props) {
                           onPress={() =>
                             navigation.navigate('Detail', { movieId: item.id })
                           }
-                          genreLabel={formatYear(item.release_date)}
                         />
                       </View>
                     )}
@@ -286,9 +288,7 @@ const styles = StyleSheet.create({
     color: colors.on_surface_variant,
     padding: spacing.md,
   },
-  topRow: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
+  titleBlock: {
     paddingHorizontal: spacing.md,
   },
   label: {

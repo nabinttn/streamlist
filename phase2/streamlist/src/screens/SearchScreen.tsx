@@ -13,8 +13,9 @@ import {
 import { LinearGradient } from 'react-native-linear-gradient';
 import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { ContentCard } from '../components/common/ContentCard';
-import { IconPersonOutline, IconSearch } from '../components/icons/StreamlistIcons';
+import { MainTabHeader } from '../components/common/MainTabHeader';
 import { ScreenErrorBoundary } from '../components/common/ScreenErrorBoundary';
+import { IconSearch } from '../components/icons/StreamlistIcons';
 import { Skeleton } from '../components/common/Skeleton';
 import { useRecentSearches } from '../hooks/useRecentSearches';
 import { useSearch } from '../hooks/useSearch';
@@ -138,17 +139,11 @@ function SearchInner({ navigation }: Props) {
 
   return (
     <View style={[styles.root, { paddingTop: insets.top }]}>
-      <View style={styles.head}>
-        <Text style={styles.logo}>StreamList</Text>
-        <Pressable
-          style={styles.avatarWrap}
-          hitSlop={8}
-          accessibilityLabel="Profile">
-          <View style={styles.avatarCircle}>
-            <IconPersonOutline size={iconSize.topBar} color={colors.on_surface_variant} />
-          </View>
-        </Pressable>
-      </View>
+      <MainTabHeader
+        onPressNotifications={() =>
+          navigation.navigate('ProfileTab', { screen: 'Notifications' })
+        }
+      />
 
       <View
         style={[
@@ -367,30 +362,6 @@ const styles = StyleSheet.create({
   root: {
     flex: 1,
     backgroundColor: colors.surface,
-  },
-  head: {
-    flexDirection: 'row',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-    paddingHorizontal: spacing.md,
-    marginBottom: spacing.sm,
-  },
-  avatarWrap: {
-    borderRadius: 9999,
-  },
-  avatarCircle: {
-    width: 40,
-    height: 40,
-    borderRadius: 20,
-    backgroundColor: colors.surface_container_high,
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  logo: {
-    ...typography.titleLg,
-    color: colors.brand,
-    textTransform: 'uppercase',
-    letterSpacing: -0.5,
   },
   searchBox: {
     flexDirection: 'row',
